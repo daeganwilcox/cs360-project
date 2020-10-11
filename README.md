@@ -1,2 +1,8 @@
 # cs360-project
-Databases project 
+Workout application project for CS360 at Gettysburg College.
+
+index.html - landing page
+signup.html - signup page
+login.html - login page
+
+
