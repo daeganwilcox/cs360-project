@@ -1,0 +1,14 @@
+.programs {
+  margin-top: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+.card-body {
+  text-align: center;
+  margin: 0px;
+}
+
+#userIcon {
+  margin: auto;
+}
