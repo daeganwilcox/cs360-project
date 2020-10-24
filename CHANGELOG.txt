@@ -1,0 +1,5 @@
+Detailed log of updates
+
+COLLIN PRESSER mm/dd/yyyy : Updated x and x to our server logic etc etc 
+
+DAEGAN WILCOX  mm/dd/yyyy : Deployed the app to Heroku for easier online web hosting. Restructured the code to be a bit more concise and DRY. 
