@@ -1,4 +1,4 @@
 <?php
 include_once("html/index.html");
-include_once("whoops");
+include_once("hello");
 ?>
