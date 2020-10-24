@@ -11,7 +11,9 @@ include ("login-signup-utils.php");
 <BODY>
 
 <?php
-$res = registerUser($db, $_POST);
+//$res = registerUser($db, $_POST);
+  
+  $res = true;
 
 if($res){ //page if registration successful:
   print "<H2>New Account Created</H2>";
