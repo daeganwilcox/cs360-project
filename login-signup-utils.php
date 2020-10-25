@@ -11,6 +11,8 @@ function checkUser($db, $login, $pass){
     return -4; //SQL Error Has Occurred
   }
 
+  return -4;
+
   if($qRes.rowCount() == 0){ //non-existent account
     return -1;
   }
