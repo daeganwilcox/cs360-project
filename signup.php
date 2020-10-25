@@ -12,19 +12,6 @@ include_once ("db_connect.php");
 <?php
 include ("login-signup-utils.php");
 
-$missing = FALSE;
-
-foreach ($x as $key => $_POST) {
-  if($x == ""){
-    $missing = TRUE;
-  }
-}
-
-if($missing){
-  print "<H2>Invalid Form</H2>";
-  print "<p>You did not fill out all required fields. Please try signing up again using <a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/signup.html'>this</a> link.</p></p>";
-}
-
 $res = registerUser($db, $_POST);
 
   //$res = true;
