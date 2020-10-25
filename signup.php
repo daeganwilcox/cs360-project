@@ -3,7 +3,6 @@
 <BODY>
 <?php
 include_once ("db_connect.php");
-include ("login-signup-utils.php");
 ?>
 
 <HTML>
@@ -11,6 +10,7 @@ include ("login-signup-utils.php");
 <BODY>
 
 <?php
+include ("login-signup-utils.php");
 print_r($_POST);
 print("\n");
 $input = $_POST;
