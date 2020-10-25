@@ -11,7 +11,6 @@ include ("login-signup-utils.php");
 <BODY>
 
 <?php
-print_r($_POST);
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
