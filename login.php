@@ -13,6 +13,8 @@ include ("login-signup-utils.php");
 <?php
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
+print($pass);
+print(md5($pass));
 $checkRes = checkUser($db, $login, $pass);
 switch($checkRes){
   case 1: //page if the login was successful
