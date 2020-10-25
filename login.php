@@ -15,7 +15,7 @@ print_r($_POST);
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
-
+print($checkRes);
 switch($checkRes){
   case 1: //page if the login was successful
   print "<H2>Successfully logged in!</H2>";
