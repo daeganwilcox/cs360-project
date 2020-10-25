@@ -50,7 +50,7 @@ function registerUser($db, $input){
   }
   addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight); //adds user
 
-  $url = "http://wilcda01-workout-app.herokuapp.com/html/verify.php/?login='$login'";
+  $url = "http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/verify.php/?login='$login'";
 
   $subject = "Verify Account Registration";
   $message = "<HTML><HEAD><TITLE>Account Verfication</TITLE></HEAD><BODY>Hello $login,<BR />Please verify your email for our fitness site by clicking on <a href='$url'>this</a> link.</BODY></HTML>";
