@@ -11,6 +11,18 @@ include ("login-signup-utils.php");
 <BODY>
 
 <?php
+$input = $_POST;
+$login = $input['inputUsername'];
+$pass = $input['inputPassword'];
+$fname = $input['inputFName'];
+$lname = $input['inputLName'];
+$email = $input['inputEmail'];
+$dob = $input['inputDOB'];
+$height = $input['inputHeight'];
+$weight = $input['inputWeight'];
+$res = addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight);
+print($res);
+/*
 $res = registerUser($db, $_POST);
 
   //$res = true;
@@ -23,7 +35,7 @@ else{ //page if registration unsuccessful:
   print "<H2>Account already exists!</H2>";
   print "<p>The login you entered already exists. Try logging in <a href='http://wilcda01-workout-app.herokuapp.com/html/login.html'>here</a>, or try signing up with a different login <a href='http://wilcda01-workout-app.herokuapp.com/html/signup.html'>here</a>.</p>";
 }
-
+*/
 ?>
 </BODY>
 </HTML>
