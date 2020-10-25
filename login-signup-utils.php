@@ -2,21 +2,21 @@
 
 include_once ("db_connect.php");
 
+//Checks the user to see if they exist already/if they are unverified/if their password is wrong/or if everything is good
 function checkUser($db, $login, $pass){
 
-  $qRes = $db->query("SELECT * FROM user LEFT JOIN unverified ON username = ulogin");
-  $userRow = NULL;
+  $qRes = $db->query("SELECT * FROM user LEFT JOIN unverified ON username = ulogin WHERE username = '$login'");
 
-  if($qRes != FALSE) {
-    while($userRow == NULL && $row = $qRes->fetch()){
-      if($row['username'] == $login){
-        $userRow = $row;
-      }
-    }
+  if($qRes == FALSE){
+    return -4; //SQL Error Has Occurred
   }
-  if($userRow == NULL){ //non-existent account
+
+  if($qRes.rowCount() == 0){ //non-existent account
     return -1;
   }
+
+  $userRow = $qRes->fetch();
+
   if($userRow['ulogin'] != NULL){//unverified account
     return -2;
   }
@@ -26,14 +26,27 @@ function checkUser($db, $login, $pass){
   return 1; //user confirmed and verified
 }
 
+//adds a new user to the database
 function addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight){
   $hash = md5($pass);
 
-  $db->query("INSERT INTO user VALUE('$login', '$hash', '$fname', '$lname', '$email', '$dob', '$height', '$weight');");
+  $q = $db->query("INSERT INTO user VALUE('$login', '$hash', '$fname', '$lname', '$email', '$dob', '$height', '$weight');");
 
-  $db->query("INSERT INTO unverified VALUE('$login');");
+  if($q == FALSE){
+    return FALSE;
+  }
+
+  $q = $db->query("INSERT INTO unverified VALUE('$login');");
+
+  if($q == FALSE){
+    return FALSE;
+  }
+  else{
+    return TRUE;
+  }
 }
 
+//registers a new user to the database if it is possible to do so
 function registerUser($db, $input){
   //get attributes:
   $login = $input['inputUsername'];
@@ -48,7 +61,11 @@ function registerUser($db, $input){
   if(checkUser($db, $login, $pass) != -1){ //uses checkUser to make sure the account does not exist (which is error response -1)
     return FALSE;
   }
-  addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight); //adds user
+  $res = addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight); //adds user
+
+  if(!$res){
+    return FALSE;
+  }
 
   $url = "http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/verify.php/?login='$login'";
 
@@ -66,14 +83,19 @@ function registerUser($db, $input){
   return TRUE;
 }
 
+//verifies the user's email
 function verifyEmail($db, $userLogin){
   $checkRes = $db->query("SELECT * FROM unverified WHERE ulogin = '$userLogin';"); //checks login
 
-  if($checkRes->rowCount() == 0){ //if the query is empty, then the account can't be verified
+  if($checkRes == FALSE || $checkRes->rowCount() == 0){ //if the query is empty or invalid, then the account can't be verified
     return FALSE;
   }
 
-  $db->query("DELETE FROM unverified WHERE ulogin = '$userLogin';");
+  $res = $db->query("DELETE FROM unverified WHERE ulogin = '$userLogin';");
+
+  if($res == FALSE){
+    return FALSE;
+  }
 
   return TRUE;
 }
