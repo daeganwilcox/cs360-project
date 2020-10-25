@@ -12,6 +12,7 @@ include ("login-signup-utils.php");
 
 <?php
 print_r($_POST);
+print("\n");
 $input = $_POST;
 $login = $input['inputUsername'];
 $pass = $input['inputPassword'];
