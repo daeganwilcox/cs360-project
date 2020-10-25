@@ -12,7 +12,6 @@ include_once ("db_connect.php");
 <?php
 include ("login-signup-utils.php");
 print_r($_POST);
-print("\n");
 $input = $_POST;
 $login = $input['inputUsername'];
 $pass = $input['inputPassword'];
