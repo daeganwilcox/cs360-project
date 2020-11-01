@@ -4,8 +4,10 @@ include ("login-signup-utils.php");
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
+$check = false;
 if($checkRes == 1){ //good result
-  header("Location: html/userhome.html"); //redirects to home page
+  //header("Location: html/userhome.html"); //redirects to home page
+  $check = true;
 }
 ?>
 <!DOCTYPE html>
@@ -14,6 +16,8 @@ if($checkRes == 1){ //good result
 <BODY>
 
 <?php
+print "Check = " . $check;
+/*
 switch($checkRes){
   case -1: //page if the login does not exist in the db
   print "<H2>Invalid Login</H2>";
@@ -35,6 +39,7 @@ switch($checkRes){
   print "<p>Unfortunately, something has gone wrong with our SQL query. Please contact one of our developers by using our Contact Us page.</p>";
   break;
 }
+*/
 ?>
 </BODY>
 </HTML>
