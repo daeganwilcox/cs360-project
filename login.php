@@ -1,23 +1,16 @@
 <?php
+include_once ("db_connect.php");
+include ("login-signup-utils.php");
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
-try{
 if($checkRes == 1){ //good result
   header("Location: html/userhome.html"); //redirects to home page
-}
-}
-catch(Exception $e){
-  print($e->getMessage());
 }
 ?>
 <!DOCTYPE html>
 <HTML>
 <BODY>
-<?php
-include_once ("db_connect.php");
-include ("login-signup-utils.php");
-?>
 
 <HTML>
 <HEAD><TITLE>Login Attempt</TITLE></HEAD>
