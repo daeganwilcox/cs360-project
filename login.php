@@ -2,8 +2,13 @@
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
+try{
 if($checkRes == 1){ //good result
-  header("Location: http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/userhome.html"); //redirects to home page
+  header("Location: html/userhome.html"); //redirects to home page
+}
+}
+catch(Exception $e){
+  print($e->getMessage());
 }
 ?>
 <!DOCTYPE html>
