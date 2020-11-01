@@ -167,6 +167,13 @@ session_start();
                 </div>
               </div>
 
+              <div class="logout">
+                <form class="" action="logout.php" method="post">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
+                </form>
+
+              </div>
+
             </div>
             <div class="card mb-4 shadow-sm">
               <div class="programs">
