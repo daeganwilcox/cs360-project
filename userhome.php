@@ -1,6 +1,6 @@
 <<?php
 include_once("db_connect.php");
-echo $_SESSION['username'];
+//echo $_SESSION['username'];
 ?>
 
 
