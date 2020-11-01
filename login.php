@@ -4,20 +4,15 @@ include ("login-signup-utils.php");
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
-$check = 64;
 if($checkRes == 1){ //good result
-  //header("Location: html/userhome.html"); //redirects to home page
-  $check = 56;
+  header("Location: http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/userhome.html"); //redirects to home page
 }
 ?>
 <!DOCTYPE html>
 <HTML>
 <HEAD><TITLE>Login Attempt</TITLE></HEAD>
 <BODY>
-
 <?php
-print "Check = " . $check;
-/*
 switch($checkRes){
   case -1: //page if the login does not exist in the db
   print "<H2>Invalid Login</H2>";
@@ -38,8 +33,12 @@ switch($checkRes){
   print "<H2>SQL Query Failed</H2>";
   print "<p>Unfortunately, something has gone wrong with our SQL query. Please contact one of our developers by using our Contact Us page.</p>";
   break;
+
+  case 1: //something unexpected happened because this should have been resolved
+  print "<H2>PHP Failed</H2>";
+  print "<p>Unfortunately, something has gone wrong with our PHP code. Please contact one of our developers by using our Contact Us page.</p>";
+  break;
 }
-*/
 ?>
 </BODY>
 </HTML>
