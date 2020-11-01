@@ -10,9 +10,6 @@ if($checkRes == 1){ //good result
 ?>
 <!DOCTYPE html>
 <HTML>
-<BODY>
-
-<HTML>
 <HEAD><TITLE>Login Attempt</TITLE></HEAD>
 <BODY>
 
