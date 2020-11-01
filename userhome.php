@@ -86,7 +86,7 @@ include_once("db_connect.php");
   </header>
 
   <main role="main">
-      <H1><?php echo $_SESSION['username'];?><H1>
+      <H1><?php print "Login = " . $_SESSION['username'];?><H1>
 
     <div class="album py-5 bg-light">
       <div class="container">
