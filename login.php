@@ -4,10 +4,10 @@ include ("login-signup-utils.php");
 $login = $_POST['inputUsername'];
 $pass = $_POST['inputPassword'];
 $checkRes = checkUser($db, $login, $pass);
-$check = false;
+$check = 64;
 if($checkRes == 1){ //good result
   //header("Location: html/userhome.html"); //redirects to home page
-  $check = true;
+  $check = 56;
 }
 ?>
 <!DOCTYPE html>
