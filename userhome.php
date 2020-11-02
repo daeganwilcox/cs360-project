@@ -33,6 +33,7 @@ session_start();
               elseif($qRes-> rowCount() == 0){
                 print "<H5>You haven't started any programs yet.</H5>";
               }
+              /*
               else{
                 for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
                   $name = $row['name'];
@@ -46,6 +47,7 @@ session_start();
                   print "</div>";
                 }
               }
+              */
               ?>
               <div class="card-body">
                 <a href="momcardio.html">
