@@ -1,5 +1,6 @@
 <<?php
 include_once("db_connect.php");
+include_once("userhome-utils.php");
 session_start();
 ?>
 
@@ -23,23 +24,9 @@ session_start();
               <div class="programs">
                 <h2>Programs</h2>
               </div>
-              <div class="card-body">
-                <a href="momcardio.html">
-                  <h4 class="card-text">Mom Cardio</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-              <div class="card-body">
-                <a href="gainsfornewbies.html">
-                  <h4 class="card-text">Gainz for Newbies</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-            </div>
+              <?php
+              getStartedPrograms();
+              ?>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
           </div>
