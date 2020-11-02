@@ -24,8 +24,8 @@ session_start();
                 <h2>Programs</h2>
               </div>
               <?PHP
-              /*
               $uid = $_SESSION['username'];
+              /*
               $qStr = "SELECT name, programID AS id FROM ((SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) NATURAL JOIN program);";
               $qRes = $db->query($qStr);
               if($qRes == FALSE){
