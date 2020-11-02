@@ -25,16 +25,13 @@ session_start();
               </div>
               <?PHP
               $uid = $_SESSION['username'];
-              /*
               $qStr = "SELECT name, programID AS id FROM ((SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) NATURAL JOIN program);";
               $qRes = $db->query($qStr);
               if($qRes == FALSE){
                 print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                return FALSE;
               }
-              if($qRes-> rowCount() == 0){
+              /*if($qRes-> rowCount() == 0){
                 print "<H5>You haven't started any programs yet.</H5>";
-                return TRUE;
               }
               for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
                 $name = $row['name'];
@@ -46,8 +43,8 @@ session_start();
                 print "<div class="d-flex justify-content-between align-items-center">";
                 print "</div>";
                 print "</div>";
-              }
-              */
+	      }
+	       */
               ?>
               <div class="card-body">
                 <a href="momcardio.html">
