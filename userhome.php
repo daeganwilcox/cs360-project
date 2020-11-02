@@ -24,6 +24,7 @@ session_start();
                 <h2>Programs</h2>
               </div>
               <?PHP
+              /*
               $uid = $_SESSION['username'];
               $qStr = "SELECT name, programID AS id FROM ((SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) NATURAL JOIN program);";
               $qRes = $db->query($qStr);
@@ -46,6 +47,7 @@ session_start();
                 print "</div>";
                 print "</div>";
               }
+              */
               ?>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
