@@ -47,22 +47,6 @@ session_start();
                 }
               }
               ?>
-              <div class="card-body">
-                <a href="momcardio.html">
-                  <h4 class="card-text">Mom Cardio</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-              <div class="card-body">
-                <a href="gainsfornewbies.html">
-                  <h4 class="card-text">Gainz for Newbies</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
