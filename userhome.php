@@ -35,7 +35,9 @@ session_start();
               }
               else{
                 print "yolo";
-                for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){}
+                for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                  $name = $row['name'];
+                }
                 /*
                 for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
                   $name = $row['name'];
