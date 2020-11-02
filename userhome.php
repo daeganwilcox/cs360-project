@@ -34,7 +34,9 @@ session_start();
                 print "<H5>You haven't started any programs yet.</H5>";
               }
               else{
-                while($row = $qRes->fetch()){
+                print "yolo";
+                /*
+                for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
                   $name = $row['name'];
                   $id = $row['id'];
                   print "<div class="card-body">";
@@ -45,6 +47,7 @@ session_start();
                   print "</div>";
                   print "</div>";
                 }
+                */
               }
               ?>
               <div class="card-body">
