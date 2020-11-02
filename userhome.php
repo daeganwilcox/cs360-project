@@ -25,7 +25,9 @@ session_start();
                 <h2>Programs</h2>
               </div>
               <?php
-              $qRes = getStartedPrograms();
+              $uid = $_SESSION['username'];
+              $qStr = "SELECT name, programID AS id FROM ((SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) NATURAL JOIN program);";
+              $qRes = $db->query($qStr);
               if($qRes == FALSE){
                 print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
                 return FALSE;
