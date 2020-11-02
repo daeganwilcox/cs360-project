@@ -1,6 +1,5 @@
 <?php
 include_once("db_connect.php");
-include_once("userhome-utils.php");
 session_start();
 ?>
 
