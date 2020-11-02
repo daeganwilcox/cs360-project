@@ -30,7 +30,7 @@ session_start();
               if($qRes == FALSE){
                 print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
               }
-              else if($qRes-> rowCount() == 0){
+              elseif($qRes-> rowCount() == 0){
                 print "<H5>You haven't started any programs yet.</H5>";
               }
               else{
