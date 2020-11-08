@@ -109,6 +109,27 @@ session_start();
             <div class="card mb-4 shadow-sm">
               <div class="programs">
                 <h2>Friends</h2>
+                <?php
+                $uid = $_SESSION['username'];
+                $qStr = "SELECT user1, user2 FROM friend WHERE user1 = '$uid';";
+                $qRes = $db->query($qStr);
+                if($qRes == FALSE){
+                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                }
+                else if($qRes-> rowCount() == 0){
+                  print "<H5>You don't have any friends yet :(</H5>";
+                }
+                else{
+                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                    $name = $row['user2'];
+                    print "<div class='card-body'>";
+                    print "<H5 class='card-tex'>$name</H5>";
+                    print "<div class='d-flex justify-content-between align-items-center'>";
+                    print "</div>";
+                    print "</div>";
+                  }
+                }
+                ?>
                 <h5>superkingjunior</h5>
                 <h5>skim</h5>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
