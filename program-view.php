@@ -17,6 +17,7 @@ session_start();
     }
     function printPage(){
       $pid = $_GET['id'];
+      printSQLError(5);
       //missing get input
       if($pid == NULL){
         print "<H1>Missing Program ID</H1>";
