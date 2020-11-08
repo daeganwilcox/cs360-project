@@ -113,12 +113,12 @@ $uid = $_SESSION['username'];
                 $qStr = "SELECT COUNT(user2) AS count FROM friend WHERE user1 = '$uid';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
-                  print "";
+                  print "error";
                 }
                 else{
                   $row = $qRes->fetch();
                   $count = $row['count'];
-                  print "$count"
+                  print "$count";
                 }
                 ?>)
                 </h2>
