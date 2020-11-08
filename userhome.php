@@ -26,7 +26,7 @@ session_start();
               </div>
               <?php
               $uid = $_SESSION['username'];
-              print "<p>" . getPrograms($uid) . "</p>";
+              print "<p>" . getPrograms($uid) . "</p></div>";
               ?>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
