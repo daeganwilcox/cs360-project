@@ -1,6 +1,6 @@
 <?php
 include_once("db_connect.php");
-session_start();
+//session_start();
 //$uid = $_SESSION['username']
 //$userpresent = $uid != NULL;
 ?>
@@ -25,12 +25,7 @@ session_start();
       }
       //query to get all basic information for heading
       $qstr1 = "SELECT name, description, creatorID, date_created FROM program WHERE programID = $pid;";
-      try {
-        $qres1 = $db->query($qstr1);
-      }
-      catch(Exception $e){
-        print $e->getMessage();
-      }
+      $qres1 = $db->query($qstr1);
       print "<H1>Made it!</H1>"; //debug
       //problem with query 1
       if($qres1 == FALSE){
