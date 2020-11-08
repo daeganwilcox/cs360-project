@@ -1,6 +1,8 @@
 <?php
 include_once("db_connect.php");
 session_start();
+$uid = $_SESSION['username'];
+$fake = $_SESSION['fake'];
 ?>
 
 
@@ -10,7 +12,8 @@ session_start();
 <?php include("base.php") ?>
 <body>
   <main role="main">
-      <H1><?php print "Login = " . $_SESSION['username'];?><H1>
+      <H1><?php print "Login = " . $uid;?><H1>
+      <H1><?php print "Fake = " . $fake;?><H1>
 
     <div class="album py-5 bg-light">
       <div class="container">
@@ -24,7 +27,6 @@ session_start();
                 <h2>Programs</h2>
               </div>
               <?php
-              $uid = $_SESSION['username'];
               $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
               $qRes = $db->query($qStr);
               if($qRes == FALSE){
@@ -110,7 +112,6 @@ session_start();
               <div class="programs">
                 <h2>Friends</h2>
                 <?php
-                $uid = $_SESSION['username'];
                 $qStr = "SELECT user1, user2 FROM friend WHERE user1 = '$uid';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
