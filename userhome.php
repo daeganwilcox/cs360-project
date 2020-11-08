@@ -110,7 +110,7 @@ $uid = $_SESSION['username'];
               <div class="programs">
                 <h2>Friends
                 <?php 
-                $qStr = "SELECT COUNT(A.user2) FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1="mirari01";";
+                $qStr = "SELECT COUNT(A.user2) FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='mirari01';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
                   print "(error)";
