@@ -24,7 +24,7 @@ session_start();
         return FALSE;
       }
       //query to get all basic information for heading
-      $qstr1 = "SELECT name, description, creatorID, date_created FROM programs WHERE programID = $pid;";
+      $qstr1 = "SELECT name, description, creatorID, date_created FROM program WHERE programID = $pid;";
       $qres1 = $db->query($qstr1);
       print "<H1>Made it!</H1>"; //debug
       //problem with query 1
