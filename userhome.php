@@ -138,7 +138,6 @@ $uid = $_SESSION['username'];
                   }
                 }
                 ?>
-                <p>------</p>
                 <h2> Outgoing Requests: <h2>
                 <?php
                 $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN 
@@ -160,7 +159,6 @@ $uid = $_SESSION['username'];
                   }
                 }
                 ?>
-                <p>------</p>
                 <h2> Incoming Requests: <h2>
                 <?php
                 $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN 
