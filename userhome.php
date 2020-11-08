@@ -130,8 +130,6 @@ session_start();
                   }
                 }
                 ?>
-                <h5>superkingjunior</h5>
-                <h5>skim</h5>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
               </div>
 
