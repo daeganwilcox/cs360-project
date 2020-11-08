@@ -69,7 +69,7 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/" class="navbar-brand d-flex align-items-center">
           <img src="https://img.icons8.com/windows/32/000000/dumbbell.png" />
           <strong>Workout</strong>
         </a>
