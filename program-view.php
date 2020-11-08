@@ -17,7 +17,6 @@ session_start();
     }
     function printPage(){
       $pid = $_GET['id'];
-      printSQLError(5);
       //missing get input
       if($pid == NULL){
         print "<H1>Missing Program ID</H1>";
@@ -26,7 +25,12 @@ session_start();
       }
       //query to get all basic information for heading
       $qstr1 = "SELECT name, description, creatorID, date_created FROM program WHERE programID = $pid;";
-      $qres1 = $db->query($qstr1);
+      try {
+        $qres1 = $db->query($qstr1);
+      }
+      catch(Exception $e){
+        print $e->getMessage();
+      }
       print "<H1>Made it!</H1>"; //debug
       //problem with query 1
       if($qres1 == FALSE){
