@@ -127,7 +127,7 @@ $uid = $_SESSION['username'];
                 ?>
                 <div>
                   <form action="addFriend.php" method="post">
-                    <input type="text" id ="userFriend" name="userFriend" style="width: 50px;">
+                    <input class="someclass" type="text" id ="userFriend" name="userFriend">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
                   </form>
                 </div>
