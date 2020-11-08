@@ -70,7 +70,7 @@ include_once("db_connect.php");
 
       //holds the number of days this program is
       $days = $q2row['numDays'];
-      print "<H6>$days</H6>";
+      print "<H6>Days = $days</H6>";
 
       //for each day print a table of the exercises
       for($i = 1; $i <= $days; $i++){
