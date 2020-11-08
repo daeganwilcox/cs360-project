@@ -108,7 +108,20 @@ $uid = $_SESSION['username'];
             </div>
             <div class="card mb-4 shadow-sm">
               <div class="programs">
-                <h2>Friends</h2>
+                <h2>Friends (
+                <?php 
+                $qStr = "SELECT COUNT(user2) AS count FROM friend WHERE user1 = '$uid';";
+                $qRes = $db->query($qStr);
+                if($qRes == FALSE){
+                  print "";
+                }
+                else{
+                  $row = $qRes->fetch();
+                  $count = $row['count'];
+                  print "$count"
+                }
+                ?>)
+                </h2>
                 <?php
                 $qStr = "SELECT user1, user2 FROM friend WHERE user1 = '$uid';";
                 $qRes = $db->query($qStr);
