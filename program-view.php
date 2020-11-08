@@ -72,7 +72,7 @@ $pid = $_GET['id'];
       $days = $q2row['numDays'];
 
       //for each day print a table of the exercises
-      for(int $i = 1; $i <= $days; $i++){
+      for($i = 1; $i <= $days; $i++){
         //query to get table information
         $qstr3 = "SELECT name, reps, duration, weight, sets FROM contains NATURAL JOIN exercise WHERE programID = $pid AND day = $i;";
         $qres3 = $db->query($qStr3);
