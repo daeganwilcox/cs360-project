@@ -52,7 +52,7 @@ include_once("db_connect.php");
 
       //query to get the number of days of the program
       $qstr2 = "SELECT MAX(day) AS numDays FROM contains WHERE programID = $pid;";
-      $qres2 = $db->query($qStr2);
+      $qres2 = $db->query($qstr2);
 
       //problem with query 2
       if($qres2 == FALSE){
