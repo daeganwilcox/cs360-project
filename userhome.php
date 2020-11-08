@@ -141,11 +141,11 @@ $uid = $_SESSION['username'];
                 <p>------</p>
                 <h2> Outgoing Requests: <h2>
                 <?php
-                $qStr = "SELECT * FROM friend WHERE user1 = 'mirari01' AND user2 NOT IN 
+                $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN 
                 (SELECT F1.user2 FROM friend AS F1 
                 JOIN friend AS F2 
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
-                WHERE F1.user1 = 'mirari01');";
+                WHERE F1.user1 = '$uid');";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
                   print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
@@ -163,11 +163,11 @@ $uid = $_SESSION['username'];
                 <p>------</p>
                 <h2> Incoming Requests: <h2>
                 <?php
-                $qStr = "SELECT * FROM friend WHERE user2 = 'mirari01' AND user1 NOT IN 
+                $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN 
                 (SELECT F1.user2 FROM friend AS F1 
                 JOIN friend AS F2 
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
-                WHERE F1.user1 = 'mirari01');";
+                WHERE F1.user1 = '$uid');";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
                   print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
