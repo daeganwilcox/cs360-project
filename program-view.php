@@ -31,6 +31,7 @@ session_start();
         printSQLError(1);
         return FALSE;
       }
+      print "Made it!"; //debug
       $q1row = $qres1->fetch();
       //program does not exist
       if($q1row == FALSE){
