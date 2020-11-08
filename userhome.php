@@ -125,7 +125,7 @@ $uid = $_SESSION['username'];
                   }
                 }
                 ?>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"><a href=addFriend.php >Add Friend</a></button>
               </div>
 
             </div>
