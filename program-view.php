@@ -16,7 +16,6 @@ session_start();
       print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
     }
     function printPage(){
-      print "<H1>Made it!</H1>"; //debug
       $pid = $_GET['id'];
       //missing get input
       if($pid == NULL){
@@ -26,6 +25,7 @@ session_start();
       }
       //query to get all basic information for heading
       $qstr1 = "SELECT name, description, creatorID, date_created FROM programs WHERE programID = $pid;";
+      print "<H1>Made it!</H1>"; //debug
       $qres1 = $db->query($qstr1);
       //problem with query 1
       if($qres1 == FALSE){
