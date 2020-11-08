@@ -27,11 +27,11 @@ session_start();
       $qstr1 = "SELECT name, description, creatorID, date_created FROM programs WHERE programID = $pid;";
       $qres1 = $db->query($qstr1);
       //problem with query 1
+      print "Made it!"; //debug
       if($qres1 == FALSE){
         printSQLError(1);
         return FALSE;
       }
-      print "Made it!"; //debug
       $q1row = $qres1->fetch();
       //program does not exist
       if($q1row == FALSE){
