@@ -1,5 +1,5 @@
 <?php
-include_once("db_connect.php")
+include_once("db_connect.php");
 $uid = $_SESSION['username'];
 $userFriend = $_POST['userFriend'];
 
