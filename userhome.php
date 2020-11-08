@@ -14,6 +14,8 @@ $fake = $_SESSION['fake'];
   <main role="main">
       <H1><?php print "Login = " . $uid;?><H1>
       <H1><?php print "Fake = " . $fake;?><H1>
+      <H1><?php print "Fake == null " . ($fake == null);?><H1>
+      <H1><?php print "Fake == '' " . ($fake == '');?><H1>
 
     <div class="album py-5 bg-light">
       <div class="container">
