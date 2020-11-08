@@ -112,7 +112,7 @@ include_once("db_connect.php");
             }
 
             //print row
-            print "<TR><TD>$exer</TD>><TD>$reps</TD>><TD>$dur</TD>><TD>$weight</TD>><TD>$sets</TD></TR>";
+            print "<TR><TD>$exer</TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD></TR>";
           }
           print "</TABLE>";
         }
