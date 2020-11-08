@@ -122,11 +122,7 @@ session_start();
                 else{
                   for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
                     $name = $row['user2'];
-                    print "<div class='card-body'>";
                     print "<H5 class='card-tex'>$name</H5>";
-                    print "<div class='d-flex justify-content-between align-items-center'>";
-                    print "</div>";
-                    print "</div>";
                   }
                 }
                 ?>
