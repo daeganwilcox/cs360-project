@@ -1,6 +1,5 @@
 <?php
 include_once("db_connect.php");
-include("homepage-utils.php");
 session_start();
 ?>
 
