@@ -1,7 +1,6 @@
 <?php
 include_once("db_connect.php");
 session_start();
-$pid = $_GET['id'];
 //$uid = $_SESSION['username']
 //$userpresent = $uid != NULL;
 ?>
@@ -17,6 +16,7 @@ $pid = $_GET['id'];
       print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
     }
     function printPage(){
+      $pid = $_GET['id'];
       //missing get input
       if($pid == NULL){
         print "<H1>Missing Program ID</H1>";
