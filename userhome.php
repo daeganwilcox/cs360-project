@@ -2,7 +2,7 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$fake = $_SESSION['fake'];
+$fake = $_GET['fake'];
 ?>
 
 
