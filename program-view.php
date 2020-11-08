@@ -70,7 +70,7 @@ include_once("db_connect.php");
 
       //holds the number of days this program is
       $days = $q2row['numDays'];
-      print "<H6>Days = $days</H6>";
+      //print "<H6>Days = $days</H6>"; Debug
 
       //for each day print a table of the exercises
       for($i = 1; $i <= $days; $i++){
@@ -81,10 +81,11 @@ include_once("db_connect.php");
         //problem with query 3
         if($qres3 == FALSE){
           printSQLError(3);
+          return FALSE;
         }
 
         //check if the day is empty
-        if($qres->rowCount() == 0){
+        if($qres3->rowCount() == 0){
           print "<H6>Day $i is empty.</H6>";
         }
         else{
