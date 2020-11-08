@@ -10,7 +10,7 @@ if($qRes-> rowCount() == 0){
     print "user does not exist, please try again";
 }
 else{
-    $qStr = "INSERT INTO friend ('user1', 'user2') VALUES ('$uid', '$userFriend');";
+    $qStr = "INSERT INTO `friend` (`user1`, `user2`) VALUES ('$uid', '$userFriend');";
     $qRes = $db->query($qStr);
     if($qRes == FALSE){
         print "Failure to add $userFriend";
