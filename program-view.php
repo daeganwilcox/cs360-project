@@ -75,7 +75,7 @@ include_once("db_connect.php");
       for($i = 1; $i <= $days; $i++){
         //query to get table information
         $qstr3 = "SELECT name, reps, duration, weight, sets FROM contains NATURAL JOIN exercise WHERE programID = $pid AND day = $i;";
-        $qres3 = $db->query($qStr3);
+        $qres3 = $db->query($qstr3);
 
         //problem with query 3
         if($qres3 == FALSE){
