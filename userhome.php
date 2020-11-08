@@ -138,6 +138,51 @@ $uid = $_SESSION['username'];
                   }
                 }
                 ?>
+                <p>------</p>
+                <h2> Outgoing Requests: <h2>
+                <?php
+                $qStr = "SELECT * FROM friend WHERE user1 = 'mirari01' AND user2 NOT IN 
+                (SELECT F1.user2 FROM friend AS F1 
+                JOIN friend AS F2 
+                ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
+                WHERE F1.user1 = 'mirari01');";
+                $qRes = $db->query($qStr);
+                if($qRes == FALSE){
+                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                }
+                else if($qRes-> rowCount() == 0){
+                  print "<H5>No Requests Sent</H5>";
+                }
+                else{
+                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                    $name = $row['user2'];
+                    print "<H5 class='card-tex'>$name</H5>";
+                  }
+                }
+                ?>
+                <p>------</p>
+                <h2> Incoming Requests: <h2>
+                <?php
+                $qStr = "SELECT * FROM friend WHERE user2 = 'mirari01' AND user1 NOT IN 
+                (SELECT F1.user2 FROM friend AS F1 
+                JOIN friend AS F2 
+                ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
+                WHERE F1.user1 = 'mirari01');";
+                $qRes = $db->query($qStr);
+                if($qRes == FALSE){
+                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                }
+                else if($qRes-> rowCount() == 0){
+                  print "<H5>No Requests Received</H5>";
+                }
+                else{
+                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                    $name = $row['user1'];
+                    print "<H5 class='card-tex'>$name</H5>";
+                  }
+                }
+                ?>
+
                 <div>
                   <form action="addFriend.php" method="post">
                     <h5>
