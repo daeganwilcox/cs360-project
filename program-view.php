@@ -15,7 +15,7 @@ include_once("db_connect.php");
       print "<H5>MySQL Error</H5>";
       print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
     }
-    function printPage(){
+    function printPage($db){
       $pid = $_GET['id'];
       //missing get input
       if($pid == NULL){
@@ -26,7 +26,6 @@ include_once("db_connect.php");
       //query to get all basic information for heading
       $qstr1 = "SELECT name, description, creatorID, date_created FROM program WHERE programID = $pid;";
       $qres1 = $db->query($qstr1);
-      print "<H1>Made it!</H1>"; //debug
       //problem with query 1
       if($qres1 == FALSE){
         printSQLError(1);
@@ -118,7 +117,7 @@ include_once("db_connect.php");
         }
       }
     }
-    printPage(); // prints the page
+    printPage($db); // prints the page
     ?>
   </main>
 </body>
