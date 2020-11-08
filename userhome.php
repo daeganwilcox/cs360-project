@@ -110,7 +110,7 @@ $uid = $_SESSION['username'];
               <div class="programs">
                 <h2>Friends
                 <?php 
-                $qStr = "SELECT COUNT(A.user2) FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='mirari01';";
+                $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
                   print "(error)";
@@ -123,7 +123,7 @@ $uid = $_SESSION['username'];
                 ?>
                 </h2>
                 <?php
-                $qStr = "SELECT F1.user1, F1.user2 FROM friend AS F1 JOIN friend AS F2 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1 WHERE F1.user1 = 'mirari01';";
+                $qStr = "SELECT F1.user1, F1.user2 FROM friend AS F1 JOIN friend AS F2 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1 WHERE F1.user1 = '$uid';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
                   print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
