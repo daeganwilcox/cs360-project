@@ -15,6 +15,7 @@ if($checkRes == 1){ //good result
 <HEAD><TITLE>Login Attempt</TITLE></HEAD>
 <BODY>
 <?php
+include_once("base.php");
 switch($checkRes){
   case -1: //page if the login does not exist in the db
   print "<H2>Invalid Login</H2>";
