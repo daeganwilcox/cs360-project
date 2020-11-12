@@ -98,7 +98,7 @@ $userpresent = $uid != NULL;
       $res .= "<TD><input type='text' name='duration' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='weight' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='sets' required></TD>";
-      $res .= "<TD><input type='submit'></TD>";
+      $res .= "<TD><input type='submit' value='Add Exercise'></TD>";
       $res .= "</TR>";
       return $res;
     }
@@ -251,12 +251,10 @@ $userpresent = $uid != NULL;
             if(!$creatorpresent){
               print "</TABLE>";
             }
-            else{
-              print "<TR><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><INPUT type='submit' value='remove'></TR>";
-              print "</FORM>";
-            }
           }
           if($creatorpresent){
+            print "<TR><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><INPUT type='submit' value='remove'></TR>";
+            print "</FORM>";
             print "<FORM action='program-view.php/?day=$i&id=$pid&op=add' method='POST'>";
             print printNewExcerciseRow($eList);
             print "</FORM>";
