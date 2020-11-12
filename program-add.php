@@ -37,9 +37,9 @@ if($_POST['name'] != NULL){
       print "<img src='https://img.icons8.com/windows/64/000000/dumbbell.png' />";
       print "<h1 class='h3 mb-3 font-weight-normal'>Create a new program!</h1>";
       print "<label for='inputName' class='sr-only'>Program Name</label>";
-      print "<input type='text' name='name' class='form-control' required autofocus>";
+      print "<input id='inputName' type='text' name='name' class='form-control' required autofocus>";
       print "<label for='inputDescription' class='sr-only'>Program Description</label>";
-      print "<textarea class='form-control' name='desc' required></textarea>";
+      print "<textarea id='inputDescription' class='form-control' name='desc' required></textarea>";
       print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Create New Program!</button>";
       print "<p class='mt-5 mb-3 text-muted'>&copy; 2020-2020</p>";
       print "</form>";
