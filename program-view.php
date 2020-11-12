@@ -138,32 +138,26 @@ $userpresent = $uid != NULL;
       $creatorpresent = FALSE;
       if($userpresent){
 	      $creatorpresent = $uid == $creator;
-	      if ($creatorpresent){
-		print "<H1> bob </H1>";
-	      }
-	      else {
-		print "<H1> tacos </H1>";
-	      }
-	      print "<H3> uid =$uid</H3>";
-	      print "<H3> creator =$creator </H3>";
       }
 
       //get list of exercises for HTML forms
       $eList = array();
 
       if($creatorpresent){
-        $qstrExer = "SELECT name, exerciseID FROM exercise;";
+        $qstrExer = "SELECT name FROM exercise;";
         $qresExer = $db->query($qstrExer);
-
+	
         //problem with query for exercises
         if($qresExer == FALSE){
           printSQLError("'Exercise List'");
           return FALSE;
         }
 
-        while($row = $qresExer->fetch() != FALSE){
-          array_push($eList, $row['name']);
-        }
+	while($row = $qresExer->fetch()){
+		$exName = $row['name'];
+          array_push($eList, $exName);
+	}
+
       }
 
       //print heading
