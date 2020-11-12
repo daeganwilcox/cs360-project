@@ -240,7 +240,7 @@ $userpresent = $uid != NULL;
               print "<TR><TD>$exer</TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
               if($creatorpresent){
                 $eid = $row['exerciseID'];
-                print "<TD><INPUT type='checkbox' name='key[]' value='$eid'></TD>"
+                print "<TD><INPUT type='checkbox' name='key[]' value='$eid'></TD>";
                 print "</TR>";
               }
               print "</TR>";
