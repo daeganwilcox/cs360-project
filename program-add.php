@@ -3,6 +3,7 @@ include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
 $worked = TRUE;
+$qStr = "";
 if($_POST['name'] != NULL){
   $name = $_POST['name'];
   $desc = $_POST['desc'];
@@ -26,6 +27,7 @@ if($_POST['name'] != NULL){
   <main role="main">
     <?php
     if(!$worked){
+      print "<H2>$qStr</H2>";
       printOpError("Insert query failed");
     }
     if($uid == NULL){
