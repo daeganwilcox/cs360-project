@@ -25,8 +25,8 @@ $userpresent = $uid != NULL;
         $dur = $_POST['duration'];
         $weight = $_POST['weight'];
         $sets = $_POST['sets'];
-        if($exer == NULL || $reps == NULL || $dur == NULL || $weight == NULL || $sets == NULL){
-          print "<H6 style='color:red'>ERROR processing your request: incorrect POST</H6>";
+        if($exer == NULL || ($reps == NULL && $dur == NULL && $weight == NULL) || $sets == NULL){
+          printOpError("incorrect POST");
         }
         else{
           $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = $exer;";
@@ -146,7 +146,7 @@ $userpresent = $uid != NULL;
       if($creatorpresent){
         $qstrExer = "SELECT name FROM exercise;";
         $qresExer = $db->query($qstrExer);
-	
+
         //problem with query for exercises
         if($qresExer == FALSE){
           printSQLError("'Exercise List'");
