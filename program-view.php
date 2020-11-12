@@ -78,7 +78,7 @@ $userpresent = $uid != NULL;
         }
       }
     }
-    
+
     //prints which SQL query had an error when called
     function printSQLError($qnum){
       print "<H5>MySQL Error</H5>";
@@ -147,7 +147,7 @@ $userpresent = $uid != NULL;
 	      print "<H3> uid =$uid</H3>";
 	      print "<H3> creator =$creator </H3>";
       }
-      
+
       //get list of exercises for HTML forms
       $eList = array();
 
@@ -259,7 +259,7 @@ $userpresent = $uid != NULL;
               print "</TABLE>";
             }
             else{
-              print "<TR></TR><TR></TR><TR></TR><TR></TR><TR></TR><TR><INPUT type='submit' value='remove'></TR>";
+              print "<TR><INPUT type='submit' value='remove'></TR>";
               print "</FORM>";
             }
           }
