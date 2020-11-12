@@ -8,7 +8,7 @@ if($_POST['name'] != NULL){
   $name = $_POST['name'];
   $desc = $_POST['desc'];
   $date = date("Y-m-d");
-  $qStr = "INSERT INTO program VALUES('$uid', NULL, $name, $desc, $date)";
+  $qStr = "INSERT INTO program VALUES('$uid', NULL, '$name', '$desc', '$date');";
   $qRes = $db->query($qStr);
   if($qRes == FALSE){
     $worked = FALSE;
