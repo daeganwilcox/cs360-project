@@ -99,6 +99,10 @@ $uid = $_SESSION['username'];
                   print "$weight";
                 }
                 ?></h5>
+                <h5> Height: <?php 
+                $height = $row['height'];
+                print "$height";
+                ?> inches</h5>
               </div>
 
               <div class="card-body">
