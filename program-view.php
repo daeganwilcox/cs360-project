@@ -1,9 +1,8 @@
 <?php
 include_once("db_connect.php");
-//session_start();
-//$uid = $_SESSION['username'];
-//$userpresent = $uid != NULL;
-$userpresent = FALSE;
+session_start();
+$uid = $_SESSION['username'];
+$userpresent = $uid != NULL;
 ?>
 
 <!doctype html>
@@ -79,6 +78,7 @@ $userpresent = FALSE;
         }
       }
     }
+    
     //prints which SQL query had an error when called
     function printSQLError($qnum){
       print "<H5>MySQL Error</H5>";
@@ -137,11 +137,12 @@ $userpresent = FALSE;
       //check if in edit mode
       $creatorpresent = FALSE;
       if($userpresent){
-        $creatorpresent = $uid == $creator;
+	$creatorpresent = $uid == $creator;
       }
-
+      
       //get list of exercises for HTML forms
-      $eList = [];
+      $eList = array();
+
       if($creatorpresent){
         $qstrExer = "SELECT name, exerciseID FROM exercise;";
         $qresExer = $db->query($qstrExer);
@@ -273,7 +274,7 @@ $userpresent = FALSE;
         print "</FORM>";
         print "</TABLE>";
       }
-    }
+   }
     printPage($db, $userpresent); // prints the page
     ?>
   </main>
