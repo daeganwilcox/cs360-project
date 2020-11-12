@@ -63,7 +63,6 @@ $userpresent = $uid != NULL;
       }
       else if($op == 'del'){
         print_r($_POST);
-        print_r($_POST['key[]']);
         $worked = TRUE;
         foreach($_POST['key[]'] AS $eid){
           $qStrDel = "DELETE FROM contains WHERE exerciseID = $eid AND day = $day AND programID = $pid;";
