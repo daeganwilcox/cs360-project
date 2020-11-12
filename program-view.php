@@ -104,7 +104,7 @@ $userpresent = $uid != NULL;
       return $res;
     }
     //prints the page as it is supposed to be
-    function printPage($db, $userpresent){
+    function printPage($db, $userpresent, $uid){
       $pid = $_GET['id'];
       //missing get input
       if($pid == NULL){
@@ -137,7 +137,15 @@ $userpresent = $uid != NULL;
       //check if in edit mode
       $creatorpresent = FALSE;
       if($userpresent){
-	$creatorpresent = $uid == $creator;
+	      $creatorpresent = $uid == $creator;
+	      if ($creatorpresent){
+		print "<H1> bob </H1>";
+	      }
+	      else {
+		print "<H1> tacos </H1>";
+	      }
+	      print "<H3> uid =$uid</H3>";
+	      print "<H3> creator =$creator </H3>";
       }
       
       //get list of exercises for HTML forms
@@ -275,7 +283,7 @@ $userpresent = $uid != NULL;
         print "</TABLE>";
       }
    }
-    printPage($db, $userpresent); // prints the page
+    printPage($db, $userpresent, $uid); // prints the page
     ?>
   </main>
 </body>
