@@ -28,11 +28,10 @@ $userpresent = $uid != NULL;
         if($exer == NULL || ($reps == NULL && $dur == NULL && $weight == NULL) || $sets == NULL){
           printOpError("incorrect POST");
         }
-        else{
+	else{
           $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = '$exer';";
           $qResID = $db->query($qStrID);
-
-          if($qresID == FALSE){
+          if($qResID == FALSE){
             printOpError("ID query error");
           }
 
@@ -52,7 +51,7 @@ $userpresent = $uid != NULL;
             $qStrAdd = "INSERT INTO contains VALUES ($pid, $eid, $day, $reps, $dur, $weight, $sets);";
             $qResAdd = $db->query($qStrAdd);
 
-            if($qresAdd == FALSE){
+            if($qResAdd == FALSE){
               printOpError("Add query error");
             }
             else{
