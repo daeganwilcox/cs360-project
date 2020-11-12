@@ -161,7 +161,7 @@ $userpresent = $uid != NULL;
           return FALSE;
         }
 
-        while($row = $qresExer->fetch() == FALSE){
+        while($row = $qresExer->fetch() != FALSE){
           array_push($eList, $row['name']);
         }
       }
