@@ -99,9 +99,17 @@ $uid = $_SESSION['username'];
                   print "$weight";
                 }
                 ?></h5>
-                <h5> Height: <?php 
-                $height = $row['height'];
-                print "$height";
+                <h5> Height: <?php
+                $qStr = "SELECT height FROM user WHERE username='$uid';";
+                $qRes = $db->query($qStr);
+                if ($qRes == FALSE){
+                  print "SQL Error encountered";
+                }
+                else{
+                  $row = $qRes->fetch();
+                  $height = $row['height'];
+                  print "$height";
+                }
                 ?> inches</h5>
               </div>
 
