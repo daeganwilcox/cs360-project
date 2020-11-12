@@ -214,7 +214,7 @@ $userpresent = $uid != NULL;
             print "<H6>Day $i:</H6>";
             print "<TABLE border='1'>";
             if($creatorpresent){
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
             }
             else{
@@ -253,7 +253,7 @@ $userpresent = $uid != NULL;
             }
           }
           if($creatorpresent){
-            print "<TR><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><INPUT type='submit' value='remove'></TR>";
+            print "<TR><INPUT type='submit' value='Remove Exercise'></TR>";
             print "</FORM>";
             print "<FORM action='program-view.php/?day=$i&id=$pid&op=add' method='POST'>";
             print printNewExcerciseRow($eList);
