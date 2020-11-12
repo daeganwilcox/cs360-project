@@ -29,7 +29,7 @@ $userpresent = $uid != NULL;
           printOpError("incorrect POST");
         }
         else{
-          $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = $exer;";
+          $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = '$exer';";
           $qResID = $db->query($qStrID);
 
           if($qresID == FALSE){
