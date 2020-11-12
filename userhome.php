@@ -87,7 +87,18 @@ $uid = $_SESSION['username'];
               <div class="programs">
 	      <h2><?php print $uid?></h2>
                 <h5>Calories Burned: xx</h5>
-                <h5>Weight: xx</h5>
+                <h5>Weight: <?php
+                $qStr = "SELECT weight FROM user WHERE username='$uid';";
+                $qRes = $db->query($qStr);
+                if ($qRes == FALSE){
+                  print "SQL Error encountered";
+                }
+                else{
+                  $row = $qRes->fetch();
+                  $weight = $row['weight'];
+                  print "$weight";
+                }
+                ?></h5>
               </div>
 
               <div class="card-body">
