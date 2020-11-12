@@ -253,7 +253,7 @@ $userpresent = $uid != NULL;
               print "</TABLE>";
             }
             else{
-              print "<TR><INPUT type='submit' value='remove'></TR>";
+              print "<TR><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><INPUT type='submit' value='remove'></TR>";
               print "</FORM>";
             }
           }
