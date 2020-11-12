@@ -1,8 +1,9 @@
 <?php
 include_once("db_connect.php");
-session_start();
-$uid = $_SESSION['username'];
-$userpresent = $uid != NULL;
+//session_start();
+//$uid = $_SESSION['username'];
+//$userpresent = $uid != NULL;
+$userpresent = FALSE;
 ?>
 
 <!doctype html>
