@@ -251,10 +251,12 @@ $userpresent = $uid != NULL;
             if(!$creatorpresent){
               print "</TABLE>";
             }
+            else{
+              print "<TR><INPUT type='submit' value='Remove Exercise'></TR>";
+              print "</FORM>";
+            }
           }
           if($creatorpresent){
-            print "<TR><INPUT type='submit' value='Remove Exercise'></TR>";
-            print "</FORM>";
             print "<FORM action='program-view.php/?day=$i&id=$pid&op=add' method='POST'>";
             print printNewExcerciseRow($eList);
             print "</FORM>";
