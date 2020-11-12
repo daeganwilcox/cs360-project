@@ -11,7 +11,6 @@ $uid = $_SESSION['username'];
 <?php include("base.php") ?>
 <body>
   <main role="main">
-      <H1><?php print "Login = " . $uid;?><H1>
 
     <div class="album py-5 bg-light">
       <div class="container">
@@ -86,7 +85,7 @@ $uid = $_SESSION['username'];
             <div class="card mb-4 shadow-sm">
               <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
               <div class="programs">
-                <h2>Username</h2>
+	      <h2><?php print $uid?></h2>
                 <h5>Calories Burned: xx</h5>
                 <h5>Weight: xx</h5>
               </div>
