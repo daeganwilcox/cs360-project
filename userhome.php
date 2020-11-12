@@ -48,7 +48,9 @@ $uid = $_SESSION['username'];
               }
               ?>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
+            <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
+            </form>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
           </div>
 
@@ -109,7 +111,7 @@ $uid = $_SESSION['username'];
             <div class="card mb-4 shadow-sm">
               <div class="programs">
                 <h2>Friends
-                <?php 
+                <?php
                 $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
                 $qRes = $db->query($qStr);
                 if($qRes == FALSE){
@@ -140,9 +142,9 @@ $uid = $_SESSION['username'];
                 ?>
                 <h2> Outgoing Requests: <h2>
                 <?php
-                $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN 
-                (SELECT F1.user2 FROM friend AS F1 
-                JOIN friend AS F2 
+                $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN
+                (SELECT F1.user2 FROM friend AS F1
+                JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
                 $qRes = $db->query($qStr);
@@ -161,9 +163,9 @@ $uid = $_SESSION['username'];
                 ?>
                 <h2> Incoming Requests: <h2>
                 <?php
-                $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN 
-                (SELECT F1.user2 FROM friend AS F1 
-                JOIN friend AS F2 
+                $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN
+                (SELECT F1.user2 FROM friend AS F1
+                JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
                 $qRes = $db->query($qStr);
