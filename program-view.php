@@ -28,7 +28,7 @@ $userpresent = $uid != NULL;
         if($exer == NULL || ($reps == NULL && $dur == NULL && $weight == NULL) || $sets == NULL){
           printOpError("incorrect POST");
         }
-	else{
+	       else{
           $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = '$exer';";
           $qResID = $db->query($qStrID);
           if($qResID == FALSE){
@@ -62,6 +62,8 @@ $userpresent = $uid != NULL;
         }
       }
       else if($op == 'del'){
+        print_r($_POST);
+        print_r($_POST['key[]']);
         $worked = TRUE;
         foreach($_POST['key[]'] AS $eid){
           $qStrDel = "DELETE FROM contains WHERE exerciseID = $eid AND day = $day AND programID = $pid;";
