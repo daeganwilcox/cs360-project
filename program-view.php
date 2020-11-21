@@ -273,7 +273,7 @@ $userpresent = $uid != NULL;
             $done = array();
             if($userpresent){
               //query to get completed info
-              $qstr4 = "SELECT exerciseID FROM completed WHERE userID = $uid AND programID = $pid AND day = $i;";
+              $qstr4 = "SELECT exerciseID FROM completed WHERE userID = '$uid' AND programID = $pid AND day = $i;";
               $qres4 = $db->query($qstr4);
 
               //problem with query 4
