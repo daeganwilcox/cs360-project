@@ -38,7 +38,7 @@ $userpresent = $uid != NULL;
           else{
             $METrow = $qResMET->fetch();
             $met = $METrow['met'];
-            $qStrWeight = "SELECT weight FROM user WHERE userID = '$uid';";
+            $qStrWeight = "SELECT weight FROM user WHERE username = '$uid';";
             $qResWeight = $db->query($qStrWeight);
 
             if($qResWeight == FALSE){
