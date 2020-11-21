@@ -19,6 +19,54 @@ $userpresent = $uid != NULL;
       if($day == NULL || $pid == NULL){
         printOpError("URL formatted incorrectly");
       }
+      else if($op == 'complete'){
+        $opEid = $_GET['eid'];
+        $time = $_POST['time'];
+        if($opEid == NULL || $time == NULL){
+          printOpError("URL formatted incorrectly");
+        }
+        else{
+          $qStrMET = "SELECT met FROM exercise WHERE exerciseID = $eid;";
+          $qResMET = $db->query($qStrMET);
+
+          if($qResMET == FALSE){
+            printOpError("MET query error");
+          }
+          else if($qResMET->rowCount() == 0){
+            printOpError("Invalid Exercise ID");
+          }
+          else{
+            $METrow = $qResMET->fetch();
+            $met = $METrow['met'];
+            $qStrWeight = "SELECT weight FROM user WHERE userID = '$uid';";
+            $qResWeight = $db->query($qStrWeight);
+
+            if($qResWeight == FALSE){
+              printOpError("Weight query error");
+            }
+            else if($qResWeight->rowCount() == 0){
+              printOpError("Invalid User ID");
+            }
+            else{
+              $weightRow = $qResWeight->fetch();
+              $weight = $weightRow['weight'];
+              //pounds to kg
+              $weight *= 0.453592;
+              $cal = $weight*$met*$time/3600;
+              $date_time = date("Y-m-d h:i:sa");
+              $qStrComplete = "INSERT INTO completed VALUES ('$uid', $day, $eid, $pid, '$date_time', $cal);";
+              $qResComplete = $db->query($qStrComplete);
+
+              if($qResComplete == FALSE){
+                printOpError("Complete query error");
+              }
+              else{
+                print "<H6>Exercise completion recorded!</H6>";
+              }
+            }
+          }
+        }
+      }
       else if($op == 'add'){
         $exer = $_POST['exercise'];
         $reps = $_POST['reps'];
@@ -146,10 +194,10 @@ $userpresent = $uid != NULL;
           return FALSE;
         }
 
-	while($row = $qresExer->fetch()){
-		$exName = $row['name'];
-          array_push($eList, $exName);
-	}
+	       while($row = $qresExer->fetch()){
+		         $exName = $row['name'];
+             array_push($eList, $exName);
+	       }
 
       }
 
@@ -184,6 +232,10 @@ $userpresent = $uid != NULL;
         //print "<H6>Days = $days</H6>"; Debug
 
         //for each day print a table of the exercises
+        $buttonReady = TRUE;
+        $nextDay = -1;
+        $nextExer = "";
+        $nextEid = -1;
         for($i = 1; $i <= $days; $i++){
           //query to get table information
           $qstr3 = "SELECT name, reps, duration, weight, sets, exerciseID FROM contains NATURAL JOIN exercise WHERE programID = $pid AND day = $i;";
@@ -208,11 +260,32 @@ $userpresent = $uid != NULL;
             print "<H6>Day $i:</H6>";
             print "<TABLE border='1'>";
             if($creatorpresent){
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
+
+            }
+            else if($userpresent){
+              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH></TR>";
             }
             else{
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH></TR>";
+            }
+            $done = array();
+            if($userpresent){
+              //query to get completed info
+              $qstr4 = "SELECT exerciseID FROM completed WHERE userID = $uid AND programID = $pid AND day = $i;";
+              $qres4 = $db->query($qstr4);
+
+              //problem with query 4
+              if($qres4 == FALSE){
+                printSQLError(4);
+                return FALSE;
+              }
+              while($row = $qres->fetch()){
+                $exer = $row['exerciseID'];
+                $done[$exer] = TRUE;
+              }
+
             }
             while($row = $qres3->fetch()){
               //row values
@@ -236,9 +309,23 @@ $userpresent = $uid != NULL;
 
               //print row
               print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
+              if($userpresent){
+                if(done[$eid]){
+                  print "<TD>completed</TD>";
+                }
+                else if($buttonReady){
+                  print "<TD>NEXT TO COMPLETE<TD>";
+                  $nextDay = $i;
+                  $nextExer = $exer;
+                  $nextEid = $eid;
+                  $buttonReady = FALSE;
+                }
+                else{
+                  print "<TD>not completed</TD>";
+                }
+              }
               if($creatorpresent){
                 print "<TD><INPUT type='checkbox' name='key[]' value='$eid'></TD>";
-                print "</TR>";
               }
               print "</TR>";
             }
@@ -256,6 +343,13 @@ $userpresent = $uid != NULL;
             print "</FORM>";
             print "</TABLE>";
           }
+        }
+        //complete button
+        if($userpresent && $nextDay == -1){
+          print "<FORM action='program-view.php/?day=$nextDay&id=$pid&eid=$nextEid&op=complete' method='POST'>";
+          print "<p>Time taken to complete $nextExer for day $nextDay (in seconds): <input type='text' name='time' required></p>";
+          print "<p><INPUT type='submit' value='Submit Completion'></p>";
+          print "</FORM>";
         }
       }
       //edit mode (if creator is present): add day
