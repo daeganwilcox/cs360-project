@@ -9,6 +9,7 @@ $uid = $_SESSION['username'];
 <html lang="en">
 
 <?php include("base.php") ?>
+
 <body>
   <main role="main">
 
@@ -26,14 +27,12 @@ $uid = $_SESSION['username'];
               <?php
               $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
               $qRes = $db->query($qStr);
-              if($qRes == FALSE){
+              if ($qRes == FALSE) {
                 print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-              }
-              else if($qRes-> rowCount() == 0){
+              } else if ($qRes->rowCount() == 0) {
                 print "<H5>You haven't started any programs yet.</H5>";
-              }
-              else{
-                for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+              } else {
+                for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                   $name = $row['name'];
                   $id = $row['id'];
                   print "<div class='card-body'>";
@@ -98,17 +97,16 @@ $uid = $_SESSION['username'];
 	      <h2><?php print $uid?></h2>
                 <h5>Calories Burned: xx</h5>
                 <h5>Weight: <?php
-                $qStr = "SELECT weight FROM user WHERE username='$uid';";
-                $qRes = $db->query($qStr);
-                if ($qRes == FALSE){
-                  print "SQL Error encountered";
-                }
-                else{
-                  $row = $qRes->fetch();
-                  $weight = $row['weight'];
-                  print "$weight";
-                }
-                ?></h5>
+                            $qStr = "SELECT weight FROM user WHERE username='$uid';";
+                            $qRes = $db->query($qStr);
+                            if ($qRes == FALSE) {
+                              print "SQL Error encountered";
+                            } else {
+                              $row = $qRes->fetch();
+                              $weight = $row['weight'];
+                              print "$weight";
+                            }
+                            ?></h5>
                 <h5> Height: <?php
                 $qStr = "SELECT height FROM user WHERE username='$uid';";
                 $qRes = $db->query($qStr);
@@ -140,59 +138,54 @@ $uid = $_SESSION['username'];
             <div class="card mb-4 shadow-sm">
               <div class="card-object">
                 <h2>Friends
-                <?php
-                $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
-                $qRes = $db->query($qStr);
-                if($qRes == FALSE){
-                  print "(error)";
-                }
-                else{
-                  $row = $qRes->fetch();
-                  $count = $row['count'];
-                  print "($count)";
-                }
-                ?>
+                  <?php
+                  $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
+                  $qRes = $db->query($qStr);
+                  if ($qRes == FALSE) {
+                    print "(error)";
+                  } else {
+                    $row = $qRes->fetch();
+                    $count = $row['count'];
+                    print "($count)";
+                  }
+                  ?>
                 </h2>
                 <?php
                 $qStr = "SELECT F1.user1, F1.user2 FROM friend AS F1 JOIN friend AS F2 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1 WHERE F1.user1 = '$uid';";
                 $qRes = $db->query($qStr);
-                if($qRes == FALSE){
+                if ($qRes == FALSE) {
                   print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                }
-                else if($qRes-> rowCount() == 0){
+                } else if ($qRes->rowCount() == 0) {
                   print "<H5>You don't have any friends yet :(</H5>";
-                }
-                else{
-                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                } else {
+                  for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                     $name = $row['user2'];
                     print "<H5 class='card-tex'>$name</H5>";
                   }
                 }
                 ?>
                 <h2> Outgoing Requests: <h2>
-                <?php
-                $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN
+                    <?php
+                    $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN
                 (SELECT F1.user2 FROM friend AS F1
                 JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
-                $qRes = $db->query($qStr);
-                if($qRes == FALSE){
-                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                }
-                else if($qRes-> rowCount() == 0){
-                  print "<H5>No Requests Sent</H5>";
-                }
-                else{
-                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
-                    $name = $row['user2'];
-                    print "<H5 class='card-tex'>$name</H5>";
-                  }
-                }
-                ?>
-                <h2> Incoming Requests: <h2>
-                <?php
-                $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN
+                    $qRes = $db->query($qStr);
+                    if ($qRes == FALSE) {
+                      print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                    } else if ($qRes->rowCount() == 0) {
+                      print "<H5>No Requests Sent</H5>";
+                    } else {
+                      for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                        $name = $row['user2'];
+                        print "<H5 class='card-tex'>$name</H5>";
+                      }
+                    }
+                    ?>
+                    <h2> Incoming Requests: <h2>
+                        <?php
+                        $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN
                 (SELECT F1.user2 FROM friend AS F1
                 JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
