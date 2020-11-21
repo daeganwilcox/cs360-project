@@ -49,15 +49,15 @@ $uid = $_SESSION['username'];
             </div>
             <div class='programs'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
+                <button class="btn btn-outline-primary" type="submit">Make New Program</button>
               </form>
             </div>
             <div class='programs'>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
+              <button class="btn btn-outline-primary" type="submit">Find New Programs</button>
             </div>
             <div class='programs'>
               <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
+                <button class="btn btn-outline-primary" type="submit">View Your Programs</button>
               </form>
             </div>
           </div>
@@ -88,8 +88,8 @@ $uid = $_SESSION['username'];
               </div>
             </div>
             
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Team</button>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
+            <button class="btn btn-outline-primary" type="submit">Create New Team</button>
+            <button class="btn btn-outline-primary" type="submit">Find New Team</button>
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
@@ -220,7 +220,7 @@ $uid = $_SESSION['username'];
                     <h5>
                       <input type="text" id ="userFriend" name="userFriend">
                     </h5>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
+                    <button class="btn btn-outline-success" type="submit">Add Friend</button>
                   </form>
                 </div>
               </div>
