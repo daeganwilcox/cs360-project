@@ -53,7 +53,7 @@ $userpresent = $uid != NULL;
               //pounds to kg
               $weight *= 0.453592;
               $cal = $weight*$met*$time/3600;
-              $date_time = date("Y-m-d h:i:s");
+              $date_time = date("Y-m-d H:i:s");
               $qStrComplete = "INSERT INTO completed VALUES ('$uid', $day, $opEid, $pid, '$date_time', $cal);";
               $qResComplete = $db->query($qStrComplete);
 
