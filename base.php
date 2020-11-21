@@ -3,6 +3,11 @@
 function printOpError($msg){
   print "<H6 style='color:red'>ERROR processing your request: $msg</H6>";
 }
+//prints which SQL query had an error when called
+function printSQLError($qnum){
+  print "<H5>MySQL Error</H5>";
+  print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
+}
 ?>
 
 <!doctype html>

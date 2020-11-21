@@ -77,12 +77,6 @@ $userpresent = $uid != NULL;
         }
       }
     }
-
-    //prints which SQL query had an error when called
-    function printSQLError($qnum){
-      print "<H5>MySQL Error</H5>";
-      print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
-    }
     //returns a string for the new exercise html form row
     function printNewExcerciseRow($exercises){
       $res = "<TR>";
