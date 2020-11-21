@@ -12,7 +12,7 @@ $userpresent = $uid != NULL;
 <body>
     <main role="main">
         <div class="row">
-            <div class="column">
+            <div class="col-md-2">
                 <h2>Programs you are apart of:</h2>
                 <?php
                 $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
@@ -22,7 +22,7 @@ $userpresent = $uid != NULL;
                 } else if ($qRes->rowCount() == 0) {
                     print "<H5>You haven't started any programs yet.</H5>";
                 } else {
-                    while ($qRes->fetch()) {
+                    while ($qRes->fetch() != FALSE) {
                         $row = $qRes->fetch();
                         $name = $row['name'];
                         $id = $row['id'];
@@ -37,10 +37,10 @@ $userpresent = $uid != NULL;
                 }
                 ?>
             </div>
-            <div class="column">
-            <h2>Programs you have created:</h2>
+            <div class="col-md-2">
+                <h2>Programs you have created:</h2>
                 <?php
-                $qStr = "SELECT name, programID AS id FROM programs WHERE creatorID = $uid;";
+                $qStr = "SELECT name, programID AS id FROM program WHERE creatorID = $uid;";
                 $qRes = $db->query($qStr);
                 if ($qRes == FALSE) {
                     print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
