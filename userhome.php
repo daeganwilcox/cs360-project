@@ -47,15 +47,19 @@ $uid = $_SESSION['username'];
               }
               ?>
             </div>
-            <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
-            </form>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
-
-            <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
-            </form>
+            <div>
+              <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
+              </form>
+            </div>
+            <div>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
+            </div>
+            <div>
+              <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
+              </form>
+            </div>
           </div>
 
 
