@@ -216,6 +216,7 @@ $userpresent = $uid != NULL;
             }
             while($row = $qres3->fetch()){
               //row values
+              $eid = $row['exerciseID'];
               $exer = $row['name'];
               $reps = $row['reps'];
               $dur = $row['duration'];
@@ -234,9 +235,8 @@ $userpresent = $uid != NULL;
               }
 
               //print row
-              print "<TR><TD>$exer</TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
+              print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
               if($creatorpresent){
-                $eid = $row['exerciseID'];
                 print "<TD><INPUT type='checkbox' name='key[]' value='$eid'></TD>";
                 print "</TR>";
               }
