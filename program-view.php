@@ -140,6 +140,7 @@ $userpresent = $uid != NULL;
       $res .= "<TD><input type='text' name='duration' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='weight' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='sets' required></TD>";
+      $res .= "<TD>N/A</TD>";
       $res .= "<TD><input type='submit' value='Add Exercise'></TD>";
       $res .= "</TR>";
       return $res;
@@ -314,7 +315,7 @@ $userpresent = $uid != NULL;
                   print "<TD>completed</TD>";
                 }
                 else if($buttonReady){
-                  print "<TD>NEXT TO COMPLETE<TD>";
+                  print "<TD>NEXT TO COMPLETE</TD>";
                   $nextDay = $i;
                   $nextExer = $exer;
                   $nextEid = $eid;
@@ -333,7 +334,8 @@ $userpresent = $uid != NULL;
               print "</TABLE>";
             }
             else{
-              print "<TR><TD colspan='6'><INPUT type='submit' value='Remove Exercise'></TD></TR>";
+              $col = $userpresent ? 7 : 6;
+              print "<TR><TD colspan='$col'><INPUT type='submit' value='Remove Exercise'></TD></TR>";
               print "</FORM>";
             }
           }
