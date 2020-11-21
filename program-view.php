@@ -154,9 +154,9 @@ $userpresent = $uid != NULL;
       }
 
       //print heading
-      print "<H1>$title</H1>";
+      print "<div class="program-view-header"><H1>$title</H1>";
       print "<H3>Created by $creator on $date</H3>";
-      print "<H5>$desc</H5>";
+      print "<H5>$desc</H5></div>";
 
       //query to get the number of days of the program
       $qstr2 = "SELECT MAX(day) AS numDays FROM contains WHERE programID = $pid;";
