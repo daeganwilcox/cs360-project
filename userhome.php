@@ -20,7 +20,7 @@ $uid = $_SESSION['username'];
           <!-- Programs -->
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Programs</h2>
               </div>
               <?php
@@ -47,15 +47,15 @@ $uid = $_SESSION['username'];
               }
               ?>
             </div>
-            <div class='programs'>
+            <div class='card-object'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
                 <button class="btn btn-outline-primary btn-block" type="submit">Make New Program</button>
               </form>
             </div>
-            <div class='programs'>
+            <div class='card-object'>
               <button class="btn btn-outline-primary btn-block" type="submit">Find New Programs</button>
             </div>
-            <div class='programs'>
+            <div class='card-object'>
               <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
                 <button class="btn btn-outline-primary btn-block" type="submit">View Your Programs</button>
               </form>
@@ -67,7 +67,7 @@ $uid = $_SESSION['username'];
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Teams</h2>
               </div>
               <div class="card-body">
@@ -94,7 +94,7 @@ $uid = $_SESSION['username'];
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
-              <div class="programs">
+              <div class="card-object">
 	      <h2><?php print $uid?></h2>
                 <h5>Calories Burned: xx</h5>
                 <h5>Weight: <?php
@@ -138,7 +138,7 @@ $uid = $_SESSION['username'];
            
             </div>
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Friends
                 <?php
                 $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
