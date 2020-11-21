@@ -14,7 +14,9 @@ $userpresent = $uid != NULL;
         <div class="row">
             <div class="col-md-2">
                 <h2>Programs you are apart of:</h2>
+                
                 <?php
+                print $uid;
                 $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
                 $qRes = $db->query($qStr);
                 if ($qRes == FALSE) {
