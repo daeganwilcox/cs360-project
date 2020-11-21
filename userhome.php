@@ -9,6 +9,7 @@ $uid = $_SESSION['username'];
 <html lang="en">
 
 <?php include("base.php") ?>
+
 <body>
   <main role="main">
 
@@ -26,14 +27,12 @@ $uid = $_SESSION['username'];
               <?php
               $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
               $qRes = $db->query($qStr);
-              if($qRes == FALSE){
+              if ($qRes == FALSE) {
                 print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-              }
-              else if($qRes-> rowCount() == 0){
+              } else if ($qRes->rowCount() == 0) {
                 print "<H5>You haven't started any programs yet.</H5>";
-              }
-              else{
-                for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+              } else {
+                for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                   $name = $row['name'];
                   $id = $row['id'];
                   print "<div class='card-body'>";
@@ -56,7 +55,7 @@ $uid = $_SESSION['username'];
               <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
             </div>
             <div class='programs'>
-              <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
+              <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
               </form>
             </div>
@@ -87,40 +86,45 @@ $uid = $_SESSION['username'];
                 </div>
               </div>
             </div>
-            
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Team</button>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
+            <div class='programs'>
+              <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Team</button>
+              </form>
+            </div>
+            <div class='programs'>
+              <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
+              </form>
+            </div>
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
               <div class="programs">
-	      <h2><?php print $uid?></h2>
+                <h2><?php print $uid ?></h2>
                 <h5>Calories Burned: xx</h5>
                 <h5>Weight: <?php
-                $qStr = "SELECT weight FROM user WHERE username='$uid';";
-                $qRes = $db->query($qStr);
-                if ($qRes == FALSE){
-                  print "SQL Error encountered";
-                }
-                else{
-                  $row = $qRes->fetch();
-                  $weight = $row['weight'];
-                  print "$weight";
-                }
-                ?></h5>
+                            $qStr = "SELECT weight FROM user WHERE username='$uid';";
+                            $qRes = $db->query($qStr);
+                            if ($qRes == FALSE) {
+                              print "SQL Error encountered";
+                            } else {
+                              $row = $qRes->fetch();
+                              $weight = $row['weight'];
+                              print "$weight";
+                            }
+                            ?></h5>
                 <h5> Height: <?php
-                $qStr = "SELECT height FROM user WHERE username='$uid';";
-                $qRes = $db->query($qStr);
-                if ($qRes == FALSE){
-                  print "SQL Error encountered";
-                }
-                else{
-                  $row = $qRes->fetch();
-                  $height = $row['height'];
-                  print "$height";
-                }
-                ?> inches</h5>
+                              $qStr = "SELECT height FROM user WHERE username='$uid';";
+                              $qRes = $db->query($qStr);
+                              if ($qRes == FALSE) {
+                                print "SQL Error encountered";
+                              } else {
+                                $row = $qRes->fetch();
+                                $height = $row['height'];
+                                print "$height";
+                              }
+                              ?> inches</h5>
               </div>
 
               <div class="card-body">
@@ -143,86 +147,79 @@ $uid = $_SESSION['username'];
             <div class="card mb-4 shadow-sm">
               <div class="programs">
                 <h2>Friends
-                <?php
-                $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
-                $qRes = $db->query($qStr);
-                if($qRes == FALSE){
-                  print "(error)";
-                }
-                else{
-                  $row = $qRes->fetch();
-                  $count = $row['count'];
-                  print "($count)";
-                }
-                ?>
+                  <?php
+                  $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
+                  $qRes = $db->query($qStr);
+                  if ($qRes == FALSE) {
+                    print "(error)";
+                  } else {
+                    $row = $qRes->fetch();
+                    $count = $row['count'];
+                    print "($count)";
+                  }
+                  ?>
                 </h2>
                 <?php
                 $qStr = "SELECT F1.user1, F1.user2 FROM friend AS F1 JOIN friend AS F2 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1 WHERE F1.user1 = '$uid';";
                 $qRes = $db->query($qStr);
-                if($qRes == FALSE){
+                if ($qRes == FALSE) {
                   print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                }
-                else if($qRes-> rowCount() == 0){
+                } else if ($qRes->rowCount() == 0) {
                   print "<H5>You don't have any friends yet :(</H5>";
-                }
-                else{
-                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                } else {
+                  for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                     $name = $row['user2'];
                     print "<H5 class='card-tex'>$name</H5>";
                   }
                 }
                 ?>
                 <h2> Outgoing Requests: <h2>
-                <?php
-                $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN
+                    <?php
+                    $qStr = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 NOT IN
                 (SELECT F1.user2 FROM friend AS F1
                 JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
-                $qRes = $db->query($qStr);
-                if($qRes == FALSE){
-                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                }
-                else if($qRes-> rowCount() == 0){
-                  print "<H5>No Requests Sent</H5>";
-                }
-                else{
-                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
-                    $name = $row['user2'];
-                    print "<H5 class='card-tex'>$name</H5>";
-                  }
-                }
-                ?>
-                <h2> Incoming Requests: <h2>
-                <?php
-                $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN
+                    $qRes = $db->query($qStr);
+                    if ($qRes == FALSE) {
+                      print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                    } else if ($qRes->rowCount() == 0) {
+                      print "<H5>No Requests Sent</H5>";
+                    } else {
+                      for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                        $name = $row['user2'];
+                        print "<H5 class='card-tex'>$name</H5>";
+                      }
+                    }
+                    ?>
+                    <h2> Incoming Requests: <h2>
+                        <?php
+                        $qStr = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 NOT IN
                 (SELECT F1.user2 FROM friend AS F1
                 JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
-                $qRes = $db->query($qStr);
-                if($qRes == FALSE){
-                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                }
-                else if($qRes-> rowCount() == 0){
-                  print "<H5>No Requests Received</H5>";
-                }
-                else{
-                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
-                    $name = $row['user1'];
-                    print "<H5 class='card-tex'>$name</H5>";
-                  }
-                }
-                ?>
+                        $qRes = $db->query($qStr);
+                        if ($qRes == FALSE) {
+                          print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                        } else if ($qRes->rowCount() == 0) {
+                          print "<H5>No Requests Received</H5>";
+                        } else {
+                          for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                            $name = $row['user1'];
+                            print "<H5 class='card-tex'>$name</H5>";
+                          }
+                        }
+                        ?>
 
-                <div>
-                  <form action="addFriend.php" method="post">
-                    <h5>
-                      <input type="text" id ="userFriend" name="userFriend">
-                    </h5>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
-                  </form>
-                </div>
+                        <div>
+                          <form action="addFriend.php" method="post">
+                            <h5>
+                              <input type="text" id="userFriend" name="userFriend">
+                            </h5>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
+                          </form>
+                        </div>
               </div>
 
             </div>

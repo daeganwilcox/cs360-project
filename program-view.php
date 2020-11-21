@@ -8,82 +8,76 @@ $userpresent = $uid != NULL;
 <!doctype html>
 <html lang="en">
 <?php include("base.php") ?>
+
 <body>
   <main role="main">
     <?php
     //make changes if called
     $op = $_GET['op'];
-    if($op != NULL){
+    if ($op != NULL) {
       $day = $_GET['day'];
       $pid = $_GET['id'];
-      if($day == NULL || $pid == NULL){
+      if ($day == NULL || $pid == NULL) {
         printOpError("URL formatted incorrectly");
-      }
-      else if($op == 'add'){
+      } else if ($op == 'add') {
         $exer = $_POST['exercise'];
         $reps = $_POST['reps'];
         $dur = $_POST['duration'];
         $weight = $_POST['weight'];
         $sets = $_POST['sets'];
-        if($exer == NULL || ($reps == NULL && $dur == NULL && $weight == NULL) || $sets == NULL){
+        if ($exer == NULL || ($reps == NULL && $dur == NULL && $weight == NULL) || $sets == NULL) {
           printOpError("incorrect POST");
-        }
-	       else{
+        } else {
           $qStrID = "SELECT exerciseID, usesReps, usesWeight FROM exercise WHERE name = '$exer';";
           $qResID = $db->query($qStrID);
-          if($qResID == FALSE){
+          if ($qResID == FALSE) {
             printOpError("ID query error");
-          }
-
-          else{
+          } else {
             $row = $qResID->fetch();
             $eid = $row['exerciseID'];
 
-            if($row['usesReps']){
+            if ($row['usesReps']) {
               $dur = "NULL";
-            }
-            else{
+            } else {
               $reps = "NULL";
             }
-            if(!$row['usesWeight']){
+            if (!$row['usesWeight']) {
               $weight = "NULL";
             }
             $qStrAdd = "INSERT INTO contains VALUES ($pid, $eid, $day, $reps, $dur, $weight, $sets);";
             $qResAdd = $db->query($qStrAdd);
 
-            if($qResAdd == FALSE){
+            if ($qResAdd == FALSE) {
               printOpError("Add query error");
-            }
-            else{
+            } else {
               print "<H6>New exercise successfully added!</H6>";
             }
           }
-
         }
-      }
-      else if($op == 'del'){
+      } else if ($op == 'del') {
         $worked = TRUE;
-        foreach($_POST['key'] AS $eid){
+        foreach ($_POST['key'] as $eid) {
           $qStrDel = "DELETE FROM contains WHERE exerciseID = $eid AND day = $day AND programID = $pid;";
           $qResDel = $db->query($qStrDel);
-          if($qResDel == FALSE){
+          if ($qResDel == FALSE) {
             printOpError("Delete query error");
             $worked = FALSE;
             break;
           }
         }
-        if($worked){
+        if ($worked) {
           print "<H6>Exercises successfully removed!</H6>";
         }
       }
     }
     //returns a string for the new exercise html form row
-    function printNewExcerciseRow($exercises){
+    function printNewExcerciseRow($exercises)
+    {
       $res = "<TR>";
       $res .= "<TD>";
       $res .= "<input list='exercises' name='exercise' required>";
       $res .= "<datalist id='exercises'>";
-      foreach($exercises as $e){
+      foreach ($exercises as $e) {
         $res .= "<option value='$e'>";
       }
       $res .= "</datalist>";
@@ -97,10 +91,11 @@ $userpresent = $uid != NULL;
       return $res;
     }
     //prints the page as it is supposed to be
-    function printPage($db, $userpresent, $uid){
+    function printPage($db, $userpresent, $uid)
+    {
       $pid = $_GET['id'];
       //missing get input
-      if($pid == NULL){
+      if ($pid == NULL) {
         print "<H1>Missing Program ID</H1>";
         print "<H5>This link doesn't point to a specific program. Please make sure you have the correct address.</H5>";
         return FALSE;
@@ -109,13 +104,13 @@ $userpresent = $uid != NULL;
       $qstr1 = "SELECT name, description, creatorID, date_created FROM program WHERE programID = $pid;";
       $qres1 = $db->query($qstr1);
       //problem with query 1
-      if($qres1 == FALSE){
+      if ($qres1 == FALSE) {
         printSQLError(1);
         return FALSE;
       }
       $q1row = $qres1->fetch();
       //program does not exist
-      if($q1row == FALSE){
+      if ($q1row == FALSE) {
         print "<H1>Program Does Not Exist</H1>";
         print "<H5>This link points to a program which doesn't exist. Please make sure you have the correct address.</H5>";
         return FALSE;
@@ -129,28 +124,27 @@ $userpresent = $uid != NULL;
 
       //check if in edit mode
       $creatorpresent = FALSE;
-      if($userpresent){
-	      $creatorpresent = $uid == $creator;
+      if ($userpresent) {
+        $creatorpresent = $uid == $creator;
       }
 
       //get list of exercises for HTML forms
       $eList = array();
 
-      if($creatorpresent){
+      if ($creatorpresent) {
         $qstrExer = "SELECT name FROM exercise;";
         $qresExer = $db->query($qstrExer);
 
         //problem with query for exercises
-        if($qresExer == FALSE){
+        if ($qresExer == FALSE) {
           printSQLError("'Exercise List'");
           return FALSE;
         }
 
-	while($row = $qresExer->fetch()){
-		$exName = $row['name'];
+        while ($row = $qresExer->fetch()) {
+          $exName = $row['name'];
           array_push($eList, $exName);
-	}
-
+        }
       }
 
       //print heading
@@ -163,7 +157,7 @@ $userpresent = $uid != NULL;
       $qres2 = $db->query($qstr2);
 
       //problem with query 2
-      if($qres2 == FALSE){
+      if ($qres2 == FALSE) {
         printSQLError(2);
         return FALSE;
       }
@@ -172,49 +166,46 @@ $userpresent = $uid != NULL;
       $days = 0;
 
       //program is empty
-      if($q2row == FALSE){
+      if ($q2row == FALSE) {
         print "<H6>This program is empty.</H6>";
-        if(!$creatorpresent){
+        if (!$creatorpresent) {
           return FALSE;
         }
-      }
-      else{
+      } else {
         //holds the number of days this program is
         $days = $q2row['numDays'];
         //print "<H6>Days = $days</H6>"; Debug
 
         //for each day print a table of the exercises
-        for($i = 1; $i <= $days; $i++){
+        for ($i = 1; $i <= $days; $i++) {
           //query to get table information
           $qstr3 = "SELECT name, reps, duration, weight, sets, exerciseID FROM contains NATURAL JOIN exercise WHERE programID = $pid AND day = $i;";
           $qres3 = $db->query($qstr3);
 
           //problem with query 3
-          if($qres3 == FALSE){
+          if ($qres3 == FALSE) {
             printSQLError(3);
             return FALSE;
           }
 
           //check if the day is empty
-          if($qres3->rowCount() == 0){
+          if ($qres3->rowCount() == 0) {
             print "<H6>Day $i is empty.</H6>";
-            if($creatorpresent){
+            if ($creatorpresent) {
               print "<H6>Add some exercises?</H6>";
               print "<TABLE border='1'>";
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
             }
-          }
-          else{
+          } else {
             print "<H6>Day $i:</H6>";
             print "<TABLE border='1'>";
-            if($creatorpresent){
+            if ($creatorpresent) {
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
-            }
-            else{
+            } else {
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH></TR>";
             }
-            while($row = $qres3->fetch()){
+            while ($row = $qres3->fetch()) {
               //row values
               $eid = $row['exerciseID'];
               $exer = $row['name'];
@@ -224,33 +215,32 @@ $userpresent = $uid != NULL;
               $sets = $row['sets'];
 
               //rephrase nulls
-              if($reps == NULL){
+              if ($reps == NULL) {
                 $reps = "N/A";
               }
-              if($dur == NULL){
+              if ($dur == NULL) {
                 $dur = "N/A";
               }
-              if($weight == NULL){
+              if ($weight == NULL) {
                 $weight = "N/A";
               }
 
               //print row
               print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
-              if($creatorpresent){
+              if ($creatorpresent) {
                 print "<TD><INPUT type='checkbox' name='key[]' value='$eid'></TD>";
                 print "</TR>";
               }
               print "</TR>";
             }
-            if(!$creatorpresent){
+            if (!$creatorpresent) {
               print "</TABLE>";
-            }
-            else{
+            } else {
               print "<TR><TD colspan='6'><INPUT type='submit' value='Remove Exercise'></TD></TR>";
               print "</FORM>";
             }
           }
-          if($creatorpresent){
+          if ($creatorpresent) {
             print "<FORM action='program-view.php/?day=$i&id=$pid&op=add' method='POST'>";
             print printNewExcerciseRow($eList);
             print "</FORM>";
@@ -259,7 +249,7 @@ $userpresent = $uid != NULL;
         }
       }
       //edit mode (if creator is present): add day
-      if($creatorpresent){
+      if ($creatorpresent) {
         $days++;
         print "<H6>Add Day $days?</H6>";
         print "<TABLE border='1'>";
@@ -269,7 +259,7 @@ $userpresent = $uid != NULL;
         print "</FORM>";
         print "</TABLE>";
       }
-   }
+    }
     printPage($db, $userpresent, $uid); // prints the page
     ?>
   </main>
