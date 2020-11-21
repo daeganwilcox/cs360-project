@@ -134,7 +134,7 @@ $uid = $_SESSION['username'];
 
               <div class="logout">
                 <form class="" action="logout.php" method="post">
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Log Out</button>
+                  <button class="btn btn-outline-danger" type="submit">Log Out</button>
                 </form>
 
               </div>
