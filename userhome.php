@@ -87,8 +87,12 @@ $uid = $_SESSION['username'];
                 </div>
               </div>
             </div>
+            <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Team</button>
+            </form>
+            <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
+            </form>
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
