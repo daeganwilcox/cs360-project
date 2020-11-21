@@ -281,7 +281,7 @@ $userpresent = $uid != NULL;
                 printSQLError(4);
                 return FALSE;
               }
-              while($row = $qres->fetch()){
+              while($row = $qres4->fetch()){
                 $exer = $row['exerciseID'];
                 $done[$exer] = TRUE;
               }
@@ -310,7 +310,7 @@ $userpresent = $uid != NULL;
               //print row
               print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
               if($userpresent){
-                if(done[$eid]){
+                if($done[$eid]){
                   print "<TD>completed</TD>";
                 }
                 else if($buttonReady){
