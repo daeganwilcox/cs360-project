@@ -26,7 +26,7 @@ $userpresent = $uid != NULL;
           printOpError("URL formatted incorrectly");
         }
         else{
-          $qStrMET = "SELECT met FROM exercise WHERE exerciseID = $eid;";
+          $qStrMET = "SELECT met FROM exercise WHERE exerciseID = $opEid;";
           $qResMET = $db->query($qStrMET);
 
           if($qResMET == FALSE){
