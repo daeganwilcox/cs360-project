@@ -121,24 +121,21 @@ $uid = $_SESSION['username'];
                   print "$height";
                 }
                 ?> inches</h5>
-              </div>
+		      
+		<div class="card-body">
+                	<a href="gainsfornewbies.html">
+                 	 <h5 class="card-text">Account Settings</h5>
+                	</a>
+                	<div class="d-flex justify-content-between align-items-center">
 
-              <div class="card-body">
-                <a href="gainsfornewbies.html">
-                  <h5 class="card-text">Account Settings</h5>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-
-              <div class="logout">
-                <form class="" action="logout.php" method="post">
+                	</div>
+              	</div>
+		<form class="" action="logout.php" method="post">
                   <button class="btn btn-outline-danger btn-block" type="submit">Log Out</button>
                 </form>
-
               </div>
 
+           
             </div>
             <div class="card mb-4 shadow-sm">
               <div class="programs">
