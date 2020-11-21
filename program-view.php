@@ -198,13 +198,8 @@ $userpresent = $uid != NULL;
             }
           } else {
             print "<H6>Day $i:</H6>";
-<<<<<<< HEAD
-            print "<TABLE border='1'>";
-            if ($creatorpresent) {
-=======
             print "<TABLE class='table' border='1'>";
             if($creatorpresent){
->>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
             } else {
