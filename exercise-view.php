@@ -21,13 +21,13 @@ include_once("db_connect.php");
         printSQLError(1);
       }
       else{
-        $row = $qRes->fetch();
-
-        if($row = FALSE){
+        if($qRes->rowCount() == 0){
           print "<H1>Exercise Does Not Exist</H1>";
           print "<H5>This link points to a exercise which doesn't exist. Please make sure you have the correct address.</H5>";
         }
         else{
+          $row = $qRes->fetch();
+          print "<p>$row</p>";
           $name = $row['name'];
           $desc = $row['description'];
           $met = $row['met'];
