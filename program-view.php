@@ -136,10 +136,10 @@ $userpresent = $uid != NULL;
       }
       $res .= "</datalist>";
       $res .= "</TD>";
+      $res .= "<TD><input type='text' name='sets' required></TD>";
       $res .= "<TD><input type='text' name='reps' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='duration' placeholder='N/A'></TD>";
       $res .= "<TD><input type='text' name='weight' placeholder='N/A'></TD>";
-      $res .= "<TD><input type='text' name='sets' required></TD>";
       $res .= "<TD>N/A</TD>";
       $res .= "<TD><input type='submit' value='Add Exercise'></TD>";
       $res .= "</TR>";
@@ -254,22 +254,22 @@ $userpresent = $uid != NULL;
             if($creatorpresent){
               print "<H6>Add some exercises?</H6>";
               print "<TABLE border='1'>";
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Sets</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Change</TH></TR>";
             }
           }
           else{
             print "<H6>Day $i:</H6>";
             print "<TABLE border='1'>";
             if($creatorpresent){
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH><TH>Add/Delete</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Sets</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Completed</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
 
             }
             else if($userpresent){
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Sets</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Completed</TH></TR>";
             }
             else{
-              print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH></TR>";
+              print "<TR><TH>Exercise</TH><TH>Sets</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH></TR>";
             }
             $done = array();
             if($userpresent){
@@ -309,7 +309,7 @@ $userpresent = $uid != NULL;
               }
 
               //print row
-              print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD><TD>$sets</TD>";
+              print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$sets</TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD>";
               if($userpresent){
                 if($done[$eid]){
                   print "<TD>completed</TD>";
@@ -359,7 +359,7 @@ $userpresent = $uid != NULL;
         $days++;
         print "<H6>Add Day $days?</H6>";
         print "<TABLE border='1'>";
-        print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH><TH>Change</TH></TR>";
+        print "<TR><TH>Exercise</TH><TH>Sets</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Completed</TH><TH>Change</TH></TR>";
         print "<FORM action='program-view.php/?day=$days&id=$pid&op=add' method='POST'>";
         print printNewExcerciseRow($eList);
         print "</FORM>";
