@@ -55,6 +55,7 @@ $userpresent = $uid != NULL;
               $cal = $weight*$met*$time/3600;
               $date_time = date("Y-m-d h:i:sa");
               $qStrComplete = "INSERT INTO completed VALUES ('$uid', $day, $eid, $pid, '$date_time', $cal);";
+              print($qStrComplete);
               $qResComplete = $db->query($qStrComplete);
 
               if($qResComplete == FALSE){
