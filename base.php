@@ -55,7 +55,7 @@ function printSQLError($qnum){
       }
     </style>
     <!-- Custom styles for this template -->
-   <link href="css/userhome.css" rel="stylesheet">
+   <link href="css/base.css" rel="stylesheet">
   </head>
 
   <body>
