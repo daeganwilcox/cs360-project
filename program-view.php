@@ -200,13 +200,13 @@ $userpresent = $uid != NULL;
             print "<H6>Day $i is empty.</H6>";
             if($creatorpresent){
               print "<H6>Add some exercises?</H6>";
-              print "<TABLE border='1'>";
+              print "<TABLE class="table" border='1'>";
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
             }
           }
           else{
             print "<H6>Day $i:</H6>";
-            print "<TABLE border='1'>";
+            print "<TABLE class="table" border='1'>";
             if($creatorpresent){
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
