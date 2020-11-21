@@ -359,7 +359,7 @@ $userpresent = $uid != NULL;
         $days++;
         print "<H6>Add Day $days?</H6>";
         print "<TABLE border='1'>";
-        print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
+        print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Completed</TH><TH>Change</TH></TR>";
         print "<FORM action='program-view.php/?day=$days&id=$pid&op=add' method='POST'>";
         print printNewExcerciseRow($eList);
         print "</FORM>";
