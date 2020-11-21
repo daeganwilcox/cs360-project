@@ -47,15 +47,15 @@ $uid = $_SESSION['username'];
               }
               ?>
             </div>
-            <div>
+            <div class='programs'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
               </form>
             </div>
-            <div>
+            <div class='programs'>
               <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
             </div>
-            <div>
+            <div class='programs'>
               <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
               </form>
