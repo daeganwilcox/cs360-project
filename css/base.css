@@ -1,4 +1,4 @@
-.programs {
+.card-object {
   margin-top: 5px;
   text-align: center;
   padding: 5px;
@@ -11,6 +11,7 @@
 
 #userIcon {
   margin: auto;
+  padding-top: 2px;
 }
 
 .form-signin {
@@ -18,5 +19,10 @@
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+
+.program-view-header {
+  text-align: center;
+  margin: auto;
 }
 

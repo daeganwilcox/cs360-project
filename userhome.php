@@ -21,7 +21,7 @@ $uid = $_SESSION['username'];
           <!-- Programs -->
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Programs</h2>
               </div>
               <?php
@@ -46,17 +46,23 @@ $uid = $_SESSION['username'];
               }
               ?>
             </div>
-            <div class='programs'>
+            <div class='card-object'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-add.php' method='post'>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Make New Program</button>
+                <button class="btn btn-outline-primary btn-block" type="submit">Make New Program</button>
               </form>
             </div>
-            <div class='programs'>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Programs</button>
+            <div class='card-object'>
+              <button class="btn btn-outline-primary btn-block" type="submit">Find New Programs</button>
             </div>
+<<<<<<< HEAD
             <div class='programs'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">View Your Programs</button>
+=======
+            <div class='card-object'>
+              <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
+                <button class="btn btn-outline-primary btn-block" type="submit">View Your Programs</button>
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
               </form>
             </div>
           </div>
@@ -66,7 +72,7 @@ $uid = $_SESSION['username'];
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Teams</h2>
               </div>
               <div class="card-body">
@@ -86,6 +92,7 @@ $uid = $_SESSION['username'];
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <div class='programs'>
               <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Team</button>
@@ -96,12 +103,22 @@ $uid = $_SESSION['username'];
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Find New Team</button>
               </form>
             </div>
+=======
+            
+            <button class="btn btn-outline-primary btn-block" type="submit">Create New Team</button>
+            <button class="btn btn-outline-primary btn-block" type="submit">Find New Team</button>
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
+<<<<<<< HEAD
               <div class="programs">
                 <h2><?php print $uid ?></h2>
+=======
+              <div class="card-object">
+	      <h2><?php print $uid?></h2>
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
                 <h5>Calories Burned: xx</h5>
                 <h5>Weight: <?php
                             $qStr = "SELECT weight FROM user WHERE username='$uid';";
@@ -115,6 +132,7 @@ $uid = $_SESSION['username'];
                             }
                             ?></h5>
                 <h5> Height: <?php
+<<<<<<< HEAD
                               $qStr = "SELECT height FROM user WHERE username='$uid';";
                               $qRes = $db->query($qStr);
                               if ($qRes == FALSE) {
@@ -139,13 +157,37 @@ $uid = $_SESSION['username'];
               <div class="logout">
                 <form class="" action="logout.php" method="post">
                   <button class="btn btn-lg btn-primary btn-block" type="submit">Log Out</button>
-                </form>
+=======
+                $qStr = "SELECT height FROM user WHERE username='$uid';";
+                $qRes = $db->query($qStr);
+                if ($qRes == FALSE){
+                  print "SQL Error encountered";
+                }
+                else{
+                  $row = $qRes->fetch();
+                  $height = $row['height'];
+                  print "$height";
+                }
+                ?> inches</h5>
+		      
+		<div class="card-body">
+                	<a href="gainsfornewbies.html">
+                 	 <h5 class="card-text">Account Settings</h5>
+                	</a>
+                	<div class="d-flex justify-content-between align-items-center">
 
+                	</div>
+              	</div>
+		<form class="" action="logout.php" method="post">
+                  <button class="btn btn-outline-danger btn-block" type="submit">Log Out</button>
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
+                </form>
               </div>
 
+           
             </div>
             <div class="card mb-4 shadow-sm">
-              <div class="programs">
+              <div class="card-object">
                 <h2>Friends
                   <?php
                   $qStr = "SELECT COUNT(A.user2) AS count FROM friend AS A JOIN friend AS B ON A.user1 = B.user2 AND A.user2 = B.user1 WHERE A.user1='$uid';";
@@ -199,6 +241,7 @@ $uid = $_SESSION['username'];
                 JOIN friend AS F2
                 ON F1.user1 = F2.user2 AND F1.user2 = F2.user1
                 WHERE F1.user1 = '$uid');";
+<<<<<<< HEAD
                         $qRes = $db->query($qStr);
                         if ($qRes == FALSE) {
                           print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
@@ -220,6 +263,31 @@ $uid = $_SESSION['username'];
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Add Friend</button>
                           </form>
                         </div>
+=======
+                $qRes = $db->query($qStr);
+                if($qRes == FALSE){
+                  print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                }
+                else if($qRes-> rowCount() == 0){
+                  print "<H5>No Requests Received</H5>";
+                }
+                else{
+                  for($i = 0; $i < 5 && $row = $qRes->fetch(); $i++){
+                    $name = $row['user1'];
+                    print "<H5 class='card-tex'>$name</H5>";
+                  }
+                }
+                ?>
+
+                <div>
+                  <form action="addFriend.php" method="post">
+                    <h5>
+                      <input type="text" id ="userFriend" name="userFriend">
+                    </h5>
+                    <button class="btn btn-outline-success btn-block" type="submit">Add Friend</button>
+                  </form>
+                </div>
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
               </div>
 
             </div>

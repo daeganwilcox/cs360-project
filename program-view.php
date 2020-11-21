@@ -148,9 +148,9 @@ $userpresent = $uid != NULL;
       }
 
       //print heading
-      print "<H1>$title</H1>";
+      print "<div class='program-view-header'><H1>$title</H1>";
       print "<H3>Created by $creator on $date</H3>";
-      print "<H5>$desc</H5>";
+      print "<H5>$desc</H5></div>";
 
       //query to get the number of days of the program
       $qstr2 = "SELECT MAX(day) AS numDays FROM contains WHERE programID = $pid;";
@@ -193,13 +193,18 @@ $userpresent = $uid != NULL;
             print "<H6>Day $i is empty.</H6>";
             if ($creatorpresent) {
               print "<H6>Add some exercises?</H6>";
-              print "<TABLE border='1'>";
+              print "<TABLE class='table' border='1'>";
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Change</TH></TR>";
             }
           } else {
             print "<H6>Day $i:</H6>";
+<<<<<<< HEAD
             print "<TABLE border='1'>";
             if ($creatorpresent) {
+=======
+            print "<TABLE class='table' border='1'>";
+            if($creatorpresent){
+>>>>>>> 4072978c328407d3c59c78c94f53162165eecc2b
               print "<TR><TH>Exercise</TH><TH>Reps</TH><TH>Duration</TH><TH>Weight</TH><TH>Sets</TH><TH>Add/Delete</TH></TR>";
               print "<FORM action='program-view.php/?day=$i&id=$pid&op=del' method='POST'>";
             } else {
