@@ -95,12 +95,8 @@ $uid = $_SESSION['username'];
         <?php
         if ($uid != null) {
           print "<a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/userhome.php' class='navbar-brand d-flex align-items-center'>";
-          print "<img src='https://img.icons8.com/windows/32/000000/dumbbell.png' />";
-          print "<strong>Home</strong>";
+          print "<strong>Dashboard</strong>";
           print "</a>";
-          print "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarHeader' aria-controls='navbarHeader' aria-expanded='false' aria-label='Toggle navigation'>";
-          print "<span class='navbar-toggler-icon'></span>";
-          print "</button>";
         }
         ?>
       </div>
