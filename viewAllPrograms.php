@@ -22,7 +22,7 @@ $userpresent = $uid != NULL;
                     </tr>
                     <?php
                     $qStr = "SELECT name, programID as id, description,MAX(date_time) AS date FROM (SELECT DISTINCT programID, date_time FR
-                    OM completed WHERE userID = 'superkingjunior' ORDER BY date_time) AS uComp NATURAL JOIN program;";
+                    OM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
                     $qRes = $db->query($qStr);
                     if ($qRes == FALSE) {
                         print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
@@ -36,7 +36,7 @@ $userpresent = $uid != NULL;
                             $id = $row['id'];
                             print "<tr>";
                             print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
-                            print "<td>$name</tr>";
+                            print "<td>$name</td>";
                             print "</A>";
                             print "<td>$description</td>";
                             print "<td>$date</td>";
