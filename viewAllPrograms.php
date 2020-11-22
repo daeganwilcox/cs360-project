@@ -18,7 +18,7 @@ $userpresent = $uid != NULL;
                         <h2>Programs you are a part of:</h2>
                     </div>
                     <?php
-                    $qStr = "SELECT name, programID FROM program WHERE userID = '$uid';";
+                    $qStr = "SELECT name, programID FROM program WHERE creatorID = '$uid';";
                     $qRes = $db->query($qStr);
                     if ($qRes == FALSE) {
                         print "hello";
