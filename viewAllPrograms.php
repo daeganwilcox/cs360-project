@@ -20,9 +20,9 @@ $userpresent = $uid != NULL;
 
                     <?php
                     print $uid;
-                    $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
-                    print $qStr;
-                    $qRes = $db->query($qStr);
+                    $qStr1 = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
+                    print $qStr1;
+                    $qRes = $db->query($qStr1);
                     //print $qRes;
                     if ($qRes == FALSE) {
                         print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
