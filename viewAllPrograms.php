@@ -45,9 +45,8 @@ $userpresent = $uid != NULL;
                     ?>
                 </table>
             </div>
-        </div>
+        
 
-        <div class="col-md-2">
             <div class="card mb-4 shadow-sm">
                 <h2>Programs you created:</h2>
                 <table>
