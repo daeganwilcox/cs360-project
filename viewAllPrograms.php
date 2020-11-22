@@ -18,7 +18,7 @@ $userpresent = $uid != NULL;
                         <h2>Programs you are a part of:</h2>
                     </div>
                     <?php
-                    $qStr = "SELECT name, programID FROM program WHERE creatorID = '$uid';";
+                    $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
                     $qRes = $db->query($qStr);
                     if ($qRes == FALSE) {
                         print "hello";
@@ -26,8 +26,7 @@ $userpresent = $uid != NULL;
                     } else if ($qRes->rowCount() == 0) {
                         print "<H5>You haven't started any programs yet.</H5>";
                     } else {
-                        while ($qRes->fetch()) {
-                            $row = $qRes->fetch();
+                        while ($row = $qRes->fetch()) {
                             $name = $row['name'];
                             $id = $row['id'];
                             print "<div class='card-body'>";
@@ -56,8 +55,7 @@ $userpresent = $uid != NULL;
                     } else if ($qRes->rowCount() == 0) {
                         print "<H5>You haven't started any programs yet.</H5>";
                     } else {
-                        while ($qRes->fetch() != FALSE) {
-                            $row = $qRes->fetch();
+                        while ($row = $qRes->fetch()) {
                             $name = $row['name'];
                             $id = $row['id'];
                             print "<div class='card-body'>";
