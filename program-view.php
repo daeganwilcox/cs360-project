@@ -1,6 +1,6 @@
 <script>
     if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'];?>');
+        window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'] . "?id=" . $_GET['id'];?>');
     }
 </script>
 <?php
