@@ -86,7 +86,7 @@ $uid = $_SESSION['username'];
                 </div>
               </div>
             </div>
-            
+
             <button class="btn btn-outline-primary btn-block" type="submit">Create New Team</button>
             <button class="btn btn-outline-primary btn-block" type="submit">Find New Team</button>
           </div>
@@ -95,7 +95,18 @@ $uid = $_SESSION['username'];
               <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
               <div class="card-object">
 	      <h2><?php print $uid?></h2>
-                <h5>Calories Burned: xx</h5>
+                <h5>Calories Burned: <?php
+                //for getting the total calories burned
+                $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$uid';";
+                $qRes = $db->query($qStr);
+                if ($qRes == FALSE) {
+                  print "SQL Error encountered";
+                } else {
+                  $row = $qRes->fetch();
+                  $cals = $row['cals'];
+                  print "$cals";
+                }
+                ?></h5>
                 <h5>Weight: <?php
                             $qStr = "SELECT weight FROM user WHERE username='$uid';";
                             $qRes = $db->query($qStr);
@@ -119,7 +130,7 @@ $uid = $_SESSION['username'];
                   print "$height";
                 }
                 ?> inches</h5>
-		      
+
 		<div class="card-body">
                 	<a href="gainsfornewbies.html">
                  	 <h5 class="card-text">Account Settings</h5>
@@ -133,7 +144,7 @@ $uid = $_SESSION['username'];
                 </form>
               </div>
 
-           
+
             </div>
             <div class="card mb-4 shadow-sm">
               <div class="card-object">
