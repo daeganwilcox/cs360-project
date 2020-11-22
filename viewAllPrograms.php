@@ -12,7 +12,7 @@ $userpresent = $uid != NULL;
 <body>
     <main role="main">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col-centered">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-object">
                         <h2>Programs you are a part of:</h2>
