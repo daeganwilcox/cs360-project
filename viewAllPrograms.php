@@ -56,7 +56,7 @@ $userpresent = $uid != NULL;
                     } else if ($qRes->rowCount() == 0) {
                         print "<H5>You haven't started any programs yet.</H5>";
                     } else {
-                        while ($qRes->fetch()) {
+                        while ($qRes->fetch() != FALSE) {
                             $row = $qRes->fetch();
                             $name = $row['name'];
                             $id = $row['id'];
