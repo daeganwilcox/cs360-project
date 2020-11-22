@@ -18,9 +18,8 @@ $userpresent = $uid != NULL;
                         <h2>Programs you are a part of:</h2>
                     </div>
                     <?php
-                    $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time) AS uComp NATURAL JOIN program;";
+                    $qStr = "SELECT name, programID FROM program WHERE userID = '$uid';";
                     $qRes = $db->query($qStr);
-                    
                     if ($qRes == FALSE) {
                         print "hello";
                         print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
