@@ -274,7 +274,7 @@ $userpresent = $uid != NULL;
             $done = array();
             if($userpresent){
               //query to get completed info
-              $qstr4 = "SELECT exerciseID FROM completed WHERE userID = '$uid' AND programID = $pid AND day = $i;";
+              $qstr4 = "SELECT exerciseID, calories FROM completed WHERE userID = '$uid' AND programID = $pid AND day = $i;";
               $qres4 = $db->query($qstr4);
 
               //problem with query 4
@@ -284,7 +284,8 @@ $userpresent = $uid != NULL;
               }
               while($row = $qres4->fetch()){
                 $exer = $row['exerciseID'];
-                $done[$exer] = TRUE;
+                $cal = $row['calories'];
+                $done[$exer] = $cal;
               }
 
             }
@@ -311,8 +312,9 @@ $userpresent = $uid != NULL;
               //print row
               print "<TR><TD><a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/exercise-view.php/?id=$eid'>$exer</a></TD><TD>$sets</TD><TD>$reps</TD><TD>$dur</TD><TD>$weight</TD>";
               if($userpresent){
-                if($done[$eid]){
-                  print "<TD>completed</TD>";
+                $thisCal = $done[$eid];
+                if($thisCal != NULL){
+                  print "<TD>completed ($thisCal calories)</TD>";
                 }
                 else if($buttonReady){
                   print "<TD>NEXT TO COMPLETE</TD>";
