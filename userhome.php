@@ -92,7 +92,18 @@ $uid = $_SESSION['username'];
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img id="userIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="" width="100px" height="100px">
+              <img id="userIcon" src="<?php
+              //get img url
+              $qStr = "SELECT img FROM user WHERE username='$uid';";
+              $qRes = $db->query($qStr);
+              if ($qRes == FALSE) {
+                printSQLError("image");
+              } else {
+                $row = $qRes->fetch();
+                $img = $row['img'];
+                print "$img";
+              }
+               ?>" alt="" width="100px" height="100px">
               <div class="card-object">
 	      <h2><?php print $uid?></h2>
                 <h5>Calories Burned: <?php
@@ -100,7 +111,7 @@ $uid = $_SESSION['username'];
                 $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$uid';";
                 $qRes = $db->query($qStr);
                 if ($qRes == FALSE) {
-                  print "SQL Error encountered";
+                  printSQLError("calories");
                 } else {
                   $row = $qRes->fetch();
                   $cals = $row['cals'];
@@ -111,7 +122,7 @@ $uid = $_SESSION['username'];
                             $qStr = "SELECT weight FROM user WHERE username='$uid';";
                             $qRes = $db->query($qStr);
                             if ($qRes == FALSE) {
-                              print "SQL Error encountered";
+                              printSQLError("weight");
                             } else {
                               $row = $qRes->fetch();
                               $weight = $row['weight'];
@@ -122,7 +133,7 @@ $uid = $_SESSION['username'];
                 $qStr = "SELECT height FROM user WHERE username='$uid';";
                 $qRes = $db->query($qStr);
                 if ($qRes == FALSE){
-                  print "SQL Error encountered";
+                  printSQLError("height");
                 }
                 else{
                   $row = $qRes->fetch();

@@ -30,7 +30,7 @@ function checkUser($db, $login, $pass){
 function addUser($db, $login, $pass, $fname, $lname, $email, $dob, $height, $weight){
   $hash = md5($pass);
 
-  $q = $db->query("INSERT INTO user VALUE('$login', '$hash', '$fname', '$lname', '$email', '$dob', '$height', '$weight');");
+  $q = $db->query("INSERT INTO user VALUE('$login', '$hash', '$fname', '$lname', '$email', '$dob', '$height', '$weight', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png');");
 
   if($q == FALSE){
     return FALSE;
