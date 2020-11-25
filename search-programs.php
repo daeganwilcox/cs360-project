@@ -25,7 +25,7 @@ $search = $_POST['search'];
       while($row = $qRes->fetch()){
         $name = $row['name'];
         $avg = round($row['avg'], 2);
-        $date = $row['date'];
+        $date = $row['date_created'];
         print "<TR>";
         print "<TD>$name</TD>";
         print "<TD>$avg</TD>";
