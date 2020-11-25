@@ -32,7 +32,7 @@ include_once("db_connect.php");
           $met = $row['met'];
           $usesReps = $row['usesReps'] ? "" : "n't";
           $usesWeight = $row['usesWeight'] ? "" : "n't";
-          print "<div class='center'>";
+          print "<div style='text-align: center; margin: auto;'>";
           print "<H1>$name</H1>";
           print "<H5>$desc</H5>";
           print "<H6>Metabolic Equivalent of Task (MET): $met</H6>";
