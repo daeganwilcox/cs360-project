@@ -23,7 +23,7 @@ $userpresent = $uid != NULL;
                         <th>Last Used</th>
                     </tr>
                     <?php
-                    $qStr = "SELECT name, programID, max_date AS id FROM (SELECT programID, MAX(date_time) AS max_date FROM completed WHERE userID = '$uid' GROUP BY programID) AS uComp NATURAL JOIN program ORDER BY max_date DESC;";
+                    $qStr = "SELECT name, description, programID as id, max_date FROM (SELECT programID, MAX(date_time) AS max_date FROM completed WHERE userID = '$uid' GROUP BY programID) AS uComp NATURAL JOIN program ORDER BY max_date DESC;";
                     $qRes = $db->query($qStr);
                     if ($qRes == FALSE) {
                         print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
