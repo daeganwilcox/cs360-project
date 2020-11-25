@@ -11,8 +11,9 @@ $userpresent = $uid != NULL;
 
 <body>
     <main role="main">
+        <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
             <div class="card mb-4 shadow-sm">
                 <h2>Programs you are a part of:</h2>
                 <table>
@@ -88,6 +89,7 @@ $userpresent = $uid != NULL;
                 </table>
             </div>
             </div>
+        </div>
         </div>
     </main>
 </body>
