@@ -33,11 +33,11 @@ include_once("db_connect.php");
           $usesReps = $row['usesReps'] ? "" : "n't";
           $usesWeight = $row['usesWeight'] ? "" : "n't";
           print "<div class='header-text'>";
-          print "<H1>$name</H1>";
-          print "<H5>$desc</H5>";
-          print "<H6>Metabolic Equivalent of Task (MET): $met</H6>";
-          print "<H6>This exercise <strong>does$usesReps</strong> use reps.</H6>";
-          print "<H6>This exercise <strong>does$usesWeight</strong> use weight.</H6>";
+          print "<H1 class='header-text'>$name</H1>";
+          print "<H5 class='header-text'>$desc</H5>";
+          print "<H6 class='header-text'>Metabolic Equivalent of Task (MET): $met</H6>";
+          print "<H6 class='header-text'>This exercise <strong>does$usesReps</strong> use reps.</H6>";
+          print "<H6 class='header-text'>This exercise <strong>does$usesWeight</strong> use weight.</H6>";
           print "</div>";
         }
       }
