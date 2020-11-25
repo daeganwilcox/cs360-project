@@ -27,17 +27,18 @@ include_once("db_connect.php");
         }
         else{
           $row = $qRes->fetch();
-          print "<p>$row</p>";
           $name = $row['name'];
           $desc = $row['description'];
           $met = $row['met'];
           $usesReps = $row['usesReps'] ? "" : "n't";
           $usesWeight = $row['usesWeight'] ? "" : "n't";
+          print "<div class='header-text'>";
           print "<H1>$name</H1>";
           print "<H5>$desc</H5>";
           print "<H6>Metabolic Equivalent of Task (MET): $met</H6>";
-          print "<H6>This exercise does$usesReps use reps.</H6>";
-          print "<H6>This exercise does$usesWeight use weight.</H6>";
+          print "<H6>This exercise <strong>does$usesReps</strong> use reps.</H6>";
+          print "<H6>This exercise <strong>does$usesWeight</strong> use weight.</H6>";
+          print "</div>";
         }
       }
     }
