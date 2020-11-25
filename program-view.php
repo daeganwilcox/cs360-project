@@ -208,7 +208,7 @@ $userpresent = $uid != NULL;
       }
 
       //print heading
-      print "<H1 class='program-view-header'>$title</H1>";
+      print "<H1 class='program-view-header form-signin'>$title</H1>";
       print "<H3 class='program-view-header'>Created by $creator on $date</H3>";
       print "<H5 class='program-view-header'>$desc</H5>";
 
