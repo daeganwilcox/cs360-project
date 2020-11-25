@@ -5,7 +5,7 @@ $search = $_POST['search'];
 
 <!doctype html>
 <html lang="en">
-  <?php include("base.php") ?>
+  <?php include("base.php"); ?>
 
   <?php
     printList($db, $search){
