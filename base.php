@@ -10,6 +10,10 @@ function printSQLError($qnum)
   print "<H5>MySQL Error</H5>";
   print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5>";
 }
+function printNotLoggedIn(){
+  print "<H1>Not Logged In</H1>";
+  print "<H3>Please try logging in <a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/login.html'>here</a>.</H3>";
+}
 session_start();
 $uid = $_SESSION['username'];
 ?>

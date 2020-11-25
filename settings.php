@@ -9,10 +9,10 @@ $uid = $_SESSION['username'];
   <body>
     <?php
     if($uid == NULL){
-      print "<H1>Not Logged In</H1>";
-      print "<H3>Please try logging in <a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/login.html'>here</a>.</H3>";
+      printNotLoggedIn();
     }
     else{
+      //prints the settings page
       print "<H1>Account Settings for $uid</H1>";
       print "<UL>";
       print "<LI><H3><A href=http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/change-pass.php>Change Password</A></H3></LI>";
