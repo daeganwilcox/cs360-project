@@ -49,7 +49,7 @@ $new = $_POST['new'];
   ?>
 
   <?php
-  if($pass != NULL && $uid != NULL) changePassword($db, $uid, $old, $new);
+  if($old != NULL && $new != NULL && $uid != NULL) changePassword($db, $uid, $old, $new);
   ?>
   <body>
     <?php
