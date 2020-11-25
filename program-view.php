@@ -357,10 +357,12 @@ $userpresent = $uid != NULL;
         }
         //complete button
         if($userpresent && $nextDay != -1){
+          print "<div style='margin: auto; text-align: center;'>";
           print "<FORM action='program-view.php/?day=$nextDay&id=$pid&eid=$nextEid&op=complete' method='POST'>";
           print "<p>Time taken to complete $nextExer for day $nextDay (in seconds): <input type='text' name='time' required></p>";
           print "<p><INPUT type='submit' value='Submit Completion'></p>";
           print "</FORM>";
+          print "</div>";
         }
       }
       //edit mode (if creator is present): add day
