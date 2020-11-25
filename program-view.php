@@ -208,7 +208,7 @@ $userpresent = $uid != NULL;
       }
 
       //print heading
-      print "<div style='margin: auto; text-align: center;>";
+      print "<div style='margin: auto; text-align: center;'>";
       print "<H1>$title</H1>";
       print "<H3>Created by $creator on $date</H3>";
       print "<H5>$desc</H5>";
