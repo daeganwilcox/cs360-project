@@ -12,7 +12,7 @@ $uid = $_SESSION['username'];
     $qStr = "SELECT weight, height FROM user WHERE username='$uid';";
     $qRes = $db->query($qStr);
     if ($qRes == FALSE) {
-        print "SQL error. Please contact one of our developers."
+        print "SQL error. Please contact one of our developers.";
     } else {
         $row = $qRes->fetch();
         $weight = $row['weight'];
