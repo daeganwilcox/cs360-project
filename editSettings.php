@@ -1,4 +1,5 @@
 <?php
+include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
 ?>
