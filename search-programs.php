@@ -8,7 +8,7 @@ $search = $_POST['search'];
   <?php include("base.php"); ?>
 
   <?php
-    printList($db, $search){
+    function printList($db, $search){
       //if search is null, search is empty so I don't have to check it
       $qStr = "SELECT name, date_created, AVG(rating) AS avg FROM program LEFT JOIN reviews ON program.programID = reviews.programID WHERE `name` LIKE '%$search%' GROUP BY program.programID, date_created ORDER BY AVG(rating) DESC;";
       $qRes = $db->query($qStr);
