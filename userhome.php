@@ -52,7 +52,9 @@ $uid = $_SESSION['username'];
               </form>
             </div>
             <div class='card-object'>
-              <button class="btn btn-outline-primary btn-block" type="submit">Find New Programs</button>
+              <form action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/search-programs.php' method='post'>
+                <button class="btn btn-outline-primary btn-block" type="submit">Find New Programs</button>
+              </form>
             </div>
             <div class='card-object'>
               <form action = 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/viewAllPrograms.php' method='post'>
