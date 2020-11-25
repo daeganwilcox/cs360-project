@@ -344,7 +344,7 @@ $userpresent = $uid != NULL;
             }
             else{
               $col = $userpresent ? 7 : 6;
-              print "<TR><TD colspan='$col'><INPUT type='submit' value='Remove Exercise'></TD></TR>";
+              print "<TR><TD colspan='$col'><INPUT type='submit' value='Remove Exercises'></TD></TR>";
               print "</FORM>";
             }
           }
