@@ -11,6 +11,7 @@ $userpresent = $uid != NULL;
 
 <body>
     <main role="main">
+        <div class="container">
         <div class="row">
             <div class="col-md-6">
             <div class="card mb-4 shadow-sm">
@@ -88,6 +89,7 @@ $userpresent = $uid != NULL;
                 </table>
             </div>
             </div>
+        </div>
         </div>
     </main>
 </body>
