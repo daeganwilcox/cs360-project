@@ -13,82 +13,87 @@ $eid = $_GET['user']
 
 <body>
     <main role="main">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img id="userIcon" src="<?php
-                                            //get img url
-                                            $qStr = "SELECT img FROM user WHERE username='$eid';";
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img id="userIcon" src="<?php
+                                                    //get img url
+                                                    $qStr = "SELECT img FROM user WHERE username='$eid';";
+                                                    $qRes = $db->query($qStr);
+                                                    if ($qRes == FALSE) {
+                                                        printSQLError("image");
+                                                    } else {
+                                                        $row = $qRes->fetch();
+                                                        $img = $row['img'];
+                                                        print "$img";
+                                                    }
+                                                    ?>" alt="" width="100px" height="100px">
+                            <div class="card-object">
+                                <h2><?php print $eid ?></h2>
+                                <h5>Calories Burned: <?php
+                                                        //for getting the total calories burned
+                                                        $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$eid';";
+                                                        $qRes = $db->query($qStr);
+                                                        if ($qRes == FALSE) {
+                                                            printSQLError("calories");
+                                                        } else {
+                                                            $row = $qRes->fetch();
+                                                            $cals = $row['cals'];
+                                                            print "$cals";
+                                                        }
+                                                        ?></h5>
+                                <h5>Weight: <?php
+                                            $qStr = "SELECT weight FROM user WHERE username='$eid';";
                                             $qRes = $db->query($qStr);
                                             if ($qRes == FALSE) {
-                                                printSQLError("image");
+                                                printSQLError("weight");
                                             } else {
                                                 $row = $qRes->fetch();
-                                                $img = $row['img'];
-                                                print "$img";
+                                                $weight = $row['weight'];
+                                                print "$weight";
                                             }
-                                            ?>" alt="" width="100px" height="100px">
-                    <div class="card-object">
-                        <h2><?php print $eid ?></h2>
-                        <h5>Calories Burned: <?php
-                                                //for getting the total calories burned
-                                                $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$eid';";
+                                            ?></h5>
+                                <h5> Height: <?php
+                                                $qStr = "SELECT height FROM user WHERE username='$eid';";
                                                 $qRes = $db->query($qStr);
                                                 if ($qRes == FALSE) {
-                                                    printSQLError("calories");
+                                                    printSQLError("height");
                                                 } else {
                                                     $row = $qRes->fetch();
-                                                    $cals = $row['cals'];
-                                                    print "$cals";
+                                                    $height = $row['height'];
+                                                    print "$height";
                                                 }
-                                                ?></h5>
-                        <h5>Weight: <?php
-                                    $qStr = "SELECT weight FROM user WHERE username='$eid';";
+                                                ?> inches</h5>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <h2> Programs </h2>
+                                <div>
+                                    <?php
+                                    $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time DESC) AS uComp NATURAL JOIN program;";
                                     $qRes = $db->query($qStr);
                                     if ($qRes == FALSE) {
-                                        printSQLError("weight");
+                                        print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                                    } else if ($qRes->rowCount() == 0) {
+                                        print "<H5>You haven't started any programs yet.</H5>";
                                     } else {
-                                        $row = $qRes->fetch();
-                                        $weight = $row['weight'];
-                                        print "$weight";
-                                    }
-                                    ?></h5>
-                        <h5> Height: <?php
-                                        $qStr = "SELECT height FROM user WHERE username='$eid';";
-                                        $qRes = $db->query($qStr);
-                                        if ($qRes == FALSE) {
-                                            printSQLError("height");
-                                        } else {
-                                            $row = $qRes->fetch();
-                                            $height = $row['height'];
-                                            print "$height";
+                                        for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                                            $name = $row['name'];
+                                            $id = $row['id'];
+                                            print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
+                                            print "<p class='card-tex'>$name</p>";
+                                            print "</A>";
                                         }
-                                        ?> inches</h5>
-
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <h2> Programs </h2>
-                        <div>
-                            <?php
-                            $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$uid' ORDER BY date_time DESC) AS uComp NATURAL JOIN program;";
-                            $qRes = $db->query($qStr);
-                            if ($qRes == FALSE) {
-                                print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                            } else if ($qRes->rowCount() == 0) {
-                                print "<H5>You haven't started any programs yet.</H5>";
-                            } else {
-                                for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
-                                    $name = $row['name'];
-                                    $id = $row['id'];
-                                    print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
-                                    print "<p class='card-tex'>$name</p>";
-                                    print "</A>";
-                                }
-                            }
-                            ?>
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
