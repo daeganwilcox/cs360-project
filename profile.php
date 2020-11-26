@@ -97,5 +97,6 @@ $eid = $_GET['user']
                     </div>
                 </div>
             </div>
+        </div>
     </main>
 </body>
