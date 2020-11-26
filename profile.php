@@ -83,13 +83,9 @@ $eid = $_GET['user']
                                 for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                                     $name = $row['name'];
                                     $id = $row['id'];
-                                    print "<div class='card-body'>";
                                     print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
-                                    print "<H4 class='card-tex'>$name</H4>";
+                                    print "<p class='card-tex'>$name</p>";
                                     print "</A>";
-                                    print "<div class='d-flex justify-content-between align-items-center'>";
-                                    print "</div>";
-                                    print "</div>";
                                 }
                             }
                             ?>
