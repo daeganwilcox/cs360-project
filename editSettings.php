@@ -28,18 +28,18 @@ $uid = $_SESSION['username'];
     ?>
     <div>
         <form action="change-h.php" method="post">
-            <h5>
-                <input type="text" id="newHeight" name="newHeight">
-            </h5>
-            <button class="btn btn-outline-success btn-block" type="submit">Change Height:</button>
+            <p>
+                New Height:<input type="text" id="newHeight" name="newHeight">
+            </p>
+            <button type="submit">Change Height</button>
         </form>
     </div>
     <div>
         <form action="change-w.php" method="post">
-            <h5>
-                <input type="text" id="newWeight" name="newWeight">
-            </h5>
-            <button class="btn btn-outline-success btn-block" type="submit">Change Weight:</button>
+            <p>
+                New Weight:<input type="text" id="newWeight" name="newWeight">
+</p>
+            <button type="submit">Change Weight</button>
         </form>
     </div>
 
