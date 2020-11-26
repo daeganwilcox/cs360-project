@@ -18,7 +18,7 @@ $eid = $_GET['user']
                 <div class="card mb-2 shadow-sm">
                     <img id="userIcon" src="<?php
                                             //get img url
-                                            $qStr = "SELECT img FROM user WHERE username='$uid';";
+                                            $qStr = "SELECT img FROM user WHERE username='$eid';";
                                             $qRes = $db->query($qStr);
                                             if ($qRes == FALSE) {
                                                 printSQLError("image");
@@ -29,10 +29,10 @@ $eid = $_GET['user']
                                             }
                                             ?>" alt="" width="100px" height="100px">
                     <div class="card-object">
-                        <h2><?php print $uid ?></h2>
+                        <h2><?php print $eid ?></h2>
                         <h5>Calories Burned: <?php
                                                 //for getting the total calories burned
-                                                $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$uid';";
+                                                $qStr = "SELECT SUM(calories) AS cals FROM `completed` WHERE userID = '$eid';";
                                                 $qRes = $db->query($qStr);
                                                 if ($qRes == FALSE) {
                                                     printSQLError("calories");
@@ -43,7 +43,7 @@ $eid = $_GET['user']
                                                 }
                                                 ?></h5>
                         <h5>Weight: <?php
-                                    $qStr = "SELECT weight FROM user WHERE username='$uid';";
+                                    $qStr = "SELECT weight FROM user WHERE username='$eid';";
                                     $qRes = $db->query($qStr);
                                     if ($qRes == FALSE) {
                                         printSQLError("weight");
@@ -54,7 +54,7 @@ $eid = $_GET['user']
                                     }
                                     ?></h5>
                         <h5> Height: <?php
-                                        $qStr = "SELECT height FROM user WHERE username='$uid';";
+                                        $qStr = "SELECT height FROM user WHERE username='$eid';";
                                         $qRes = $db->query($qStr);
                                         if ($qRes == FALSE) {
                                             printSQLError("height");
