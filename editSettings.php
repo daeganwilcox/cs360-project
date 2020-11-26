@@ -31,7 +31,7 @@ $uid = $_SESSION['username'];
             <p>
                 New Height:<input type="text" id="newHeight" name="newHeight">
             </p>
-            <button type="submit">Change Height</button>
+            <button class="btn btn-outline-success btn-block" type="submit">Change Height</button>
         </form>
     </div>
     <div>
@@ -39,7 +39,7 @@ $uid = $_SESSION['username'];
             <p>
                 New Weight:<input type="text" id="newWeight" name="newWeight">
 </p>
-            <button type="submit">Change Weight</button>
+            <button class="btn btn-outline-success btn-block" type="submit">Change Weight</button>
         </form>
     </div>
 
