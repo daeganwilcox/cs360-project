@@ -14,8 +14,8 @@ $eid = $_GET['user']
 <body>
     <main role="main">
         <div class="row">
-            <div class="col-md-2">
-                <div class="card mb-2 shadow-sm">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
                     <img id="userIcon" src="<?php
                                             //get img url
                                             $qStr = "SELECT img FROM user WHERE username='$eid';";
@@ -68,8 +68,8 @@ $eid = $_GET['user']
                     </div>
                 </div>
 
-                <div class="col-md-2">
-                    <div class="card mb-2 shadow-sm">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
                         <h2> Programs </h2>
                         <div>
                             <?php
