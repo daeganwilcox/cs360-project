@@ -94,13 +94,6 @@ $uid = $_SESSION['username'];
           <strong>Home</strong>
         </a>
         
-        <?php
-        if ($uid != null) {
-          print "<a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/userhome.php' class='navbar-brand d-flex align-items-center'>";
-          print "<strong>Dashboard</strong>";
-          print "</a>";
-        }
-        ?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
