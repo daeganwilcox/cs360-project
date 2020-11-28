@@ -67,6 +67,9 @@ $eid = $_GET['user']
                                                     print "$height";
                                                 }
                                                 ?> inches</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                	</div>
 
                             </div>
                         </div>
