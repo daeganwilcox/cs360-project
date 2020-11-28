@@ -84,7 +84,7 @@ $eid = $_GET['user']
                                     if ($qRes == FALSE) {
                                         print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
                                     } else if ($qRes->rowCount() == 0) {
-                                        print "<H5>You haven't started any programs yet.</H5>";
+                                        print "<H5>They haven't started any programs yet.</H5>";
                                     } else {
                                         for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                                             $name = $row['name'];
