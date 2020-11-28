@@ -422,7 +422,7 @@ $userpresent = $uid != NULL;
         print "<H6>Add a Review:</H6>";
         print "<p>Rating (1-10): <INPUT type='number' name='rating' min='1' max='10' required/></p>";
         print "<p>Comment: <textarea name='comment'></textarea></p>";
-        print "<p><input type='submit' value='Add Review'></p>"
+        print "<p><input type='submit' value='Add Review'></p>";
         print "</FORM>";
       }
 
