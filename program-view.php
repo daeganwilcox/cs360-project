@@ -418,7 +418,7 @@ $userpresent = $uid != NULL;
       }
 
       if($userpresent){
-        print "<FORM method='post' action='program-view.php/?day='N/A'&id=$pid&op=review'>";
+        print "<FORM method='post' action='program-view.php/?day='N/A'&id='$pid'&op=review'>";
         print "<H6>Add a Review:</H6>";
         print "<p>Rating (1-10): <INPUT type='number' name='rating' min='1' max='10' required/></p>";
         print "<p>Comment: <textarea name='comment'></textarea></p>";
