@@ -25,8 +25,8 @@ $userpresent = $uid != NULL;
         printOpError("URL formatted incorrectly");
       }
       else if($op == 'review'){
-        $rating = $POST['rating'];
-        $comment = $POST['comment'];
+        $rating = $_POST['rating'];
+        $comment = $_POST['comment'];
         if($comment == NULL){
           $comment = "NULL";
         }
