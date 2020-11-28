@@ -418,18 +418,21 @@ $userpresent = $uid != NULL;
       }
 
       if($userpresent){
+	print "<div class='col-md-4'>";
         print "<FORM method='post' action='program-view.php/?day=N/A&id=$pid&op=review'>";
         print "<H6>Add a Review:</H6>";
         print "<p>Rating (1-10): <INPUT type='number' name='rating' min='1' max='10' required/></p>";
         print "<p>Comment: <textarea name='comment'></textarea></p>";
         print "<p><input type='submit' value='Add Review'></p>";
         print "</FORM>";
+	print "</div>";
       }
 
       if($qResReview->rowCount() == 0){
         print "<H6>There are no reviews for this program.</H6>";
       }
       else{
+	print "<div class='col-md-4'>";
         print "<DL>";
         while($row = $qResReview->fetch()){
           $user = $row['userID'];
@@ -442,6 +445,7 @@ $userpresent = $uid != NULL;
           }
         }
         print "</DL>";
+	print "</div>";
       }
    }
     printPage($db, $userpresent, $uid); // prints the page
