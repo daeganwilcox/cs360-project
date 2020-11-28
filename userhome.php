@@ -184,12 +184,10 @@ $uid = $_SESSION['username'];
                 } else {
                   for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
                     $name = $row['user2'];
-                    print "<div class='card-body'>";
+                    print "<div>";
                     print "<A href= 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/profile.php/?user=$name>'";
                     print "<H5 class='card-tex'>$name</H5>";
                     print "</A>";
-                    print "<div class='d-flex justify-content-between align-items-center'>";
-                    print "</div>";
                     print "</div>";
                     
                   }
