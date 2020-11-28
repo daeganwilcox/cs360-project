@@ -70,6 +70,7 @@ $eid = $_GET['user']
 
                             </div>
                         </div>
+                    </div>
 
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
