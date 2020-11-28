@@ -10,7 +10,9 @@ $eid = $_GET['user']
 <html lang="en">
 
 <?php include("base.php") ?>
-
+<head>
+    <link href="css/base.css" rel="stylesheet">
+</head>
 <body>
     <main role="main">
 
