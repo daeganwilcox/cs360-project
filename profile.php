@@ -19,7 +19,7 @@ $eid = $_GET['user']
                 <div class="row" style="text-align: center; margin: auto;">
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img id="userIcon" src="<?php
+                            <img style="margin: auto;" id="userIcon" src="<?php
                                                     //get img url
                                                     $qStr = "SELECT img FROM user WHERE username='$eid';";
                                                     $qRes = $db->query($qStr);
