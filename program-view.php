@@ -24,6 +24,35 @@ $userpresent = $uid != NULL;
       if($day == NULL || $pid == NULL){
         printOpError("URL formatted incorrectly");
       }
+      else if($op == 'review'){
+        $rating = $POST['rating'];
+        $comment = $POST['comment'];
+        if($comment == NULL){
+          $comment = "NULL";
+        }
+        else{
+          $comment = "'" . $comment . "'";
+        }
+        if(!$userpresent){
+          //should never happen, but this is just in case
+          printOpError("You must be logged in to make a review.");
+        }
+        else if($rating == NULL){
+          printOpError("POST formatted incorrectly");
+        }
+        else{
+          $qStrAddReview = "INSERT INTO reviews VALUES ($pid, '$uid', $rating, $comment)";
+          $qResAddReview = $db->query($qStrAddReview);
+
+          if($qResAddReview == FALSE){
+            printOpError("Add review query error");
+          }
+          else{
+            print "<H6>Review added!</H6>";
+          }
+
+        }
+      }
       else if($op == 'complete'){
         $opEid = $_GET['eid'];
         $time = $_POST['time'];
@@ -375,6 +404,44 @@ $userpresent = $uid != NULL;
         print printNewExcerciseRow($eList);
         print "</FORM>";
         print "</TABLE>";
+      }
+
+      //prints reviews:
+      print "<H5>Reviews:</H5>";
+      $qStrReview = "SELECT userID, rating, comment FROM reviews WHERE programID = $pid;";
+      $qResReview = $db->query($qStrReview);
+
+      //problem with review query
+      if($qResReview == FALSE){
+        printSQLError("for reviews");
+        return FALSE;
+      }
+
+      if($userpresent){
+        print "<FORM method='post' action='program-view.php/?day='N/A'&id=$pid&op=review'>";
+        print "<H6>Add a Review:</H6>";
+        print "<p>Rating (1-10): <INPUT type='number' name='rating' min='1' max='10' required/></p>";
+        print "<p>Comment: <textarea name='comment'></textarea></p>";
+        print "<p><input type='submit' value='Add Review'></p>"
+        print "</FORM>";
+      }
+
+      if($qResReview->rowCount() == 0){
+        print "<H6>There are no reviews for this program.</H6>";
+      }
+      else{
+        print "<DL>";
+        while($row = $qResReview->fetch()){
+          $user = $row['userID'];
+          $rating = $row['rating'];
+          $comment = $row['comment'];
+          print "<DT>$user</DT>";
+          print "<DD>- Rating: $rating";
+          if($comment != NULL){
+            print "<DD>- \"$comment\"";
+          }
+        }
+        print "</DL>";
       }
    }
     printPage($db, $userpresent, $uid); // prints the page
