@@ -16,7 +16,7 @@ $eid = $_GET['user']
 
         <div class="album py-5 bg-light">
             <div class="container">
-                <div class="row">
+                <div class="row" style="text-align: center; margin: auto;">
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
                             <img id="userIcon" src="<?php
@@ -102,7 +102,7 @@ $eid = $_GET['user']
                             </div>
                         </div>
                     </div>
-             
+                 </div>
             </div>
         </div>
     </main>
