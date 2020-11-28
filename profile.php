@@ -68,9 +68,11 @@ $eid = $_GET['user']
                                                 }
                                                 ?> inches</h5>
                                 <div class="card-body">
-                	<a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php">
-                 	 <h5 class="card-text">Account Settings</h5>
-                	</a>
+                       
+                	             <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php?friend=$eid">
+                 	                 <h5 class="card-text">Account Settings</h5>
+                	             </a>
+                                
                 	<div class="d-flex justify-content-between align-items-center">
 
                 	</div>
