@@ -20,7 +20,8 @@ $qRes2 = $db->query($qStr2);
 
 if ($msg != NULL) {
   $currTime = date("Y-m-d H:i:s");
-  $qIn = "INSERT INTO text('sender', 'receiver', 'time', 'msg') VALUES ('$uid', '$friend', '$currTime', '$msg');";
+  $qIn = "INSERT INTO `texts`(`sender`, `receiver`, `time`, `msg`) VALUES ('$uid','$friend','$currTime','$msg');";
+  
   $qInRes = $db->query($qIn);
 }
 
