@@ -4,6 +4,8 @@ session_start();
 $uid = $_SESSION['username'];
 $friend = $_POST['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
+$userpresent = $uid != NULL;
+
 
 $qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
 $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
