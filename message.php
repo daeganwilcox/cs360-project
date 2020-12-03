@@ -5,6 +5,19 @@ $uid = $_SESSION['username'];
 $friend = $_GET['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
+$msg = $_POST['msgInput'];
+
+if ($msg != NULL) {
+  print "$msg";
+  $currTime = date("Y-m-d H:i:s");
+  $qIn = "INSERT INTO `texts`(`sender`, `receiver`, `time`, `msg`) VALUES ('$uid','$friend','$currTime','$msg');";
+  
+  $qInRes = $db->query($qIn);
+  
+  
+} else {
+  print "message null"; 
+}
 
 
 $qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
