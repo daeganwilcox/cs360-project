@@ -6,7 +6,7 @@ $friend = $_GET['friend'];
 $msg = $_POST['inputMsg'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
-
+print "$msg first";
 
 $qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
 $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
@@ -19,6 +19,7 @@ $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
 
 if ($msg != NULL) {
+  print "$msg";
   $currTime = date("Y-m-d H:i:s");
   $qIn = "INSERT INTO `texts`(`sender`, `receiver`, `time`, `msg`) VALUES ('$uid','$friend','$currTime','$msg');";
   
