@@ -13,24 +13,10 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 // - when a user sends a message, add to message log
 
 // when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
-?>
 
 
 
 
-<!doctype html>
-<html lang="en">
-
-<?php include("base.php"); ?>
- 
-<body>
-  <main role="main">
-<?php 
-  print "<div style='width: 80%; height: 80%; overflow: auto;";
-  
-  
-  
-  print "</div>";
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
 
@@ -41,6 +27,7 @@ if ($qRes1-> rowCount() == 0) {
 } else if ($qRes2 ->rowCount() == 0) {
   print "This person has not friended you yet.";
 } else {  
+  php include("base.php");
   $qStr = "SELECT * FROM texts;"; 
   $qRes = $db->query($qStr);
 
@@ -50,15 +37,13 @@ if ($qRes1-> rowCount() == 0) {
     $receiver = $row['receiver'];
     $date = $row['date'];
     
-    
     if ($sender==$uid) {
        print "<h1 style='text-align: right;'>$message</h1>";
     } else if ($sender==$friend) {
       print "<h1 style='text-align: left;'>$message</h1>"; 
     }
   }
-  
-  include("base.php");
+ 
   print "<div style='width: 80%; height: 80%; overflow: auto;"; 
   print "</div>";
   print "<form class='form-signin' method='post' action='message.php'>";
