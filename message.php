@@ -17,9 +17,6 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
 
-
-
-
 if ($qRes1-> rowCount() == 0) {
   print "You have not friended this person yet.";
   print "$uid";
@@ -48,7 +45,7 @@ if ($qRes1-> rowCount() == 0) {
   print "</div>";
   
   
-  print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
+  print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message-action.php/?friend=$friend'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
