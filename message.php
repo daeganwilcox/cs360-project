@@ -48,7 +48,7 @@ if ($qRes1-> rowCount() == 0) {
   print "</div>";
   
   
-  print "<form class='form-signin' method='post' action='message-action.php'>";
+  print "<form class='form-signin' method='post' action='/message-action.php'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
