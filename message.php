@@ -36,5 +36,7 @@ $uid = $_SESSION['username'];
 ?>
     </main>
 </body>
+ 
+</html>
               
   
