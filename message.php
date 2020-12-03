@@ -28,7 +28,7 @@ if ($qRes1-> rowCount() == 0) {
   $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid');"; 
   $qRes = $db->query($qStr);
 
-  print "<div style='width: 80%; height: 80%; overflow: auto; margin: auto;"; 
+  print "<div style='width: 80%; height: 80%; overflow: auto; margin: auto;'>"; 
   while ($row = $qRes->fetch()) {
     $message = $row['msg'];
     $sender = $row['sender'];
