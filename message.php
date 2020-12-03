@@ -11,7 +11,6 @@ $qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
 $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 // - user1 and user2 have a specific user message log in the database, pull here every 5 seconds
 // - when a user sends a message, add to message log
-<<<<<<< HEAD
 
 // when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
 ?>
