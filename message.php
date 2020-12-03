@@ -22,6 +22,8 @@ if ($msg != NULL) {
   $currTime = date("Y-m-d H:i:s");
   $qIn = "INSERT INTO text('sender', 'receiver', 'time', 'msg') VALUES ('$uid', '$friend', '$currTime', '$msg');";
   $qInRes = db->query(qIn);
+}
+
 
 if ($qRes1-> rowCount() == 0) {
   print "You have not friended this person yet.";
