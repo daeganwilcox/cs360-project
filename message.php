@@ -30,13 +30,18 @@ function checkFriends($db, $u1, $u2) {
 
 // - user1 and user2 have a specific user message log in the database, pull here every 5 seconds
 // - when a user sends a message, add to message log
+
+// when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
 ?>
+
+
 
 
 <!doctype html>
 <html lang="en">
 
 <?php include("base.php"); ?>
+<<<<<<< HEAD
 
 <?php 
 
@@ -44,4 +49,28 @@ function checkFriends($db, $u1, $u2) {
 
 ?>
 
+=======
+ 
+<body>
+  <main role="main">
+<?php 
+  print "<div style='width: 80%; height: 80%; overflow: auto;";
+  
+  
+  
+  print "</div>";
+    
+    
+  print "<form class='form-signin' method='post' action='message.php'>";
+  print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
+  print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
+  print "</form>";
+  
+?>
+    </main>
+</body>
+ 
+</html>
+              
+>>>>>>> ad16e3bf1e9a0194059ba9dfe0185fe74628c9c0
   

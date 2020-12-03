@@ -416,8 +416,10 @@ $userpresent = $uid != NULL;
         printSQLError("for reviews");
         return FALSE;
       }
-
+	
+	  
       if($userpresent){
+	print "<div class='row'>";
 	print "<div class='col-md-4'>";
         print "<FORM method='post' action='program-view.php/?day=N/A&id=$pid&op=review'>";
         print "<H6>Add a Review:</H6>";
@@ -445,6 +447,7 @@ $userpresent = $uid != NULL;
           }
         }
         print "</DL>";
+	print "</div>";
 	print "</div>";
       }
    }
