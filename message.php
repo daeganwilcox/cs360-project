@@ -2,7 +2,7 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$friend = $_POST['friend'];
+$friend = $_GET['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
 
