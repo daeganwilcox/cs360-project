@@ -2,7 +2,7 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$friend = $_POST['friend'];
+$friend = $_GET['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
 
@@ -24,7 +24,7 @@ if ($qRes1-> rowCount() == 0) {
 } else if ($qRes2 ->rowCount() == 0) {
   print "This person has not friended you yet.";
 } else {  
-  php include("base.php");
+  include("base.php");
   $qStr = "SELECT * FROM texts;"; 
   $qRes = $db->query($qStr);
 
