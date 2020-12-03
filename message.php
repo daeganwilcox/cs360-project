@@ -28,6 +28,7 @@ if ($qRes1-> rowCount() == 0) {
   $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid');"; 
   $qRes = $db->query($qStr);
 
+  print "<div style='width: 80%; height: 80%; overflow: auto; margin: auto;"; 
   while ($row = $qRes->fetch()) {
     $message = $row['msg'];
     $sender = $row['sender'];
@@ -35,14 +36,15 @@ if ($qRes1-> rowCount() == 0) {
     $date = $row['date'];
     
     if ($sender==$uid) {
-       print "<h1 style='text-align: right;'>$message</h1>";
+      print "<h1 style='text-align: right;'>$message</h1>";
     } else if ($sender==$friend) {
       print "<h1 style='text-align: left;'>$message</h1>"; 
     }
   }
- 
-  print "<div style='width: 80%; height: 80%; overflow: auto;"; 
+  
   print "</div>";
+  
+  
   print "<form class='form-signin' method='post' action='message.php'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
