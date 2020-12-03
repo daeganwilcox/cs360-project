@@ -2,8 +2,8 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$friend = $_GET['friend'];
-$msg = $_GET['inputMsg'];
+$friend = $_POST['friend'];
+$msg = $_POST['inputMsg'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
 
@@ -53,7 +53,7 @@ if ($qRes1-> rowCount() == 0) {
   print "</div>";
   
   
-  print "<form class='form-signin' method='get'>";
+  print "<form class='form-signin' method='post'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
