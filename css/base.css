@@ -1,3 +1,9 @@
+/*
+Created by: Daegan Wilcox
+CSS styling code creates the format for the base.php file 
+which is used across many other files across many other 
+files since it is what lays out the header of each page.
+*/
 .card-object {
   margin-top: 5px;
   text-align: center;

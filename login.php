@@ -1,3 +1,12 @@
+<!-- 
+Created by: Collin Presser
+This is the action page that attempts to log a user in. 
+If successful, the user will be redirected accordingly, 
+otherwise, a notification will be printed describing
+the issue that was encountered.
+
+file in sequence as a result of successful action: userhome.php
+-->
 <?php
 include_once ("db_connect.php");
 include ("login-signup-utils.php");
