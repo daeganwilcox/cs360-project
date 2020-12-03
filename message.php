@@ -16,6 +16,8 @@ $qRes2 = $db->query($qStr2);
 
 if ($qRes1-> rowCount() == 0) {
   print "You have not friended this person yet.";
+  print "$uid";
+  print "$friend";
 } else if ($qRes2 ->rowCount() == 0) {
   print "This person has not friended you yet.";
 } else {  
