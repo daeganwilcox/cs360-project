@@ -31,7 +31,6 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
   
   
   print "</div>";
-=======
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
 
@@ -50,7 +49,6 @@ if ($qRes1-> rowCount() == 0) {
     $sender = $row['sender'];
     $receiver = $row['receiver'];
     $date = $row['date'];
->>>>>>> 8bdf524144923ab3c5b1cd3ddffdaa376b94bb7c
     
     
     if ($sender==$uid) {
@@ -69,10 +67,6 @@ if ($qRes1-> rowCount() == 0) {
   print "</form>";
 }
  
-<<<<<<< HEAD
-</html>
-              
-=======
 
 // row count = 0
 // when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
@@ -80,5 +74,4 @@ if ($qRes1-> rowCount() == 0) {
 
 
    
->>>>>>> 8bdf524144923ab3c5b1cd3ddffdaa376b94bb7c
   
