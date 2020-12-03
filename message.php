@@ -2,7 +2,7 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$friend = $_GET['friend'];
+$friend = $_POST['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
 
@@ -13,9 +13,6 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 // - when a user sends a message, add to message log
 
 // when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
-
-
-
 
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
