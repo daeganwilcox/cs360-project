@@ -3,6 +3,7 @@ include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
 $friend = $_GET['friend'];
+$msg = $_GET['inputMsg'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
 $userpresent = $uid != NULL;
 
@@ -16,6 +17,11 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
+
+if ($msg != NULL) {
+  $currTime = date("Y-m-d H:i:s");
+  $qIn = "INSERT INTO text('sender', 'receiver', 'time', 'msg') VALUES ('$uid', '$friend', '$currTime', '$msg');";
+  $qInRes = db->query(qIn);
 
 if ($qRes1-> rowCount() == 0) {
   print "You have not friended this person yet.";
@@ -45,7 +51,7 @@ if ($qRes1-> rowCount() == 0) {
   print "</div>";
   
   
-  print "<form class='form-signin' method='post' action='message.php'>";
+  print "<form class='form-signin' method='post' action='message.php/?friend=$friend'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
