@@ -2,34 +2,16 @@
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
-$ouid = $_GET['friend'];
-
-function checkFriends($db, $u1, $u2) {
-    if ($u1 == null){
-        print "<H5> You are not logged in. Please log in <a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/login.html'>here</a> </H5>";
-        return FALSE;
-    }
-    if ($u2 == null ) {
-        print "<H5>Invalid url format</H5>";
-        return FALSE;
-    }
-    $qStr = "SELECT * FROM friend WHERE (user1='$u1' AND user2='$u2') OR (user1='$u2' AND user2='$u1');";
-    $qRes = $db->query($qStr);
-    if ($qRes == FALSE){
-        printSQLError("for checking friendship");
-        return FALSE;
-    }
-
-    if ($qRes->rowCount() != 2){
-        print "<H5> You are not friends with $u2. </H5>";
-        return FALSE;
-    }
-    return TRUE;
-}
+$friend = $_GET['friend'];
 // needs to check the user accessing this page, and should have a POST where the user is given. right here should probably re indentify if they are still friends
+$userpresent = $uid != NULL;
 
+
+$qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
+$qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 // - user1 and user2 have a specific user message log in the database, pull here every 5 seconds
 // - when a user sends a message, add to message log
+<<<<<<< HEAD
 
 // when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
 ?>
@@ -50,17 +32,54 @@ function checkFriends($db, $u1, $u2) {
   
   
   print "</div>";
+=======
+$qRes1 = $db->query($qStr1);
+$qRes2 = $db->query($qStr2);
+
+if ($qRes1-> rowCount() == 0) {
+  print "You have not friended this person yet.";
+  print "$uid";
+  print "$friend";
+} else if ($qRes2 ->rowCount() == 0) {
+  print "This person has not friended you yet.";
+} else {  
+  $qStr = "SELECT * FROM texts;"; 
+  $qRes = $db->query($qStr);
+
+  while ($row = $qRes->fetch()) {
+    $message = $row['msg'];
+    $sender = $row['sender'];
+    $receiver = $row['receiver'];
+    $date = $row['date'];
+>>>>>>> 8bdf524144923ab3c5b1cd3ddffdaa376b94bb7c
     
     
+    if ($sender==$uid) {
+       print "<h1 style='text-align: right;'>$message</h1>";
+    } else if ($sender==$friend) {
+      print "<h1 style='text-align: left;'>$message</h1>"; 
+    }
+  }
+  
+  include("base.php");
+  print "<div style='width: 80%; height: 80%; overflow: auto;"; 
+  print "</div>";
   print "<form class='form-signin' method='post' action='message.php'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
-  
-?>
-    </main>
-</body>
+}
  
+<<<<<<< HEAD
 </html>
               
+=======
+
+// row count = 0
+// when user starts the page, it gets the dialogue. thus, when they send a message, it should update the dialogue
+?>
+
+
+   
+>>>>>>> 8bdf524144923ab3c5b1cd3ddffdaa376b94bb7c
   
