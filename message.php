@@ -18,10 +18,7 @@ if ($qRes1-> rowCount() == 0) {
   print "You have not friended this person yet.";
 } else if ($qRes2 ->rowCount() == 0) {
   print "This person has not friended you yet.";
-} else {
-  qMessage = "SELECT msg FROM texts WHERE sender='$uid' AND receiver='$friend;'";
-  
-  
+} else {  
   $qStr = "SELECT * FROM texts;"; 
   $qRes = $db->query($qStr);
 
@@ -33,15 +30,14 @@ if ($qRes1-> rowCount() == 0) {
     
     
     if ($sender==$uid) {
-       print "<h1 style='text-align: right';>$message</h1>";
+       print "<h1 style='text-align: right;'>$message</h1>";
     } else if ($sender==$friend) {
-      print "<h1 style='text-align: left';>$message</h1>"; 
+      print "<h1 style='text-align: left;'>$message</h1>"; 
     }
   }
   
   include("base.php");
   print "<div style='width: 80%; height: 80%; overflow: auto;"; 
-  print "
   print "</div>";
   print "<form class='form-signin' method='post' action='message.php'>";
   print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
