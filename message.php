@@ -25,7 +25,7 @@ $uid = $_SESSION['username'];
   
   
   
-  print "<div>"
+  print "</div>"
     
     
   print "<form class='form-signin' method='post' action='message.php'>";
