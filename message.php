@@ -17,7 +17,9 @@ $uid = $_SESSION['username'];
 <html lang="en">
 
 <?php include("base.php"); ?>
-  
+ 
+<body>
+  <main role="main>
 <?php 
   print "<div style='width: 80%; height: 80%; overflow: auto;";
   
@@ -32,4 +34,7 @@ $uid = $_SESSION['username'];
   print "</form>";
   
 ?>
+              </main>
+              </body>
+              
   
