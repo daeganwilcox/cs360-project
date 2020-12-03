@@ -1,3 +1,13 @@
+<!-- 
+Created by: Collin Presser
+This is the action page that attempts to sign a user up. 
+If successful, the user will be sent a verification 
+email in order to confirm their account. Currently, 
+verification emails are only sent to @gettysburg.edu 
+domains. 
+
+file in sequence as a result of successful action: verify.php
+-->
 <!DOCTYPE html>
 <HTML>
 <BODY>

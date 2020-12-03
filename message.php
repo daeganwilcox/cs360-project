@@ -41,15 +41,6 @@ function checkFriends($db, $u1, $u2) {
 <html lang="en">
 
 <?php include("base.php"); ?>
-<<<<<<< HEAD
-
-<?php 
-
-
-
-?>
-
-=======
  
 <body>
   <main role="main">
@@ -72,5 +63,4 @@ function checkFriends($db, $u1, $u2) {
  
 </html>
               
->>>>>>> ad16e3bf1e9a0194059ba9dfe0185fe74628c9c0
   
