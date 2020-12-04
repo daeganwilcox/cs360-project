@@ -16,13 +16,6 @@ $header  = "From: $name <$email>\r\n";
 
 $result  = mail($to, $subject, $content, $header);
 
-if ($result == FALSE) {
-    echo "<P>Comment was not sent</P>\n";
-}
-else {
-    echo "<P>Comment was sent successfully</P>\n";
-}
-
 ?>
 
 <HTML>
