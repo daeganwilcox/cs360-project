@@ -18,7 +18,7 @@ $uid = $_SESSION['username'];
    print "Message:";
    print "<TEXTAREA name='taContent' rows='5' cols='60'> </TEXTAREA>";    
    print "<INPUT type='submit' value='Email us!' />";
-   print "/<FORM>"
+   print "<FORM>";
    print "</div>";
    print "</container>";
        
