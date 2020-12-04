@@ -20,7 +20,7 @@ $userpresent = $uid != NULL;
     <main role="main">
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
                         <h2>Programs you are a part of:</h2>
@@ -60,7 +60,7 @@ $userpresent = $uid != NULL;
                 </div>
 
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
                         <h2>Programs you created:</h2>
                         <table>
@@ -98,7 +98,7 @@ $userpresent = $uid != NULL;
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
                         <h2>Programs you saved:</h2>
                         <table>
