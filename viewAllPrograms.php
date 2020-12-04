@@ -120,7 +120,7 @@ $userpresent = $uid != NULL;
                                     $name = $row['name'];
                                     $description = $row['description'];
                                     $creator = $row['creatorID'];
-                                    $date = $row['date'];
+                                    $date = $row['date_created'];
                                     $id = $row['id'];
                                     print "<tr>";
                                     print "<td>";
