@@ -1,3 +1,9 @@
+<!--
+Imported by: Ricky Miranda
+Performs the action of sending an email to 
+Ricky's student email account that was written 
+in the contact us page.
+ -->
 <?php
 
 include_once("db_connect.php");

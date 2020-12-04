@@ -1,4 +1,7 @@
-<!-- HTML components: form, input, text field, text area -->
+<!--
+Imported by: Ricky Miranda
+Creating a contact us page for anyone to send an email to us. 
+ -->
 <?php
 include_once("db_connect.php");
 session_start();
