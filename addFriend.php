@@ -19,7 +19,7 @@ if($qRes == FALSE){
     printSQLError("for adding friends");
 }
 
-if($qRes-> rowCount() == 0){]
+if($qRes-> rowCount() == 0){
     include_once("base.php");
     print "<div class='center'><H1>'$userFriend' does not exist</H1>";
     print "<H3>Please try sending another friend request on your home page.</H3></div>";
