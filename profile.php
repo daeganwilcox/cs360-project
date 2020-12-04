@@ -29,17 +29,17 @@ $eid = $_GET['user']
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
                             <img style="margin: auto;" id="userIcon" src="<?php
-                                                    //get img url
-                                                    $qStr = "SELECT img FROM user WHERE username='$eid';";
-                                                    $qRes = $db->query($qStr);
-                                                    if ($qRes == FALSE) {
-                                                        printSQLError("image");
-                                                    } else {
-                                                        $row = $qRes->fetch();
-                                                        $img = $row['img'];
-                                                        print "$img";
-                                                    }
-                                                    ?>" alt="" width="100px" height="100px">
+                                                                            //get img url
+                                                                            $qStr = "SELECT img FROM user WHERE username='$eid';";
+                                                                            $qRes = $db->query($qStr);
+                                                                            if ($qRes == FALSE) {
+                                                                                printSQLError("image");
+                                                                            } else {
+                                                                                $row = $qRes->fetch();
+                                                                                $img = $row['img'];
+                                                                                print "$img";
+                                                                            }
+                                                                            ?>" alt="" width="100px" height="100px">
                             <div class="card-object">
                                 <h2><?php print $eid ?></h2>
                                 <h5>Calories Burned: <?php
@@ -77,52 +77,95 @@ $eid = $_GET['user']
                                                 }
                                                 ?> inches</h5>
                                 <div class="card-body">
-                       
-                	             <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=<?php print $eid ?>">
-                 	                 <h5 class="card-text">Message me!</h5>
-                	             </a>
-                                
-                	<div class="d-flex justify-content-between align-items-center">
 
-                	</div>
-              	</div>
+                                    <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=<?php print $eid ?>">
+                                        <h5 class="card-text">Message me!</h5>
+                                    </a>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <div class="card-object">
-                                    <h2> Programs </h2>
-                                </div>
-                                <div>
-                                    <?php
-                                    $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$eid' ORDER BY date_time DESC) AS uComp NATURAL JOIN program;";
-                                    $qRes = $db->query($qStr);
-                                    if ($qRes == FALSE) {
-                                        print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
-                                    } else if ($qRes->rowCount() == 0) {
-                                        print "<H5>They haven't started any programs yet.</H5>";
-                                    } else {
-                                        for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
-                                            $name = $row['name'];
-                                            $id = $row['id'];
-                                            print "<div class='card-body'>";
-                                            print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
-                                            print "<H4 class='card-tex'>$name</H4>";
-                                            print "</A>";
-                                            print "<div class='d-flex justify-content-between align-items-center'>";
-                                            print "</div>";
-                                            print "</div>";
-                                        }
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-object">
+                                <h2> Most Recently Used Programs </h2>
+                            </div>
+                            <div>
+                                <?php
+                                $qStr = "SELECT name, programID AS id FROM (SELECT DISTINCT programID FROM completed WHERE userID = '$eid' ORDER BY date_time DESC) AS uComp NATURAL JOIN program;";
+                                $qRes = $db->query($qStr);
+                                if ($qRes == FALSE) {
+                                    print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                                } else if ($qRes->rowCount() == 0) {
+                                    print "<H5>They haven't started any programs yet.</H5>";
+                                } else {
+                                    for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                                        $name = $row['name'];
+                                        $id = $row['id'];
+                                        print "<div class='card-body'>";
+                                        print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
+                                        print "<H4 class='card-tex'>$name</H4>";
+                                        print "</A>";
+                                        print "<div class='d-flex justify-content-between align-items-center'>";
+                                        print "</div>";
+                                        print "</div>";
                                     }
-                                    ?>
-                                </div>
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
-                 </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <h2>Programs Saved:</h2>
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>description</th>
+                                    <th>Made by</th>
+                                    <th>Date Created</th>
+                                </tr>
+                                <?php
+                                $qStr = "SELECT name, description, creatorID, date_created FROM program NATURAL JOIN saved WHERE traineeID = '$uid';";
+                                $qRes = $db->query($qStr);
+                                if ($qRes == FALSE) {
+                                    print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
+                                } else if ($qRes->rowCount() == 0) {
+                                    print "<H5>You haven't saved any programs yet.</H5>";
+                                } else {
+                                    while ($row = $qRes->fetch()) {
+                                        $name = $row['name'];
+                                        $description = $row['description'];
+                                        $creator = $row['creatorID'];
+                                        $date = $row['date'];
+                                        $id = $row['id'];
+                                        print "<tr>";
+                                        print "<td>";
+                                        print "<A href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>";
+                                        print "$name";
+                                        print "</A>";
+                                        print "</td>";
+                                        print "<td>$description</td>";
+                                        print "<td>$creator</td>";
+                                        print "<td>$date</td>";
+                                        print "</tr>";
+                                    }
+                                }
+                                ?>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
+        </div>
         </div>
     </main>
 </body>
