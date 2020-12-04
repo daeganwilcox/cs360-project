@@ -59,7 +59,7 @@ if ($qRes1-> rowCount() == 0) {
   
   
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
-  print "<textarea id='msgInput' class='form-control' placeholder='Message text' required></textarea>";
+  print "<textarea name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
   print "</form>";
 }
