@@ -31,6 +31,7 @@ if ($qRes1-> rowCount() == 0) {
   print "This person has not friended you yet.";
 } else {  
   include("base.php");
+  print "<container>";
   $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid') ORDER BY time;"; 
   $qRes = $db->query($qStr);
 
@@ -42,19 +43,19 @@ if ($qRes1-> rowCount() == 0) {
     $date = $row['date'];
     
     if ($sender==$uid) {
-      print "<h2 style='text-align: right;'>$message</h1>";
+      print "<h3 style='text-align: right; max-width: 50%;'>$message</h1>";
     } else if ($sender==$friend) {
-      print "<h2 style='text-align: left;'>$message</h1>"; 
+      print "<h3 style='text-align: left; max-width: 50%;'>$message</h1>"; 
     }
   }
   
   print "</div>";
   
-  
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
-  print "<textarea name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
+  print "<textarea style='width: 80%; margin: auto;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' style='width: 80%; margin: auto;'type='submit'>Send Message</button>";
   print "</form>";
+  print "</container>";
 }
  
 
