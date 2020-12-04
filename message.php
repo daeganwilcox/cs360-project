@@ -51,10 +51,10 @@ if ($qRes1-> rowCount() == 0) {
   
   print "</container>";
   
-  while (TRUE) {
-    sleep(5);
-    printChat($uid, $friend, $db);
-  }
+//   while (TRUE) {
+//     sleep(5);
+//     printChat($uid, $friend, $db);
+//   }
 }
  
   function printChat($uid, $friend, $db) {
