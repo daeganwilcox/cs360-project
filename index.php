@@ -44,6 +44,7 @@ if ($uid != null) {
                         $name = $row['name'];
                         $date = $row['date_created'];
                         $rating = $row['avg'];
+                        $description = $row['description'];
                         print "<div class='col-md-4'> \r\n";
                         print "<div class='card mb-4 shadow-sm'> \r\n";
                         print "<svg class='bd-placeholder-img card-img-top' width='100%' height='225' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: Thumbnail'> \r\n";
@@ -51,12 +52,12 @@ if ($uid != null) {
                         print "<rect width='100%' height='100%' fill='#55595c' /><text x='50%' y='50%' fill='#eceeef' dy='.3em'>$name</text> \r\n";
                         print "</svg> \r\n";
                         print "<div class='card-body'>\r\n";
-                        print "<p class='card-text'>A program built for beginners looking to bulk fast.</p>\r\n";
+                        print "<p class='card-text'>$description</p>\r\n";
                         print "<div class='d-flex justify-content-between align-items-center'> \r\n";
                         print "<div class='btn-group'> \r\n";
                         print "<button type='button' class='btn btn-sm btn-outline-secondary'>Try for free!</button> \r\n";
                         print "</div> \r\n";
-                        print "<small class='text-muted'>Created: Oct 11, 2020</small> \r\n";
+                        print "<small class='text-muted'>Created: $date</small> \r\n";
                         print "</div>\r\n";
                         print "</div>\r\n";
                         print "</div>\r\n";
