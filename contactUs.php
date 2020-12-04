@@ -10,7 +10,7 @@ $uid = $_SESSION['username'];
    include("base.php"); 
        
    print "<container>";
-   print "<div style='text-align-center; margin: auto;'>";
+   print "<div style='text-align: center; margin: auto;'>";
    print "<H2>Contact us!</H2>";
    print "<FORM name='fmMail' method='POST' action='contactAction.php'>";
    print "Name:<INPUT type='text' name='tfName' size='30' placeholder='Enter your name' /><BR /><BR />";
