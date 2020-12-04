@@ -42,12 +42,12 @@ if ($qRes1-> rowCount() == 0) {
   
   
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
-  print "<textarea style='width: 64%; margin-top: 5px; margin: auto;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
+  print "<textarea style='width: 64%; margin: auto;  margin-top: 5px;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' style='margin-top: 5px; width: 64%; margin: auto;'type='submit'>Send Message</button>";
   print "</form>";
   
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
-  print "<button class='btn btn-lg btn-secondary btn-block' style='width: 64%; margin-top: 5px; margin: auto;'type='submit'>Refresh Chat</button>";
+  print "<button class='btn btn-lg btn-secondary btn-block' style='width: 64%; margin: auto; margin-top: 5px;'type='submit'>Refresh Chat</button>";
   print "</form>";
   
   print "</container>";
@@ -72,7 +72,7 @@ if ($qRes1-> rowCount() == 0) {
         print "<ul class='list-group' style='width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: right; margin: auto;'>$message</h3></li></ul>";
         print "<br>";
       } else if ($sender==$friend) {
-        print "<ul class='list-group' style='background-color: #292b2c; width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: left; color: #f7f7f7; margin: auto'>$message</h3></li></ul>";
+        print "<ul class='list-group' style='background-color: #292b2c; width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: left; color: #808080; margin: auto'>$message</h3></li></ul>";
         print "<br>";
       }
     }
