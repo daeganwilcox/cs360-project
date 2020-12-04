@@ -5,8 +5,9 @@ session_start();
 $uid = $_SESSION['username'];
 ?>
 
-<?
-   php include("base.php"); 
+<?php 
+
+   include("base.php"); 
        
    print "<container>";
    print "<div style='text-align-center; margin: auto;'>";
