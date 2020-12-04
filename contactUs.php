@@ -17,8 +17,8 @@ $uid = $_SESSION['username'];
    print "Email: <INPUT type='email' name='tfEmail' size='30' placeholder='Enter your email' /><BR /><BR />";
    print "Message:";
    print "<TEXTAREA name='taContent' rows='5' cols='60'> </TEXTAREA>";    
-   print "<INPUT type='submit' value='Email us!' />";
-   print "<FORM>";
+   print "<button class='btn btn-lg btn-primary btn-block' margin: auto; margin-top: 5px;'type='submit'>Email Us!</button>";
+   print "</FORM>";
    print "</div>";
    print "</container>";
        
