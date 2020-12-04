@@ -32,8 +32,11 @@ if ($qRes1-> rowCount() == 0) {
 } else {  
   include("base.php");
   print "<container>";
+  
   $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid') ORDER BY time;"; 
   $qRes = $db->query($qStr);
+  
+  print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
 
   print "<div style='height: 80%; overflow: auto; margin: auto;'>"; 
   while ($row = $qRes->fetch()) {
@@ -43,17 +46,17 @@ if ($qRes1-> rowCount() == 0) {
     $date = $row['date'];
     
     if ($sender==$uid) {
-      print "<h3 style='text-align: right; max-width: 80%; margin: auto;'>$message</h1>";
+      print "<h3 style='text-align: right; max-width: 64%; margin: auto;'>$message</h1>";
     } else if ($sender==$friend) {
-      print "<h3 style='text-align: left; max-width: 80%; margin: auto'>$message</h1>"; 
+      print "<h3 style='text-align: left; max-width: 64%; margin: auto'>$message</h1>"; 
     }
   }
   
   print "</div>";
   
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
-  print "<textarea style='width: 80%; margin: auto;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
-  print "<button class='btn btn-lg btn-primary btn-block' style='width: 80%; margin: auto;'type='submit'>Send Message</button>";
+  print "<textarea style='width: 64%; margin: auto;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
+  print "<button class='btn btn-lg btn-primary btn-block' style='width: 64%; margin: auto;'type='submit'>Send Message</button>";
   print "</form>";
   print "</container>";
 }
