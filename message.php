@@ -38,7 +38,7 @@ if ($qRes1-> rowCount() == 0) {
   
   print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
 
-  print "<div style='height: 80%; overflow: auto; margin: auto;'>"; 
+  print "<div style='max-height: 80%; overflow: auto; margin: auto;'>"; 
   while ($row = $qRes->fetch()) {
     $message = $row['msg'];
     $sender = $row['sender'];
@@ -58,6 +58,11 @@ if ($qRes1-> rowCount() == 0) {
   print "<textarea style='width: 64%; margin: auto;' name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
   print "<button class='btn btn-lg btn-primary btn-block' style='width: 64%; margin: auto;'type='submit'>Send Message</button>";
   print "</form>";
+  
+  print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
+  print "<button class='btn btn-lg btn-secondary btn-block' style='width: 64%; margin: auto;'type='submit'>Refresh Chat</button>";
+  print "</form>";
+  
   print "</container>";
 }
  
