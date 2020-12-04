@@ -38,7 +38,7 @@ if ($qRes1-> rowCount() == 0) {
   print "This person has not friended you yet.";
 } else {  
   include("base.php");
-  $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid');"; 
+  $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid') ORDER BY time;"; 
   $qRes = $db->query($qStr);
 
   print "<div style='width: 80%; height: 80%; overflow: auto; margin: auto;'>"; 
