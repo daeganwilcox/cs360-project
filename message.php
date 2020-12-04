@@ -33,6 +33,7 @@ if ($qRes1-> rowCount() == 0) {
   include("base.php");
   print "<container>";
   print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
+  print "<br>";
   
   
   printChat($uid, $friend, $db);
@@ -69,8 +70,12 @@ if ($qRes1-> rowCount() == 0) {
     
       if ($sender==$uid) {
         print "<ul class='list-group' style='width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: right; margin: auto;'>$message</h3></li></ul>";
+        print "<h3>: You</h3>";
+        print "<br>";
       } else if ($sender==$friend) {
-        print "<ul class='list-group' style='width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: left; margin: auto'>$message</h3></li></ul>"; 
+        print "<h3>$friend:</h3>";
+        print "<ul class='list-group' style='width: 64%; margin: auto;'><li class='list-group-item'><h3 style='text-align: left; margin: auto'>$message</h3></li></ul>";
+        print "<br>";
       }
     }
   
