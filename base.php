@@ -108,9 +108,13 @@ $uid = $_SESSION['username'];
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container d-flex justify-content-between">
-        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/" class="navbar-brand d-flex align-items-center">
+        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/" class="navbar-brand d-flex align-items-left">
           <img src="https://img.icons8.com/windows/32/000000/dumbbell.png" />
           <strong>Home</strong>
+        </a>
+        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/" class="navbar-brand d-flex align-items-right">
+          <img src="https://img.icons8.com/windows/32/000000/dumbbell.png" />
+          <strong>Contact Us</strong>
         </a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
