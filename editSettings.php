@@ -37,7 +37,7 @@ $uid = $_SESSION['username'];
     <div>
         <form action="change-h.php" method="post">
             <p>
-                New Height:<input type="text" id="newHeight" name="newHeight">
+                New Height:<input type="text" id="newHeight" name="newHeight" required>
             </p>
             <button type="submit">Change Height</button>
         </form>
@@ -45,7 +45,7 @@ $uid = $_SESSION['username'];
     <div>
         <form action="change-w.php" method="post">
             <p>
-                New Weight:<input type="text" id="newWeight" name="newWeight">
+                New Weight:<input type="text" id="newWeight" name="newWeight" required >
 </p>
             <button type="submit">Change Weight</button>
         </form>
