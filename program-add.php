@@ -1,3 +1,11 @@
+<!-- 
+Created by: Collin Presser
+Allows users to create new programs 
+by inputing surface level information
+about the program.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();

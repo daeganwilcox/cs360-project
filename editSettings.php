@@ -1,3 +1,11 @@
+<!-- 
+Created by: Ricky Miranda
+A file that displays the current height 
+and weight of the user and allows them 
+input their new height or weight. 
+
+file in sequence as a result of successful action: change-h.php OR change-w.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();

@@ -1,3 +1,13 @@
+<!-- 
+Created by: Collin Presser
+A function that allows the user to 
+change their password that is stored 
+in the database by replacing the
+password hash column for the respective user.
+
+file in sequence as a result of successful action: userhome.php
+-->
+
 <?php
 include_once("db_connect.php");
 include_once("login-signup-utils.php");

@@ -1,3 +1,10 @@
+<!-- 
+Created by: Ricky Miranda
+Allows users to view their current programs as well 
+as view the programs they have created.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();

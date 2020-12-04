@@ -1,7 +1,7 @@
 <!-- 
 Created by: Collin Presser
 This is the action page that attempts to log a user in. 
-If successful, the user will be redirected accordingly, 
+If successful, the user will be redirected accordingly,
 otherwise, a notification will be printed describing
 the issue that was encountered. 
 

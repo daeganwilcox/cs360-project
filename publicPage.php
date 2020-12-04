@@ -1,3 +1,6 @@
+<!-- 
+    don't know if we need this or not
+-->
 <?php
 include_once("db_connect.php");
 session_start();

@@ -1,3 +1,11 @@
+<!-- 
+Created by: Collin Presser
+This file allows users to view a specific exercise
+that is listed in the program view page of a
+specific program that a user is viewing.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <?php
 include_once("db_connect.php");
 ?>

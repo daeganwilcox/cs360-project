@@ -1,3 +1,11 @@
+<!-- 
+Created by: Ricky Miranda
+A function that allows the user to 
+change their height that is stored 
+in the database.
+
+file in sequence as a result of successful action: userhome.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();

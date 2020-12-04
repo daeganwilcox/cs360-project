@@ -1,15 +1,34 @@
+<!-- 
+Created by: Daegan Wilcox and Collin Presser
+This is the base file that is included in most php files 
+in this project. It provides a layout for the header 
+as well as the CSS code and some error functions 
+which are used to debug. 
+
+file in sequence as a result of successful action: no sequence
+-->
 <?php
-//prints error message during html form operation
+/*
+Created by: Collin Presser
+prints error message during html form operation
+*/
 function printOpError($msg)
 {
   print "<div class='center'><H6 style='color:red'>ERROR processing your request: $msg</H6></div>";
 }
-//prints which SQL query had an error when called
+/*
+Created by: Collin Presser 
+prints which SQL query had an error when called
+*/
 function printSQLError($qnum)
 {
   print "<div class='center'>H5>MySQL Error</H5>";
   print "<H5>There was a MySQL query error with query $qnum. Please contact one of our developers using our Contact Us page.</H5></div>";
 }
+/*
+Created by: Collin Presser 
+prints a notification when a user is not logged in
+*/
 function printNotLoggedIn(){
   print "<div class='center'><H1>Not Logged In</H1>";
   print "<H3>Please try logging in <a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/login.html'>here</a>.</H3></div>";

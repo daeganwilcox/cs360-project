@@ -1,3 +1,11 @@
+<!-- 
+Created by: Collin Presser
+Allows users to look for a program with a search function. 
+Users can click on any program that is displayed and add
+it to their own list of programs.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <?php
 include_once("db_connect.php");
 $search = $_POST['search'];

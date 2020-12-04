@@ -1,3 +1,9 @@
+<!-- 
+Created by: Collin Presser
+Allows users edit their information 
+
+file in sequence as a result of successful action: change-pass.php, change-img.php, or editSettings.php
+-->
 <?php
 session_start();
 $uid = $_SESSION['username'];

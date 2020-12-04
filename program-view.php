@@ -1,3 +1,16 @@
+<!-- 
+Created by: Collin Presser
+Allows users to view their current programs 
+and input information regarding program 
+completition. 
+If logged in as a program owner/editor, 
+the user can edit information regarding 
+exercise schemes for any day which will 
+apply the changes to everyone with that 
+program.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <script>
     if(typeof window.history.pushState == 'function') {
         window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'] . "?id=" . $_GET['id'];?>');

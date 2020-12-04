@@ -1,3 +1,12 @@
+<!-- 
+Created by: Ricky Miranda and Daegan Wilcox
+Shows the selected friend's public profile page by 
+choosing the friend from the userhome page. 
+This shows the users information as well as 
+the programs that they are a part of.
+
+file in sequence as a result of successful action: message.php (if messaging the user)
+-->
 <?php
 include_once("db_connect.php");
 session_start();

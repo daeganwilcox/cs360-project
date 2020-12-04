@@ -1,3 +1,7 @@
+<!-- 
+Created by: Collin Presser
+connects the current session to the database on MYSQL
+-->
 <?php
 
 $host = "ada.cc.gettysburg.edu";

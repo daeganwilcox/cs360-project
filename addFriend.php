@@ -1,3 +1,10 @@
+<!-- 
+Created by: Ricky Miranda
+A function that attempts to add friends 
+from the userhome page.
+
+file in sequence as a result of successful action: userhome.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();

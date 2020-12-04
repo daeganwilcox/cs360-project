@@ -1,3 +1,11 @@
+<!-- 
+Created by: Collin Presser, Daegan Wilcox, and Ricky Miranda
+Allows users to view their current dashboard that 
+displays their current programs, their personal information, 
+and their friends as well as have the ability to add friends.
+
+file in sequence as a result of successful action: program-view.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();
