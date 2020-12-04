@@ -35,7 +35,7 @@ if ($qRes1-> rowCount() == 0) {
   print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
   
   
-  
+  printChat();
   
 
   
@@ -50,6 +50,11 @@ if ($qRes1-> rowCount() == 0) {
   print "</form>";
   
   print "</container>";
+  
+  while (TRUE) {
+    sleep(5);
+    printChat();
+  }
 }
  
   function printChat() {
