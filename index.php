@@ -7,6 +7,7 @@ in, or redirects to the userhome page.
 file in sequence as a result of successful action: login.html, signup.html or userhome.php
 -->
 <?php
+include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
 if ($uid != null) {
@@ -36,109 +37,36 @@ if ($uid != null) {
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $qStr = "SELECT name, description, program.programID AS id, date_created, AVG(rating) AS avg FROM program LEFT JOIN reviews ON program.programID = reviews.programID GROUP BY program.programID ORDER BY AVG(rating) DESC";
+                    $qRes = $db->query($qStr);
+                    for ($i = 0; $i < 6 && $row = $qRes->fetch(); $i++) {
+                        $name = $row['name'];
+                        $date = $row['date_created'];
+                        $rating = $row['avg'];
+                        print "<div class='col-md-4'> \r\n";
+                        print "<div class='card mb-4 shadow-sm'> \r\n";
+                        print "<svg class='bd-placeholder-img card-img-top' width='100%' height='225' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: Thumbnail'> \r\n";
+                        print "<title>Placeholder</title>\r\n";
+                        print "<rect width='100%' height='100%' fill='#55595c' /><text x='50%' y='50%' fill='#eceeef' dy='.3em'>$name</text> \r\n";
+                        print "</svg> \r\n";
+                        print "<div class='card-body'>\r\n";
+                        print "<p class='card-text'>A program built for beginners looking to bulk fast.</p>\r\n";
+                        print "<div class='d-flex justify-content-between align-items-center'> \r\n";
+                        print "<div class='btn-group'> \r\n";
+                        print "<button type='button' class='btn btn-sm btn-outline-secondary'>Try for free!</button> \r\n";
+                        print "</div> \r\n";
+                        print "<small class='text-muted'>Created: Oct 11, 2020</small> \r\n";
+                        print "</div>\r\n";
+                        print "</div>\r\n";
+                        print "</div>\r\n";
+                        print "</div>\r\n";
+                    }
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Gainz for Newbies</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">A program built for beginners looking to bulk fast.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Try for free!</button>
-                                    </div>
-                                    <small class="text-muted">Created: Oct 11, 2020</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+                    ?>
+
                 </div>
             </div>
         </div>
