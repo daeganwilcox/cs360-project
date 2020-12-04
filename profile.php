@@ -132,7 +132,7 @@ $eid = $_GET['user']
                                     <th>Date Created</th>
                                 </tr>
                                 <?php
-                                $qStr = "SELECT name, description, creatorID, date_created FROM program NATURAL JOIN saved WHERE traineeID = '$uid';";
+                                $qStr = "SELECT name, description, programID as id, creatorID, date_created FROM program NATURAL JOIN saved WHERE traineeID = '$uid';";
                                 $qRes = $db->query($qStr);
                                 if ($qRes == FALSE) {
                                     print "<H5>There was a MySQL query error. Please contact one of our developers using our Contact Us page.</H5>";
