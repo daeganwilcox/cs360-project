@@ -43,7 +43,7 @@ if ($uid != null) {
                     for ($i = 0; $i < 6 && $row = $qRes->fetch(); $i++) {
                         $name = $row['name'];
                         $date = $row['date_created'];
-                        $rating = $row['avg'];
+                        $rating = round($row['avg'], 2);
                         $description = $row['description'];
                         $id = $row['id'];
                         print "<div class='col-md-4'> \r\n";
@@ -56,7 +56,7 @@ if ($uid != null) {
                         print "<p class='card-text'>$description</p>\r\n";
                         print "<div class='d-flex justify-content-between align-items-center'> \r\n";
                         print "<div class='btn-group'> \r\n";
-                        print "<button onclick='location.href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'' type='button' class='btn btn-sm btn-outline-secondary'>Rating of '$rating':Try for free!</button> \r\n";
+                        print "<button onclick='location.href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'' type='button' class='btn btn-sm btn-outline-secondary'>Rating of $rating:Try for free!</button> \r\n";
                         print "</div> \r\n";
                         print "<small class='text-muted'>Created: $date</small> \r\n";
                         print "</div>\r\n";
