@@ -38,7 +38,7 @@ if ($uid != null) {
 
                 <div class="row">
                     <?php
-                    $qStr = "SELECT name, description, program.programID AS id, date_created, AVG(rating) AS avg FROM program LEFT JOIN reviews ON program.programID = reviews.programID GROUP BY program.programID ORDER BY AVG(rating) DESC";
+                    $qStr = "SELECT name, description, program.programID AS id, date_created, AVG(rating) AS avg FROM program LEFT JOIN reviews ON program.programID = reviews.programID GROUP BY program.programID ORDER BY AVG(rating) DESC;";
                     $qRes = $db->query($qStr);
                     for ($i = 0; $i < 6 && $row = $qRes->fetch(); $i++) {
                         $name = $row['name'];
