@@ -53,7 +53,7 @@ if ($uid != null) {
                         print "<rect width='100%' height='100%' fill='#55595c' /><text x='50%' y='50%' fill='#eceeef' dy='.3em'>$name</text> \r\n";
                         print "</svg> \r\n";
                         print "<div class='card-body'>\r\n";
-                        print "<p class='card-text'>$description (This program has a rating of $rating!</p>\r\n";
+                        print "<p class='card-text'>$description (This program has a rating of $rating!)</p>\r\n";
                         print "<div class='d-flex justify-content-between align-items-center'> \r\n";
                         print "<div class='btn-group'> \r\n";
                         print "<a href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'>Try for free!</a> \r\n";
