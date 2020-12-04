@@ -1,12 +1,12 @@
-<!-- 
+<!--
 Created by: Collin Presser
-Allows users to view their current programs 
-and input information regarding program 
-completition. 
-If logged in as a program owner/editor, 
-the user can edit information regarding 
-exercise schemes for any day which will 
-apply the changes to everyone with that 
+Allows users to view their current programs
+and input information regarding program
+completition.
+If logged in as a program owner/editor,
+the user can edit information regarding
+exercise schemes for any day which will
+apply the changes to everyone with that
 program.
 
 file in sequence as a result of successful action: program-view.php
@@ -36,6 +36,20 @@ $userpresent = $uid != NULL;
       $pid = $_GET['id'];
       if($day == NULL || $pid == NULL){
         printOpError("URL formatted incorrectly");
+      }
+      else if($op == 'save'){
+        if(!$userpresent){
+          //should never happen, but this is just in case
+          printOpError("You must be logged in to save a program.");
+        }
+        $qStrSave = "INSERT INTO saved VALUES ($pid, '$uid');";
+        $qResSave = $db->query($qStrSave);
+        if($qResSave == FALSE){
+          printOpError("You have already saved this program.");
+        }
+        else{
+          print "<H6>Program Saved!</H6>";
+        }
       }
       else if($op == 'review'){
         $rating = $_POST['rating'];
@@ -254,6 +268,11 @@ $userpresent = $uid != NULL;
       print "<H1>$title</H1>";
       print "<H3>Created by $creator on $date</H3>";
       print "<H5>$desc</H5>";
+      if($userpresent){
+        print "<FORM method='post' action='program-view.php/?day=N/A&id=$pid&op=save'>";
+        print "<input type='submit' value='Save Program'>";
+        print "</FORM>";
+      }
       print "</div>";
 
       //query to get the number of days of the program
@@ -429,8 +448,8 @@ $userpresent = $uid != NULL;
         printSQLError("for reviews");
         return FALSE;
       }
-	
-	  
+
+
       if($userpresent){
 	print "<div class='row'>";
 	print "<div class='col-md-4'>";
