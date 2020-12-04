@@ -68,9 +68,9 @@ if ($qRes1-> rowCount() == 0) {
       $date = $row['date'];
     
       if ($sender==$uid) {
-        print "<h3 style='text-align: right; max-width: 64%; margin: auto;'>$message</h1>";
+        print "<h3 style='text-align: right; max-width: 64%; margin: auto;'>$message</h3>";
       } else if ($sender==$friend) {
-        print "<h3 style='color: #0275d8; text-align: left; max-width: 64%; margin: auto'>$message</h1>"; 
+        print "<ul class='list-group'><li class='list-group-item'><h3 style='text-align: left; max-width: 64%; margin: auto'>$message</h3></li></ul>"; 
       }
     }
   
