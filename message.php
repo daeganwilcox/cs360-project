@@ -43,9 +43,9 @@ if ($qRes1-> rowCount() == 0) {
     $date = $row['date'];
     
     if ($sender==$uid) {
-      print "<h3 style='text-align: right; max-width: 50%;'>$message</h1>";
+      print "<h3 style='text-align: right; max-width: 50%; margin: auto;'>$message</h1>";
     } else if ($sender==$friend) {
-      print "<h3 style='text-align: left; max-width: 50%;'>$message</h1>"; 
+      print "<h3 style='text-align: left; max-width: 50%; margin: auto'>$message</h1>"; 
     }
   }
   
