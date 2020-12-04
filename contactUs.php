@@ -15,8 +15,10 @@ $uid = $_SESSION['username'];
    print "<FORM name='fmMail' method='POST' action='contactAction.php'>";
    print "Name: <INPUT type='text' name='tfName' size='30' placeholder='Enter your name' /><BR /><BR />";
    print "Email: <INPUT type='email' name='tfEmail' size='30' placeholder='Enter your email' /><BR /><BR />";
+   print "Message:";
    print "<TEXTAREA name='taContent' rows='5' cols='60'> </TEXTAREA>";    
    print "<INPUT type='submit' value='Email us!' />";
+   print "/<FORM>"
    print "</div>";
    print "</container>";
        
