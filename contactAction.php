@@ -1,7 +1,10 @@
 <?php
 
-// code to process user's comment form to mail to myself
+include_once("db_connect.php");
+session_start();
+$uid = $_SESSION['username'];
 
+// code to process user's comment form to mail to myself
 $email   = $_POST['tfEmail'];   // $from
 $name    = $_POST['tfName'];    // $from
 $content = $_POST['taContent'];
@@ -26,6 +29,8 @@ else {
 <HEAD>
 <TITLE>Thank you for contacting us</TITLE>
 </HEAD>
+
+<?php include("base.php"); ?>
 
 <BODY>
 <H2>Thank you for contacting us!</H2>

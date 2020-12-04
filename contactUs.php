@@ -13,7 +13,7 @@ $uid = $_SESSION['username'];
 <BODY>
 <H2>Contact us!</H2>
 
-<FORM name='fmMail' method='POST' action='contact.php'>
+<FORM name='fmMail' method='POST' action='contactAction.php'>
 <INPUT type='text' name='tfName' size='30'
        placeholder='Enter your name' /><BR /><BR />
 <INPUT type='text' name='tfEmail' size='30'
