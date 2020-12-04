@@ -35,7 +35,7 @@ if ($qRes1-> rowCount() == 0) {
   print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
   
   
-  printChat();
+  printChat($uid, $friend, $db);
   
 
   
@@ -53,11 +53,11 @@ if ($qRes1-> rowCount() == 0) {
   
   while (TRUE) {
     sleep(5);
-    printChat();
+    printChat($uid, $friend, $db);
   }
 }
  
-  function printChat() {
+  function printChat($uid, $friend, $db) {
     print "<div style='max-height: 80%; overflow: auto; margin: auto;'>"; 
     $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid') ORDER BY time;"; 
     $qRes = $db->query($qStr);
