@@ -56,7 +56,9 @@ if ($uid != null) {
                         print "<p class='card-text'>$description</p>\r\n";
                         print "<div class='d-flex justify-content-between align-items-center'> \r\n";
                         print "<div class='btn-group'> \r\n";
-                        print "<button onclick='location.href='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id'' type='button' class='btn btn-sm btn-outline-secondary'>Rating of $rating:Try for free!</button> \r\n";
+                        print "<form>\r\n";
+                        print "<button formaction='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/program-view.php/?id=$id' type='submit' class='btn btn-sm btn-outline-secondary'>Rating of $rating. Try for free!</button> \r\n";
+                        print "</form>\r\n";
                         print "</div> \r\n";
                         print "<small class='text-muted'>Created: $date</small> \r\n";
                         print "</div>\r\n";
