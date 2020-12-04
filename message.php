@@ -8,17 +8,10 @@ $userpresent = $uid != NULL;
 $msg = $_POST['msgInput'];
 
 if ($msg != NULL) {
-  print "$msg";
   $currTime = date("Y-m-d H:i:s");
   $qIn = "INSERT INTO `texts`(`sender`, `receiver`, `time`, `msg`) VALUES ('$uid','$friend','$currTime','$msg');";
-  
   $qInRes = $db->query($qIn);
-  
-  
-} else {
-  print "message null"; 
-}
-
+} 
 
 $qStr1 = "SELECT * FROM friend WHERE user1 = '$uid' AND user2 = '$friend'";
 $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
@@ -49,9 +42,9 @@ if ($qRes1-> rowCount() == 0) {
     $date = $row['date'];
     
     if ($sender==$uid) {
-      print "<h1 style='text-align: right;'>$message</h1>";
+      print "<h2 style='text-align: right;'>$message</h1>";
     } else if ($sender==$friend) {
-      print "<h1 style='text-align: left;'>$message</h1>"; 
+      print "<h2 style='text-align: left;'>$message</h1>"; 
     }
   }
   
@@ -60,7 +53,7 @@ if ($qRes1-> rowCount() == 0) {
   
   print "<form class='form-signin' method='post' action='http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/message.php/?friend=$friend'>";
   print "<textarea name='msgInput' class='form-control' placeholder='Message text' required></textarea>";
-  print "<button class='btn btn-lg btn-primary btn-block' type='submit'>Send Message</button>";
+  print "<button class='btn btn-lg btn-primary btn-block' style='width: 80%; margin: auto;'type='submit'>Send Message</button>";
   print "</form>";
 }
  
