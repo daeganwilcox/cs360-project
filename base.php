@@ -112,8 +112,7 @@ $uid = $_SESSION['username'];
           <img src="https://img.icons8.com/windows/32/000000/dumbbell.png" />
           <strong>Home</strong>
         </a>
-        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/" class="navbar-brand d-flex align-items-right">
-          <img src="https://img.icons8.com/windows/32/000000/dumbbell.png" />
+        <a href="http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/contactUs.php" class="navbar-brand d-flex align-items-left">
           <strong>Contact Us</strong>
         </a>
         
