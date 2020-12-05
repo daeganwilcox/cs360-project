@@ -1,3 +1,10 @@
+<!-- 
+Created by: Daegan Wilcox
+this file deals with the process 
+of sending a message to someone and 
+saving that message to the database.
+
+-->
 <?php
 include_once("db_connect.php");
 session_start();

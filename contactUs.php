@@ -9,7 +9,7 @@ $uid = $_SESSION['username'];
 ?>
 
 <?php 
-
+   
    include("base.php"); 
        
    print "<container>";

@@ -1,3 +1,12 @@
+<!-- 
+Created by: Daegan Wilcox
+this file allows a user to message someone else 
+that is on their friend list. If the user tries 
+to send a message to someone they are not friended 
+yet, they are given that notification.
+
+file in sequence: message-action.php
+-->
 <?php
 include_once("db_connect.php");
 session_start();
