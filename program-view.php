@@ -457,7 +457,7 @@ $userpresent = $uid != NULL;
       if($userpresent){
 	print "<div style='width: 80%; margin: auto; text-align: center;'>";
 	print "<div class='row'>";
-	print "<div class='col-md-4'>";
+	print "<div class='col-md-6'>";
         print "<FORM method='post' action='program-view.php/?day=N/A&id=$pid&op=review'>";
         print "<H6>Add a Review:</H6>";
         print "<p>Rating (1-10): <INPUT type='number' name='rating' min='1' max='10' required/></p>";
@@ -472,7 +472,7 @@ $userpresent = $uid != NULL;
 	print "</div>";
       }
       else{
-	print "<div class='col-md-4'>";
+	print "<div class='col-md-6'>";
         print "<DL>";
         while($row = $qResReview->fetch()){
           $user = $row['userID'];
