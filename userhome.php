@@ -143,7 +143,7 @@ if ($uid == null){
 
 
             </div>
-            <div class="card mb-6 shadow-sm">
+            <div class="card mb-6 shadow-sm" style="margin-top: 5px;">
               <div class="card-object">
                 <h2>Friends
                   <?php
