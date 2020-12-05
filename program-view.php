@@ -29,6 +29,8 @@ $userpresent = $uid != NULL;
 <body>
   <main role="main">
     <?php
+
+	print "<div style='margin: auto; text-align: center; width: 80%;'>";
     //make changes if called
     $op = $_GET['op'];
     if($op != NULL){
@@ -416,6 +418,8 @@ $userpresent = $uid != NULL;
             print "</TABLE>";
           }
         }
+	      
+	
         //complete button
         if($userpresent && $nextDay != -1){
           print "<div style='margin: auto; text-align: center;'>";
@@ -449,7 +453,7 @@ $userpresent = $uid != NULL;
         return FALSE;
       }
 
-
+	print "</div>";
       if($userpresent){
 	print "<div class='row'>";
 	print "<div class='col-md-4'>";
@@ -481,6 +485,7 @@ $userpresent = $uid != NULL;
         print "</DL>";
 	print "</div>";
 	print "</div>";
+	
       }
    }
     printPage($db, $userpresent, $uid); // prints the page
