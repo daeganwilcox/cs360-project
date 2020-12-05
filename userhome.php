@@ -101,7 +101,7 @@ if ($uid == null){
                 } else {
                   $row = $qRes->fetch();
                   $cals = $row['cals'];
-                  print "$cals";
+                  print $cals != null ? "$cals" : 0;;
                 }
                 ?></h5>
                 <h5>Weight: <?php
