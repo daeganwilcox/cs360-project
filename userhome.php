@@ -166,7 +166,7 @@ if ($uid == null){
                 } else if ($qRes->rowCount() == 0) {
                   print "<H5>You don't have any friends yet :(</H5>";
                 } else {
-                  for ($i = 0; $i < 5 && $row = $qRes->fetch(); $i++) {
+                  while($row = $qRes->fetch()) {
                     $name = $row['user2'];
                     print "<div>";
                     print "<A href= 'http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/profile.php/?user=$name'>";
