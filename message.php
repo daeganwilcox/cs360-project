@@ -1,11 +1,9 @@
 <!-- 
 Created by: Daegan Wilcox
-this file allows a user to message someone else 
-that is on their friend list. If the user tries 
-to send a message to someone they are not friended 
-yet, they are given that notification 
-
-file in sequence: message-action.php
+This file allows a user to message someone else 
+that is on their friend list. It must be manually
+refreshed. The person on the friend list can also
+respond in real time.
 -->
 <?php
 include_once("db_connect.php");
@@ -20,6 +18,10 @@ if ($msg != NULL) { // if message exists (user clicked on submit message), it ad
   $currTime = date("Y-m-d H:i:s");
   $qIn = "INSERT INTO `texts`(`sender`, `receiver`, `time`, `msg`) VALUES ('$uid','$friend','$currTime','$msg');";
   $qInRes = $db->query($qIn);
+  
+  if ($qInRes == NULL) {
+   print "<div style='text-align: center; margin: auto; width: 80%;'><h2>Query error, please try again.</h2></div>";
+  }
 } 
 
 
@@ -33,15 +35,17 @@ $qStr2 = "SELECT * FROM friend WHERE user2 = '$uid' AND user1 = '$friend'";
 $qRes1 = $db->query($qStr1);
 $qRes2 = $db->query($qStr2);
 
+if ($qRes1 == NULL || $qRes2 == NULL) {
+  print "<div style='text-align: center; margin: auto; width: 80%;'><h2>Query error, please try again.</h2></div>";
+}
+
+include("base.php");
+
 if ($qRes1-> rowCount() == 0) { // not yet friended
-  print "You have not friended this person yet.";
-  print "$uid";
-  print "$friend";
+  print "<div style='text-align: center; margin: auto; width: 80%;'><h2>You have not friended this person yet.</h2></div>";
 } else if ($qRes2 ->rowCount() == 0) { // not yet been friended
-  print "This person has not friended you yet.";
+  print "<div style='text-align: center; margin: auto; width: 80%;'><h2>This person has not friended you yet. yet.</h2></div>";
 } else {  // if both are friends
-  include("base.php");
-  
   print "<container>";
   print "<h2 style='text-align: center; margin: auto; width: 64%;'>You are speaking with $friend.<h2>";
   print "<br>";
@@ -72,6 +76,10 @@ if ($qRes1-> rowCount() == 0) { // not yet friended
     print "<div style='max-height: 80%; overflow: auto; margin: auto;'>"; 
     $qStr = "SELECT * FROM texts WHERE (sender='$uid' AND receiver='$friend') OR (sender='$friend' AND receiver='$uid') ORDER BY time;"; 
     $qRes = $db->query($qStr);
+    
+    if ($qRes == NULL) {
+     print "<div style='text-align: center; margin: auto; width: 80%;'><h2>Query error, please try again.</h2></div>"; 
+    }
     
     // for all messages between user and friend, prints them in order of time
     while ($row = $qRes->fetch()) {
