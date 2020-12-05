@@ -24,7 +24,6 @@ $uid = $_SESSION['username'];
       print "<H1>Account Settings for $uid</H1>";
       print "<UL class='list-group'>";
       print "<LI class='list-group-item'><H3><A href=http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/change-pass.php>Change Password</A></H3></LI>";
-      print "<LI class='list-group-item'><H3><A href=http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/change-pass.php>Change Password</A></H3></LI>";
       print "<LI class='list-group-item'><H3><A href=http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/change-img.php>Change Profile Picture</A></H3></LI>";
       print "<LI class='list-group-item'><H3><A href=http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/editSettings.php>Change Height/Weight</A></H3></LI>";
       print "</UL>";
