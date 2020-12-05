@@ -1,7 +1,7 @@
-<!-- 
+<!--
 Created by: Collin Presser, Daegan Wilcox, and Ricky Miranda
-Allows users to view their current dashboard that 
-displays their current programs, their personal information, 
+Allows users to view their current dashboard that
+displays their current programs, their personal information,
 and their friends as well as have the ability to add friends.
 
 file in sequence as a result of successful action: program-view.php
@@ -30,8 +30,8 @@ if ($uid == null){
         <div class="row">
 
           <!-- Programs -->
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+          <div class="col-md-6">
+            <div class="card mb-6 shadow-sm">
               <div class="card-object">
                 <h2>Programs</h2>
               </div>
@@ -76,8 +76,8 @@ if ($uid == null){
 
 
 
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+          <div class="col-md-6">
+            <div class="card mb-6 shadow-sm">
               <img id="userIcon" src="<?php
               //get img url
               $qStr = "SELECT img FROM user WHERE username='$uid';";
@@ -143,7 +143,7 @@ if ($uid == null){
 
 
             </div>
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-6 shadow-sm">
               <div class="card-object">
                 <h2>Friends
                   <?php
@@ -173,7 +173,7 @@ if ($uid == null){
                     print "<H5 class='card-tex'>$name</H5>";
                     print "</A>";
                     print "</div>";
-                    
+
                   }
                 }
                 ?>
