@@ -76,33 +76,6 @@ if ($uid == null){
 
 
 
-
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-object">
-                <h2>Teams</h2>
-              </div>
-              <div class="card-body">
-                <a href="coderswholift.html">
-                  <h4 class="card-text">Coders Who Lift</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-              <div class="card-body">
-                <a href="gettysburgcyclingclub.html">
-                  <h4 class="card-text">Gettysburg Cycling Club</h4>
-                </a>
-                <div class="d-flex justify-content-between align-items-center">
-
-                </div>
-              </div>
-            </div>
-
-            <button class="btn btn-outline-primary btn-block" type="submit">Create New Team</button>
-            <button class="btn btn-outline-primary btn-block" type="submit">Find New Team</button>
-          </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <img id="userIcon" src="<?php
