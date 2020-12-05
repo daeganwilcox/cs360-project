@@ -1,8 +1,8 @@
-<!-- 
+<!--
 Created by: Ricky Miranda and Daegan Wilcox
-Shows the selected friend's public profile page by 
-choosing the friend from the userhome page. 
-This shows the users information as well as 
+Shows the selected friend's public profile page by
+choosing the friend from the userhome page.
+This shows the users information as well as
 the programs that they are a part of.
 
 file in sequence as a result of successful action: message.php (if messaging the user)
@@ -51,7 +51,7 @@ $eid = $_GET['user']
                                                         } else {
                                                             $row = $qRes->fetch();
                                                             $cals = $row['cals'];
-                                                            print "$cals";
+                                                            print $cals != null ? "$cals" : 0;;
                                                         }
                                                         ?></h5>
                                 <h5>Weight: <?php

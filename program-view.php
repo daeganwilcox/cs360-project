@@ -29,6 +29,8 @@ $userpresent = $uid != NULL;
 <body>
   <main role="main">
     <?php
+
+	print "<div style='margin: auto; text-align: center; width: 80%;'>";
     //make changes if called
     $op = $_GET['op'];
     if($op != NULL){
@@ -416,6 +418,8 @@ $userpresent = $uid != NULL;
             print "</TABLE>";
           }
         }
+	      
+	
         //complete button
         if($userpresent && $nextDay != -1){
           print "<div style='margin: auto; text-align: center;'>";
@@ -449,8 +453,9 @@ $userpresent = $uid != NULL;
         return FALSE;
       }
 
-
+	print "</div>";
       if($userpresent){
+	print "<div style='width: 80%; margin: auto; text-align: center;'>";
 	print "<div class='row'>";
 	print "<div class='col-md-4'>";
         print "<FORM method='post' action='program-view.php/?day=N/A&id=$pid&op=review'>";
@@ -464,6 +469,7 @@ $userpresent = $uid != NULL;
 
       if($qResReview->rowCount() == 0){
         print "<H6>There are no reviews for this program.</H6>";
+	print "</div>";
       }
       else{
 	print "<div class='col-md-4'>";
@@ -481,6 +487,8 @@ $userpresent = $uid != NULL;
         print "</DL>";
 	print "</div>";
 	print "</div>";
+	print "</div>";
+	
       }
    }
     printPage($db, $userpresent, $uid); // prints the page
