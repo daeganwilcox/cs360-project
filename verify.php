@@ -21,6 +21,7 @@ include ("login-signup-utils.php");
 <BODY>
 
 <?php
+include("base.php");
 $login = $_GET['login'];
 $res = verifyEmail($db, $login);
 if($res){//verified page
