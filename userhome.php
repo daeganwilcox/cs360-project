@@ -10,6 +10,9 @@ file in sequence as a result of successful action: program-view.php
 include_once("db_connect.php");
 session_start();
 $uid = $_SESSION['username'];
+if ($uid == null){
+  header("Location: http://www.cs.gettysburg.edu/~mirari01/cs360project/cs360-project/html/login.html");
+}
 ?>
 
 
